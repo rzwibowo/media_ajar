@@ -7,9 +7,9 @@ Langsung import saja, gausah bikin database dulu
 ### Petunjuk Export Database
 * Pilih database
 * Klik Export
-* Pilih Opsi Custom
+* Pilih Opsi Custom <br>
   ![alt tag](http://i66.tinypic.com/120h6o5.jpg)
-* Scroll ke bawah, pilih opsi Add CREATE DATABASE / USE statement
+* Scroll ke bawah, pilih opsi Add CREATE DATABASE / USE statement<br>
   ![alt tag](http://i68.tinypic.com/2lay0hv.jpg)
 * Selesai, klik GO
 * Copy database ke dalam folder project sebelum commit dan push
