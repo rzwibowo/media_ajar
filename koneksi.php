@@ -3,6 +3,6 @@
     $user="root";      
     $pass="";      
     $db="medajar";  
-    $koneksi=mysqli_connect($host,$user,$pass,$db); 
-    if (!$koneksi) die(mysqli_connect_error());
+    $con=mysqli_connect($host,$user,$pass,$db); 
+    if (!$con) die(mysqli_connect_error());
 ?>
