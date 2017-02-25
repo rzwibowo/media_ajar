@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Entry Data Provinsi</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Kube CSS -->
+    <link rel="stylesheet" href="css/kube.css">
+
+</head>
+<body>
+    <div id="main">
+    	<div class="row align-center">
+    		<div class="col-6">
+    			<div class="head text-center">
+    				<h1>Data Provinsi</h1>
+    				<p>Masukkan data provinsi</p>
+    			</div>
+    			<form class="form" action="simpan_prov.php">
+    				<fieldset>
+    					<div class="form-item">
+    						<label for="id">No. ID Provinsi</label>
+    						<input type="text" name="id" class="w10 disabled">
+    					</div>
+    					<div class="form-item">
+    						<label for="nama_prov">Nama Provinsi</label>
+    						<input type="text" name="nama_prov" class="w50">
+    					</div>
+    					<div class="form-item">
+    						<label for="ibukota">Nama Ibukota</label>
+    						<input type="text" name="ibukota" class="w50">
+    					</div>
+    					<div class="form-item">
+    						<label for="jml_penduduk">Jumlah Penduduk</label>
+    						<input type="number" name="jml_penduduk" class="w30">
+    					</div>
+    					<div class="form-item">
+    						<label for="luas_wilayah">Luas Wilayah</label>
+    						<div class="append w30">
+    							<input type="number" name="luas_wilayah"><span>km²</span>
+    						</div>
+    					</div>
+    					<div class="form-item">
+    						<label for="rumah_adat">Rumah Adat</label>
+    						<input type="text" name="rumah_adat" class="w50">
+    					</div>
+    					<div class="form-item">
+    						<label for="tari_adat">Tari Adat</label>
+    						<input type="text" name="tari_adat" class="w50">
+    					</div>
+    					<div class="form-item">
+    						<label for="bhs_daerah">Bahasa Daerah</label>
+    						<input type="text" name="bhs_daerah" class="w50">
+    					</div>
+    					<div class="form-item">
+    						<label for="suku">Suku</label>
+    						<input type="text" name="suku" class="w50">
+    					</div>
+    					<div class="row between">
+    						<button type="reset" class="button secondary outline w15">Reset</button>
+    						<button type="submit" class="button upper">Simpan</button>
+    					</div>
+    				</fieldset>
+    			</form>
+    		</div>
+    	</div>
+    </div>
+
+    <!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/kube.js"></script>
+</body>
+</html>
