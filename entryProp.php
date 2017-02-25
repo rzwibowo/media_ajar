@@ -18,7 +18,7 @@
     				<h1>Data Provinsi</h1>
     				<p>Masukkan data provinsi</p>
     			</div>
-    			<form class="form" action="simpan_prov.php" method="POST">
+    			<form class="form" action="simpan_prov.php" method="POST" name="form-kirim">
     				<fieldset>
     					<div class="form-item">
     						<label for="nama_prov">Nama Provinsi</label>
@@ -64,7 +64,7 @@
     					</div>
     					<div class="row between">
     						<button type="reset" class="button secondary outline w15">Reset</button>
-    						<button type="submit" class="button upper">Simpan</button>
+    						<button type="submit" class="button upper" id="kirim">Simpan</button>
     					</div>
     				</fieldset>
     			</form>
@@ -105,6 +105,7 @@
 */
         $("#ibukota").blur(function(){
             ibukota= $(this).val();
+            
             if(ibukota.length==0)
             {
               $("#message-ibukota").show();
@@ -238,7 +239,82 @@
             } 
         });
 
+/*
+validasi kirim
+*/
+    $("#kirim").click(function(){
+    $('form[name=form-kirim]').submit(function(){
+        nama_prov       =$("#nama_prov").val();
+        ibukota         =$("#ibukota").val();
+        jml_penduduk    =$("#jml_penduduk").val();
+        luas_wilayah    =$("#luas_wilayah").val();
+        rumah_adat      =$("#rumah_adat").val();
+        tari_adat       =$("#tari_adat").val();
+        bhs_daerah      =$("#bhs_daerah").val();
+        suku            =$("#suku").val();
 
+       if(nama_prov.length==0){
+           $("#nama_prov").focus();
+           $("#message-nama_prov").addClass("message error");
+           $("#message-nama_prov").html("<span>nama propinsi tidak boleh kosong!</span>");
+           return false;
+        }
+        else if(ibukota.length==0)
+        {
+            $("#ibukota").focus();
+            $("#message-ibukota").addClass("message error");
+            $("#message-ibukota").html("<span>nama ibu kota tidak boleh kosong!</span>");
+            return false;
+        }
+        else if(jml_penduduk.length==0)
+        {
+            $("#jml_penduduk").focus();
+            $("#message-jml_penduduk").addClass("message error");
+            $("#message-jml_penduduk").html("<span>Jumlah penduduk tidak boleh kosong!</span>");
+            return false;
+        }
+        else if(luas_wilayah.length==0)
+        {
+            $("#luas_wilayah").focus();
+            $("#message-luas_wilayah").addClass("message error");
+            $("#message-luas_wilayah").html("<spanLuas wilayah tidak boleh kosong!</span>");
+            return false;
+        }
+        else if(rumah_adat.length==0)
+        {
+            $("#rumah_adat").focus();
+            $("#message-rumah_adat").addClass("message error");
+            $("#message-rumah_adat").html("<span>Rumah adat tidak boleh kosong!</span>");
+            return false;
+        }
+        else if(tari_adat.length==0)
+        {
+            $("#tari_adat").focus();
+            $("#message-tari_adat").addClass("message error");
+            $("#message-tari_adat").html("<span>Nama taria Adat tidak boleh kosong!</span>");
+            return false;
+        }
+        else if(bhs_daerah.length==0)
+        {
+            $("#bhs_daerah").focus();
+            $("#message-bhs_daerah").addClass("message error");
+            $("#message-bhs_daerah").html("<span>Bahasa Daerah tidak boleh kosong!</span>");
+            return false;
+        }
+        else if(suku.length==0)
+        {
+            $("#suku").focus();
+            $("#message-suku").addClass("message error");
+            $("#message-suku").html("<span>Nama suku tidak boleh kosong!</span>");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+        
+    });
+});
     </script>
 </body>
 </html>
