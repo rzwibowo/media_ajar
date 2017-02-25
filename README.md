@@ -13,3 +13,6 @@ Langsung import saja, gausah bikin database dulu
   ![alt tag](http://i68.tinypic.com/2lay0hv.jpg)
 * Selesai, klik GO
 * Copy database ke dalam folder project sebelum commit dan push
+
+### Layouting
+Menggunakan kube, dokumentasi cek di https://imperavi.com/kube/docs/
