@@ -1,9 +1,12 @@
 <?php
 	session_start();
-	$user=$_POST['username'];
-	$pass=substr(md5($_POST['password']),0,30);
-
 	include "koneksi.php";
+	$pass="";
+
+	$user=$_POST['username'];
+	$pass=md5($_POST['password']);
+	
+
 	$sql = "select * from user where username='".$user."' and password='".$pass."' limit 1";
 	$hasil = mysqli_query ($koneksi,$sql) or die ("Gagal Akses");
 	$jumlah = mysqli_num_rows($hasil);
@@ -12,7 +15,7 @@
 	$_SESSION["user"] = $row["user"];
 	header("Location:entryProp.php");
 	} else {
-	echo "user atau password salah ! <br>";
-	echo "<input type='button' value='kembali' onClick='self.history.back()'";
+	include "error_login.html";
+
 	}
 ?>
