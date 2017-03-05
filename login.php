@@ -14,7 +14,7 @@
 			<div class="text-center">
 				<h1>Masuk sebagai Administrator</h1>
 			</div>
-			<form class="form" action="simpan_prov.php">
+			<form class="form" action="loginProses.php" method="POST">
 				<fieldset>
 					<div class="form-item">
 						<label for="username">Nama Pengguna</label>

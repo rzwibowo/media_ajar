@@ -1,8 +1,10 @@
- <?php
-    $host="localhost"; 
-    $user="root";      
-    $pass="";      
-    $db="medajar";  
-    $con=mysqli_connect($host,$user,$pass,$db); 
-    if (!$con) die(mysqli_connect_error());
+<?php
+	$host="localhost";
+	$user="root";
+	$pass="";
+	$dbname="medajar";
+
+	$koneksi=mysqli_connect($host,$user,$pass,$dbname);
+	if(!$koneksi)
+		die(mysqli_connect_error());
 ?>
