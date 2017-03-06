@@ -1,3 +1,20 @@
+html{
+	height: 100%;
+}
+#index{
+	min-height: 100%;
+	background-color: #36c2ff;
+	background-image: url('../img/index/pemandangan.png');
+	background-size: 100% 70%;
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+
+#index #judul{
+	width: 25%;
+	margin-top: 3%;
+}
+
 #content{
 	background-color: #960;
 	height: 100%; 
