@@ -13,7 +13,8 @@
 	if ($jumlah>0) {
 	$row = mysqli_fetch_assoc($koneksi,$hasil);
 	$_SESSION["user"] = $row["user"];
-	header("Location:entryProp.php");
+   	header("Location: admin.php");
+	die();
 	} else {
 	include "error_login.html";
 

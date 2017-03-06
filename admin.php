@@ -1,8 +1,13 @@
+<?php
+session_start();
+//include "koneksi.php";
+if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</script>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>DEPAN</title>
+	<title>ADMIN</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Kube CSS -->
@@ -13,16 +18,15 @@
 		<div class="row">
 			<div class="col col-6 push-middle push-center">
 				<fieldset class="text-center">
-					<legend>Menu Utama</legend>
+					<legend>Menu Admin</legend>
 					<div class="form-item">
-						<a href="#" class="button w70 large" role="button">Peta</a>
+						<a href="#" class="button w70 big" role="button">Kelola Data Propinsi</a>
 					</div>
 					<div class="form-item">
-						<a href="#" class="button secondary w70 big" role="button">Kuis</a>
+						<a href="#" class="button w70 big" role="button">Kelola Kuis</a>
 					</div>
-					<div class="row between">
-						<a href="#" class="button round outline secondary" data-component="modal" data-target="#mod_setting" role="button">Pengaturan</a>
-						<a href="#" class="button round outline secondary" data-component="modal" data-target="#mod_about" role="button">Tentang</a>
+					<div class="form-item">
+						<a href="#" class="button round outline secondary" role="button">Logout</a>
 					</div>
 				</fieldset>
 			</div>
@@ -34,7 +38,7 @@
 		        <span class="close"></span>
 		        <div class="modal-header">Pengaturan</div>
 		        <div class="modal-body">
-		        	<a href="admin.php" class="small button round outline secondary text-center" role="button">Admin</a>
+		        	<a href="login.php" class="small button round outline secondary text-center" role="button">Admin</a>
 		        </div>
 		    </div>
 		</div>
