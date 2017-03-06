@@ -2,3 +2,7 @@
 {
 	margin-top: 30px;
 }
+.button.red {
+   
+    @include button(#fff, #ff3366);
+}
