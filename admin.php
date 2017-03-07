@@ -26,7 +26,7 @@ if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</scr
 						<a href="#" class="button w70 big" role="button">Kelola Kuis</a>
 					</div>
 					<div class="form-item">
-						<a href="#" class="button round outline secondary" role="button">Logout</a>
+						<a href="logout.php" class="button round outline secondary" role="button">Logout</a>
 					</div>
 				</fieldset>
 			</div>
