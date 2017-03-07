@@ -33,6 +33,7 @@ include "koneksi.php";
     			</div>
     			<div>
                 <?php 
+
                 $sql = "select * from provinsi where id_prov='$id'";
                 $hasil = mysqli_query ($koneksi,$sql) or die ("Gagal Akses");
                 
@@ -81,12 +82,8 @@ include "koneksi.php";
     			
 
 
-
-
-<button class="button red">Edit</button>
-<button class="button red">hapus</button>
-
-
+<a href="edit_prov.php?r=<?php echo $id ?>" class="button">Edit</a>
+<a href="delete_prov.php?r=<?php echo $id ?>" class="button" onclick = "if (! confirm('Yakin akan menghapus data?')) { return false; }" style="background-color: #ff3333" >Hapus</a>
 
     		</div>
     	</div>

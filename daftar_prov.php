@@ -27,6 +27,10 @@ include "koneksi.php";
     				<h1>Dafar Provinsi</h1>
     				
     			</div>
+                <div>
+                    <a href="entryProp.php" class="button">Tambah Data</a>                    
+                </div>
+                <br>
     			<div>
                 <?php 
                 $sql = "select id_prov,nama_prov from provinsi";
