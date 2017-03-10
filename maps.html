@@ -15,20 +15,41 @@
 			<div class="col-12">
 				<div id="head">
 					<div class="row between">
-						<a href="" class="button">Kembali</a>
-						<a href="" class="button">Bantuan</a>
+						<img id="head-map-img" src="img/maps/header.png" alt="">
+						<a href="" id="back" ><img id="back-img" src="img/maps/kembali.png" alt=""></a>
+						<a href="" id="help" ><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 					</div>
 				</div>
 				<div id="content">
-					
+					<img id="map" src="img/maps/map.png" alt="">
 				</div>
 			</div>
 		</div>
 
 	</div>
 
+
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/kube.js"></script>
+
+	<script>
+		$("#back").hover(
+			function(){
+			    $("#back-img").attr("src", "img/maps/kembali_hover.png");
+			},
+			function(){
+			    $("#back-img").attr("src", "img/maps/kembali.png");
+			}
+		);
+		$("#help").hover(
+			function(){
+			    $("#help-img").attr("src", "img/maps/tanya_hover.png");
+			},
+			function(){
+			    $("#help-img").attr("src", "img/maps/tanya.png");
+			}
+		);
+	</script>
 </body>
 </html>

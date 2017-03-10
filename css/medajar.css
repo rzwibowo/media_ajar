@@ -17,7 +17,9 @@ html{
 
 #content{
 	background-color: #960;
-	height: 100%; 
+	min-height: 600px; 
+/* 	position: relative; */
+/* 	top: 10%; */
 }
 
 #kepala{
@@ -48,4 +50,38 @@ html{
 #kepala #logout p{
 	margin-top: 2%;
 	margin-bottom: 2%;
+}
+#head{
+	white-space: nowrap;
+	background: #960;
+	position: relative;
+	z-index: 0;
+	min-height: 150px;
+}
+#head #head-map-img{
+	position: absolute;
+	z-index: 0;
+}
+#head a{
+	position: absolute;
+	z-index: 9;
+}
+#head #back{
+	left: 3%;
+	top: 20%;
+}
+#head #back img{
+	width: 20%;
+	float: left;
+}
+#head #help img{
+	width: 20%;
+	float: right;
+}
+#head #help{
+  right: 3%;
+	top: 20%;
+}
+#content #map{
+	position: absolute;
 }
