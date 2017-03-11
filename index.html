@@ -8,8 +8,19 @@
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
+
+    <script src="js/jquery.js"></script>
+
+    <script>
+    $(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+	</script>
 </head>
 <body id="index">
+	<div class="se-pre-con"></div>
+	
 	<div id="main">
 		<div class="row">
 			<div class="col-12 text-center">
@@ -63,7 +74,7 @@
 	</div>
 
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
     <script src="js/kube.js"></script>
 </body>
 </html>
