@@ -20,6 +20,11 @@
 </head>
 <body id="index">
 	<div class="se-pre-con"></div>
+
+	<div id="ornamen">
+		<img id="awan" src="img/index/awan.png" class="w90" alt="">
+		<img id="pohon" src="img/index/pohon.png" alt="">
+	</div>
 	
 	<div id="main">
 		<div class="row">
@@ -39,8 +44,8 @@
 						<a id="kuis" href="#" role="button"><img id="kuis-img" src="img/index/menu_kuis.png" alt="" class="w50"></a>
 					</div>
 					<div class="row between">
-						<a href="#" id="set" class="w30" data-component="modal" data-target="#mod_setting" role="button" data-loaded="true"><img id="set-img" src="img/index/setting.png" alt=""></a>
-						<a href="#" id="abt" class="w20" data-component="modal" data-target="#mod_about" role="button" data-loaded="true"><img id="abt-img" src="img/index/about.png" alt=""></a>
+						<a href="#" id="pgt" class="w30" onclick="$.modalwindow({target:'#mod_setting'});"><img id="pgt-img" src="img/index/setting.png" alt=""></a>
+						<a href="#" id="abt" class="w20" onclick="$.modalwindow({target:'#mod_about'});"><img id="abt-img" src="img/index/about.png" alt=""></a>
 					</div>
 				</div>
 			</div>
@@ -75,23 +80,22 @@
 		</div>
 
 	</div>
-
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
     <script src="js/kube.js"></script>
 
     <script>
-		$("#set").hover(
+		$("#pgt").hover(
 			function(){
-			    $("#set-img").attr("src", "img/index/setting_hover.png");
+			    $("#pgt-img").attr("src", "img/index/setting_hover.png");
 			},
 			function(){
-			    $("#set-img").attr("src", "img/index/setting.png");
+			    $("#pgt-img").attr("src", "img/index/setting.png");
 			}
 		);
 		$("#abt").hover(
 			function(){
-			    $("#abt-img").attr("src", "img/index/about_hover.png");
+			    $("#abt-img").attr("src", "img/index/about_hover_.png");
 			},
 			function(){
 			    $("#abt-img").attr("src", "img/index/about.png");
