@@ -28,6 +28,14 @@ html{
 	margin-top: 3%;
 }
 
+#index #menu{
+	height: 460px;
+}
+
+#index #menu #peta{
+	margin-top: 20%;
+}
+
 #kepala{
 	background-color: #ecf0f1;
 }
@@ -59,53 +67,63 @@ html{
 }
 
 #head{
-/* 	white-space: nowrap; */
-	background: #960;
+ 	/*white-space: nowrap; */
+	background: #960 url("../img/maps/header.png") no-repeat;
+	background-size: contain;
 	position: relative;
-	z-index: 0;
-	min-height: 25%;
+	/*z-index: 0;*/
+	height: 110px;
 }
 
-#head #head-map-img{
+/*#head #head-map-img{
 	position: absolute;
 	z-index: 0;
-}
+}*/
 
-#head a{
+/*#head a{
 	display: block;
 	position: absolute;
 	z-index: 9;
 	width: 10%;
-}
+}*/
 
 #head #back{
-	left: 3%;
-	top: 10%;
+	/*position: relative;*/
+	margin-left: 3%;
+	margin-top: 1%;
 }
 
-#head #back img{
+/*#head #back img{
 	float: left;
 }
 
 #head #help img{
 	float: right;
-}
+}*/
 
 #head #help{
-  right: 3%;
-	top: 10%;
-	width: 5%;
+	/*position: relative;*/
+	margin-right: 3%;
+	margin-top: 1%;
+/*	width: 5%;*/
 }
 
 #content{
 	background-color: #960;
-	min-height: 540px;
-/* 	no-wrap: whitespace; */
+	background-size: contain;
+	/*min-height: 520px;*/
+/* 	no-wrap: whitespace; 
 	position: relative;;
 /* 	top: 10%; */
 }
-
+/*
 #content #map{
 	position: absolute;
 	top: -6%;
+}*/
+
+#menu{
+	background: url(../img/index/bg_menu.png) no-repeat  center;
+	background-size: contain;
+	height: 110%;
 }
