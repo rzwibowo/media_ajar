@@ -20,18 +20,31 @@
 </head>
 <body id="index">
 	<div class="se-pre-con"></div>
-
+	
 	<div id="ornamen">
 		<img id="awan" src="img/index/awan.png" class="w90" alt="">
 		<img id="pohon" src="img/index/pohon.png" alt="">
 	</div>
 	
 	<div id="main">
+
+		<div class="show-sm">
+			<a href="#" data-component="toggleme" data-target="#menu-sm">>>></a>
+		</div>
+
+		<nav id="menu-sm" class="hide">
+		    <ul>
+		        <li><a href="#">Pengaturan</a></li>
+		        <li><a href="#">Tentang</a></li>
+		    </ul>
+		</nav>
+
 		<div class="row">
 			<div class="col-12 text-center">
 				<img src="img/index/judul.png" id="judul" alt="virtual map">
 			</div>
 		</div>
+		
 		<div class="row">
 
 			<div class="col col-6 push-middle push-center" id="menu">
@@ -43,7 +56,7 @@
 					<div class="form-item">
 						<a id="kuis" href="#" role="button"><img id="kuis-img" src="img/index/menu_kuis.png" alt="" class="w50"></a>
 					</div>
-					<div class="row between">
+					<div class="row between hide-sm">
 						<a href="#" id="pgt" class="w30" onclick="$.modalwindow({target:'#mod_setting'});"><img id="pgt-img" src="img/index/setting.png" alt=""></a>
 						<a href="#" id="abt" class="w20" onclick="$.modalwindow({target:'#mod_about'});"><img id="abt-img" src="img/index/about.png" alt=""></a>
 					</div>
