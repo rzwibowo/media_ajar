@@ -29,22 +29,26 @@
 	<div id="main">
 
 		<div class="show-sm">
-			<a href="#" data-component="toggleme" data-target="#menu-sm">>>></a>
+			<a id="sm-toggle" href="#">
+			<!-- <a id="sm-toggle" href="#" data-component="toggleme" data-target="#menu-sm"> -->
+				<img class="tbl-menu" src="img/m_1.png" alt="">
+				<img class="tbl-menu" style="display: none;" src="img/m_2.png" alt="">
+			</a>
 		</div>
 
-		<nav id="menu-sm" class="hide">
+		<div id="menu-sm" class="text-center">
 		    <ul>
-		        <li><a href="#">Pengaturan</a></li>
-		        <li><a href="#">Tentang</a></li>
+		        <li><a href="#" onclick="$.modalwindow({target:'#mod_setting'});">Pengaturan</a></li>
+		        <li><a href="#" onclick="$.modalwindow({target:'#mod_about'});">Tentang</a></li>
 		    </ul>
-		</nav>
+		</div>
 
 		<div class="row">
 			<div class="col-12 text-center">
 				<img src="img/index/judul.png" id="judul" alt="virtual map">
 			</div>
 		</div>
-		
+
 		<div class="row">
 
 			<div class="col col-6 push-middle push-center" id="menu">
@@ -98,6 +102,7 @@
     <script src="js/kube.js"></script>
 
     <script>
+    	$("#menu-sm").hide();
 		$("#pgt").hover(
 			function(){
 			    $("#pgt-img").attr("src", "img/index/setting_hover.png");
@@ -128,6 +133,12 @@
 			},
 			function(){
 			    $("#peta-img").attr("src", "img/index/menu_peta.png");
+			}
+		);
+		$("#sm-toggle").click(
+			function(){
+				$(".tbl-menu").fadeToggle();
+				$("#menu-sm").slideToggle();
 			}
 		);
 	</script>

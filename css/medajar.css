@@ -41,6 +41,29 @@ html{
 	height: 460px;
 }
 
+#index #main #menu-sm{
+	display: block;
+	background-color: #2980b9;
+	width: 30%;
+}
+
+#index #main #menu-sm ul{
+	list-style-type: none;
+	margin-left: 0;
+}
+
+#index #main #menu-sm ul li{
+	display: block;
+	border-bottom: 1px solid #fff;
+}
+
+#index #main #menu-sm ul li a{
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 3px 3px;
+}
+
 #ornamen{
 	position: fixed;
 	z-index: -1;
