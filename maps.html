@@ -21,14 +21,18 @@
 <body id="map">
 	<div class="se-pre-con"></div>
 
-	<div class="show-sm">
-		<a href="#" data-component="toggleme" data-target="#menu-sm">>>></a>
+	<div id="head-sm" class="show-sm w100">
+		<a id="sm-toggle" href="#">
+		<!-- <a id="sm-toggle" href="#" data-component="toggleme" data-target="#menu-sm"> -->
+			<img class="tbl-menu" src="img/m_1.png" alt="">
+			<img class="tbl-menu" style="display: none;" src="img/m_2.png" alt="">
+		</a>
 	</div>
 
-	<div id="menu-sm" class="hide">
+	<div id="menu-sm" class="text-center">
 	    <ul>
 	        <li><a href="#">Bantuan</a></li>
-	        <li><a href="#">Kembali</a></li>
+	        <li><a href="index.html">Kembali ke Depan</a></li>
 	    </ul>
 	</div>
 
@@ -57,6 +61,7 @@
     <script src="js/kube.js"></script>
 
 	<script>
+		$("#menu-sm").hide();
 		$("#back").hover(
 			function(){
 			    $("#back-img").attr("src", "img/maps/kembali_hover.png");
@@ -71,6 +76,12 @@
 			},
 			function(){
 			    $("#help-img").attr("src", "img/maps/tanya.png");
+			}
+		);
+		$("#sm-toggle").click(
+			function(){
+				$(".tbl-menu").fadeToggle();
+				$("#menu-sm").slideToggle();
 			}
 		);
 	</script>

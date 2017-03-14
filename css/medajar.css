@@ -47,17 +47,22 @@ html{
 	width: 30%;
 }
 
-#index #main #menu-sm ul{
+#map #menu-sm{
+	display: block;
+	background-color: #970;
+}
+
+#index #main #menu-sm ul, #map #menu-sm ul{
 	list-style-type: none;
 	margin-left: 0;
 }
 
-#index #main #menu-sm ul li{
+#index #main #menu-sm ul li, #map #menu-sm ul li{
 	display: block;
 	border-bottom: 1px solid #fff;
 }
 
-#index #main #menu-sm ul li a{
+#index #main #menu-sm ul li a, #map #menu-sm ul li a{
 	display: block;
 	color: #fff;
 	text-decoration: none;
@@ -175,4 +180,11 @@ html{
 	background: url(../img/index/bg_menu.png) no-repeat  center;
 	background-size: contain;
 	height: 110%;
+}
+
+#map #head-sm {
+    background-image: url(../img/maps/header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 50px;
 }
