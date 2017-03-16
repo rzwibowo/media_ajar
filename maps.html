@@ -3,32 +3,87 @@
 <head>
 	<meta charset="UTF-8">
 	<title>PETA INDONESIA</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=0">
 
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
+
+    <script src="js/jquery.js"></script>
+
+    <script>
+    $(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+	</script>
 </head>
-<body>
+<body id="map">
+	<div class="se-pre-con"></div>
+
+	<div id="head-sm" class="show-sm w100">
+		<a id="sm-toggle" href="#">
+		<!-- <a id="sm-toggle" href="#" data-component="toggleme" data-target="#menu-sm"> -->
+			<img class="tbl-menu" src="img/m_1.png" alt="">
+			<img class="tbl-menu" style="display: none;" src="img/m_2.png" alt="">
+		</a>
+	</div>
+
+	<div id="menu-sm" class="text-center">
+	    <ul>
+	        <li><a href="#">Bantuan</a></li>
+	        <li><a href="index.html">Kembali ke Depan</a></li>
+	    </ul>
+	</div>
+
 	<div id="main">
 		<div class="row">
-			<div class="col-12">
-				<div id="head">
+			<div class="col col-12">
+				<div id="head" class="hide-sm">
 					<div class="row between">
-						<a href="" class="button">Kembali</a>
-						<a href="" class="button">Bantuan</a>
+						<!-- <img id="head-map-img" src="img/maps/header.png" alt=""> -->
+						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
+						<a href="" id="help" class="w5"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 					</div>
 				</div>
+				<div class="clear-fix"></div>
 				<div id="content">
-					
+					<img id="map" src="img/maps/map.png" alt="">
 				</div>
 			</div>
 		</div>
 
 	</div>
 
+
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script src="js/jquery.js"></script> -->
     <script src="js/kube.js"></script>
+
+	<script>
+		$("#menu-sm").hide();
+		$("#back").hover(
+			function(){
+			    $("#back-img").attr("src", "img/maps/kembali_hover.png");
+			},
+			function(){
+			    $("#back-img").attr("src", "img/maps/kembali.png");
+			}
+		);
+		$("#help").hover(
+			function(){
+			    $("#help-img").attr("src", "img/maps/tanya_hover.png");
+			},
+			function(){
+			    $("#help-img").attr("src", "img/maps/tanya.png");
+			}
+		);
+		$("#sm-toggle").click(
+			function(){
+				$(".tbl-menu").fadeToggle();
+				$("#menu-sm").slideToggle();
+			}
+		);
+	</script>
 </body>
 </html>

@@ -1,6 +1,19 @@
 html{
 	min-height: 100%;
 }
+
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+	background: url(../img/Preloader_7.gif) center no-repeat #fff;
+}
+
 #index{
 	min-height: 100%;
 	background-color: #36c2ff;
@@ -10,14 +23,71 @@ html{
 	background-repeat: no-repeat;
 }
 
+#map{
+	min-height: 100%;
+	background-color: #960;
+}
+
+/*#index #main{
+	z-index: 7;
+}*/
+
 #index #judul{
 	width: 25%;
 	margin-top: 3%;
 }
 
-#content{
-	background-color: #960;
-	height: 100%; 
+#index #menu{
+	height: 460px;
+}
+
+#index #main #menu-sm{
+	display: block;
+	background-color: #2980b9;
+	width: 30%;
+}
+
+#map #menu-sm{
+	display: block;
+	background-color: #970;
+}
+
+#index #main #menu-sm ul, #map #menu-sm ul{
+	list-style-type: none;
+	margin-left: 0;
+}
+
+#index #main #menu-sm ul li, #map #menu-sm ul li{
+	display: block;
+	border-bottom: 1px solid #fff;
+}
+
+#index #main #menu-sm ul li a, #map #menu-sm ul li a{
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 3px 3px;
+}
+
+#ornamen{
+	position: fixed;
+	z-index: -1;
+	height: 768px;
+	text-align: center;
+}
+
+#awan{
+	position: relative;
+	top: 3%;
+}
+
+#pohon {
+    position: relative;
+    transform: translateY(133%);
+}
+
+#index #menu #peta {
+    margin-top: 20%;
 }
 
 #kepala{
@@ -49,6 +119,7 @@ html{
 	margin-top: 2%;
 	margin-bottom: 2%;
 }
+<<<<<<< HEAD
 .not-active {
    pointer-events: none;
    cursor: default;
@@ -59,3 +130,74 @@ html{
     padding: 32px;
     margin-bottom: 16px;
 }
+=======
+
+#head{
+ 	/*white-space: nowrap; */
+	background: #960 url("../img/maps/header.png") no-repeat;
+	background-size: contain;
+	position: relative;
+	/*z-index: 0;*/
+	height: 110px;
+}
+
+/*#head #head-map-img{
+	position: absolute;
+	z-index: 0;
+}*/
+
+/*#head a{
+	display: block;
+	position: absolute;
+	z-index: 9;
+	width: 10%;
+}*/
+
+#head #back{
+	/*position: relative;*/
+	margin-left: 3%;
+	margin-top: 1%;
+}
+
+/*#head #back img{
+	float: left;
+}
+
+#head #help img{
+	float: right;
+}*/
+
+#head #help{
+	/*position: relative;*/
+	margin-right: 3%;
+	margin-top: 1%;
+/*	width: 5%;*/
+}
+
+#content{
+	background-color: #960;
+	background-size: contain;
+	/*min-height: 520px;*/
+/* 	no-wrap: whitespace; 
+	position: relative;;
+/* 	top: 10%; */
+}
+/*
+#content #map{
+	position: absolute;
+	top: -6%;
+}*/
+
+#menu{
+	background: url(../img/index/bg_menu.png) no-repeat  center;
+	background-size: contain;
+	height: 110%;
+}
+
+#map #head-sm {
+    background-image: url(../img/maps/header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 50px;
+}
+>>>>>>> eb1cc2748a0dc0d99954bb4494bc45f5a90ec207

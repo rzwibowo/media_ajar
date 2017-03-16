@@ -27,7 +27,7 @@ include "koneksi.php";
     	<div class="row align-center">
     		<div class="col-6">
     			<div class="text-center">
-    				<h1>Dafar Provinsi</h1>
+    				<h1>Daftar Provinsi</h1>
     				
     			</div>
                 <div>

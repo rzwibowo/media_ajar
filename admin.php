@@ -29,33 +29,8 @@ if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</scr
 						<a href="logout.php" class="button round outline secondary" role="button">Logout</a>
 					</div>
 				</fieldset>
+				<a href="index.html">Kembali ke Halaman Depan</a>
 			</div>
-		</div>
-
-		<!-- Modal Settings -->
-		<div id="mod_setting" class="modal-box hide">
-		    <div class="modal">
-		        <span class="close"></span>
-		        <div class="modal-header">Pengaturan</div>
-		        <div class="modal-body">
-		        	<a href="login.php" class="small button round outline secondary text-center" role="button">Admin</a>
-		        </div>
-		    </div>
-		</div>
-
-		<!-- Modal About -->
-		<div id="mod_about" class="modal-box hide">
-		    <div class="modal">
-		        <span class="close"></span>
-		        <div class="modal-header">Tentang</div>
-		        <div class="modal-body text-center">
-		        	<h3>Virtual Map</h3>
-		        	<h5>v 0.1</h5>
-		        	<p>
-		        		<img src="img/wibowo.png" alt="">
-		        	</p>
-		        </div>
-		    </div>
 		</div>
 
 	</div>

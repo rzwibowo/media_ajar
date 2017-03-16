@@ -31,6 +31,7 @@
 					</div>
 				</fieldset>
 			</form>
+			<a href="index.html">Kembali ke Halaman Depan</a>
 		</div>
 	</div>
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
