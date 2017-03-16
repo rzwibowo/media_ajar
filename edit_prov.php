@@ -39,7 +39,7 @@ $id= $_GET['r'];
     				<h1>Data Provinsi</h1>
     				
     			</div>
-    			<form class="form" action="update_prov.php" method="POST" name="form-kirim">
+    			<form class="form" action="update_prov.php" method="POST" name="form-kirim" enctype="multipart/form-data">
     				<fieldset>
     						<input type="hidden" name="id_prov" class="w50" id="id_prov" value="<?php echo $row['id_prov']?>">
     					<div class="form-item">
@@ -84,6 +84,26 @@ $id= $_GET['r'];
     						<input type="text" name="suku" class="w50" id="suku" value="<?php echo $row['suku']?>">
                             <div id="message-suku" style="margin-top: 5px;"></div>
     					</div>
+
+                        <div class="form-item">
+                            <div>
+                                <img src="img/rumah/<?php echo $row['gbr_rumah_adat']?>" width="150px" >
+                            </div> 
+                            <input type="hidden" name="gbr_rumah_adat_lama" value="<?php echo $row['gbr_rumah_adat']?>">
+                               
+                            <input type="file" name="gbr_rumah_adat" class="w50 inputfile1" id="gbr_rumah_adat" onchange="ValidasiInputFile(this,'message-gbr_rumah_adat')" >
+                            <label for="gbr_baju_adat"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Rumah Adat</label>
+                            <div id="message-gbr_rumah_adat" style="margin-top: 5px;"></div>
+                        </div>
+                       <div class="form-item">
+                            <div>
+                                <img src="img/baju/<?php echo $row['gbr_baju_adat']?>" width="150px" >
+                            </div>
+                            <input type="hidden" name="gbr_baju_adat_lama" value="<?php echo $row['gbr_rumah_adat']?>">  
+                            <input type="file" name="gbr_baju_adat" class="w50 " id="gbr_baju_adat" onchange="ValidasiInputFile(this,'message-gbr_baju_adat')">
+                            <label for="gbr_baju_adat"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Baju Adat</label>
+                            <div id="message-gbr_baju_adat" style="margin-top: 5px;"></div>
+                        </div>
     					<div class="row between">
     						<button type="reset" class="button secondary outline w15">Reset</button>
     						<button type="submit" class="button upper" id="kirim">Simpan</button>
@@ -106,6 +126,9 @@ $id= $_GET['r'];
         var tari_adat;
         var bhs_daerah;
         var suku;
+        var gambar1;
+        var gambar2;
+        var Extensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"]; 
 /*
  validasi nama propinsi , tidak bleh kosong
 */
@@ -274,6 +297,8 @@ validasi kirim
         tari_adat       =$("#tari_adat").val();
         bhs_daerah      =$("#bhs_daerah").val();
         suku            =$("#suku").val();
+        gambar1         =$("#gbr_rumah_adat").val();
+        gambar2         =$("#gbr_baju_adat").val();
 
        if(nama_prov.length==0){
            $("#nama_prov").focus();
@@ -337,6 +362,34 @@ validasi kirim
         
     });
 });
+    function ValidasiInputFile(input,message) {
+    if (input.type == "file") {
+        var namafile = input.value;
+         if (namafile.length > 0) {
+            var blnValid = false;
+            for (var j = 0; j < Extensions.length; j++) {
+                var sCurExtension = Extensions[j];
+                if (namafile.substr(namafile.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                    blnValid = true;
+                    $("#"+message+"").hide();
+                    break;
+                   
+                }
+            }
+             
+            if (!blnValid) {
+                console.log(message);
+                $("#"+message+"").show();
+              $("#"+message+"").addClass("message error");
+              $("#"+message+"").html("<span>File yang anda masukan tidak falid, file arus ber extensi:" + Extensions.join(", ")+"</span>");
+                input.value = "";
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
     </script>
 </body>
 </html>

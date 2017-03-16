@@ -20,10 +20,10 @@ if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</scr
 				<fieldset class="text-center">
 					<legend>Menu Admin</legend>
 					<div class="form-item">
-						<a href="#" class="button w70 big" role="button">Kelola Data Propinsi</a>
+						<a href="daftar_prov.php" class="button w70 big" role="button">Kelola Data Propinsi</a>
 					</div>
 					<div class="form-item">
-						<a href="#" class="button w70 big" role="button">Kelola Kuis</a>
+						<a href="daftarkuis.php" class="button w70 big" role="button">Kelola Kuis</a>
 					</div>
 					<div class="form-item">
 						<a href="logout.php" class="button round outline secondary" role="button">Logout</a>

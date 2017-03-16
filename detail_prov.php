@@ -71,6 +71,12 @@ include "koneksi.php";
     					<tr>
     						<th>Suku</th><td><?php echo $row['suku'] ?></td>
     					</tr>
+                        <tr>
+                            <th>Baju Adat</th><td><img src="img/baju/<?php echo $row['gbr_baju_adat']?>" width="150px" ></td>
+                        </tr>
+                        <tr>
+                            <th>Rumah Adat</th><td><img src="img/rumah/<?php echo $row['gbr_rumah_adat']?>"  width="150px" ></td>
+                        </tr>
     			</table>
 
 

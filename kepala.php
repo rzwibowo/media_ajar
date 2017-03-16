@@ -14,7 +14,7 @@
 	<nav class="col-8" id="navbar-main">
 		<ul>
 			<li><a href="entryProp.php">Data Provinsi</a></li>
-			<li><a href="">Data Kuis</a></li>
+			<li><a href="daftarkuis.php">Data Kuis</a></li>
 		</ul>
 	</nav>
 	<nav id="logout" class="col-2 text-center">
