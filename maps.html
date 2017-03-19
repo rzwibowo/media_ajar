@@ -8,8 +8,11 @@
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
+    <link rel="stylesheet" href="css/magnify.css">
+    <link rel="stylesheet" href="css/custocheck.css">
 
     <script src="js/jquery.js"></script>
+    <script src="js/jquery.magnify.js"></script>
 
     <script>
     $(window).load(function() {
@@ -33,6 +36,11 @@
 	    <ul>
 	        <li><a href="#">Bantuan</a></li>
 	        <li><a href="index.html">Kembali ke Depan</a></li>
+	        <div class="custom-chk">
+				<!-- <button id="tblzoom+" class="button round small">ZOOM +</button> -->
+				<input type="checkbox" value="1" id="chkInput">
+				<label for="chkInput"></label>
+			</div>
 	    </ul>
 	</div>
 
@@ -48,7 +56,13 @@
 				</div>
 				<div class="clear-fix"></div>
 				<div id="content">
-					<img id="map" src="img/maps/map.png" alt="">
+					<img id="map-img" src="img/maps/map.png" data-magnify-src="img/maps/map.png" alt="">
+				</div>
+				<div class="clear-fix"></div>
+				<div class="custom-chk hide-sm">
+					<!-- <button id="tblzoom+" class="button round small">ZOOM +</button> -->
+					<input type="checkbox" value="1" id="chkInput">
+					<label for="chkInput"></label>
 				</div>
 			</div>
 		</div>
@@ -61,6 +75,7 @@
     <script src="js/kube.js"></script>
 
 	<script>
+		var $perbesar="";
 		$("#menu-sm").hide();
 		$("#back").hover(
 			function(){
@@ -84,6 +99,20 @@
 				$("#menu-sm").slideToggle();
 			}
 		);
+		$("#chkInput").click(function(){
+			if($(this).prop("checked")==true){
+				$perbesar=$("#map-img").magnify();
+			}
+			else if($(this).prop("checked")==false){
+				$perbesar.destroy();
+			}
+		});
+		// $("#tblzoom+").click(
+		// 	function(){
+		// 		$("#map-img").width("200%");
+		// 		$("#map-img").height("200%");
+		// 	}
+		// );
 	</script>
 </body>
 </html>

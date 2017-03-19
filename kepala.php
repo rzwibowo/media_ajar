@@ -11,6 +11,9 @@
 			if (window.location.pathname=="/media_ajar/daftar_prov.php") {
 				document.getElementById("linkprop").style.cssText="color:#2980b9; font-weight:bold";
 			}
+			else if (window.location.pathname=="/media_ajar/daftarkuis.php") {
+				document.getElementById("linkkuis").style.cssText="color:#2980b9; font-weight:bold";
+			}
 		}
 	</script>	
 </head>
@@ -21,13 +24,13 @@
 	</div>
 	<nav class="col-8" id="navbar-main">
 		<ul>
-<<<<<<< HEAD
-			<li><a href="entryProp.php">Data Provinsi</a></li>
-			<li><a href="daftarkuis.php">Data Kuis</a></li>
-=======
-			<li><a id="linkprop" href="daftar_prov.php">Data Provinsi</a></li>
-			<li><a href="">Data Kuis</a></li>
->>>>>>> eb1cc2748a0dc0d99954bb4494bc45f5a90ec207
+<!-- <<<<<<< HEAD -->
+			<li><a id="linkprop" href="entryProp.php">Data Provinsi</a></li>
+			<li><a id="linkkuis" href="daftarkuis.php">Data Kuis</a></li>
+<!-- ======= -->
+			<!-- <li><a  href="daftar_prov.php">Data Provinsi</a></li>
+			<li><a href="">Data Kuis</a></li> -->
+<!-- >>>>>>> eb1cc2748a0dc0d99954bb4494bc45f5a90ec207 -->
 		</ul>
 	</nav>
 	<nav id="logout" class="col-2 text-center">

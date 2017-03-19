@@ -17,8 +17,8 @@ html{
 #index{
 	min-height: 100%;
 	background-color: #36c2ff;
-	background-image: url('../img/index/pemandangan.png');
-	background-size: 100% 70%;
+	background-image: url('../img/index/bg.jpg');
+	background-size: 100% 100%;
 	background-position: bottom;
 	background-repeat: no-repeat;
 }
@@ -76,16 +76,17 @@ html{
 	text-align: center;
 }
 
-#awan{
-	position: relative;
-	top: 3%;
+#awan {
+    position: relative;
+    top: 3%;
+    width: 80%;
 }
 
-#pohon {
+/*#pohon {
     position: relative;
     transform: translateY(133%);
 }
-
+*/
 #index #menu #peta {
     margin-top: 20%;
 }
@@ -119,7 +120,7 @@ html{
 	margin-top: 2%;
 	margin-bottom: 2%;
 }
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 .not-active {
    pointer-events: none;
    cursor: default;
@@ -130,7 +131,7 @@ html{
     padding: 32px;
     margin-bottom: 16px;
 }
-=======
+/*=======*/
 
 #head{
  	/*white-space: nowrap; */
@@ -177,7 +178,8 @@ html{
 #content{
 	background-color: #960;
 	background-size: contain;
-	/*min-height: 520px;*/
+/*	overflow: scroll;
+*/	/*min-height: 520px;*/
 /* 	no-wrap: whitespace; 
 	position: relative;;
 /* 	top: 10%; */
@@ -200,4 +202,9 @@ html{
     background-repeat: no-repeat;
     min-height: 50px;
 }
->>>>>>> eb1cc2748a0dc0d99954bb4494bc45f5a90ec207
+
+/*#map-img{
+	height: 100%;
+	width: 100%;
+}*/
+/*>>>>>>> eb1cc2748a0dc0d99954bb4494bc45f5a90ec207*/
