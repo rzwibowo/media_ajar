@@ -52,7 +52,7 @@ html{
 	background-color: #970;
 }
 
-#index #main #menu-sm ul, #map #menu-sm ul{
+#index #main #menu-sm ul, #map #menu-sm ul, #kepalaAdm #menu-sm ul{
 	list-style-type: none;
 	margin-left: 0;
 }

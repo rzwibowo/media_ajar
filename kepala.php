@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="css/kube.css">
 	<link rel="stylesheet" href="css/medajar.css">
 
+    <script src="js/jquery.js"></script>
+
 	<script>
 		function cekLamanAktif(){
 			if (window.location.pathname=="/media_ajar/daftar_prov.php") {
@@ -17,14 +19,32 @@
 		}
 	</script>	
 </head>
-<body onload="cekLamanAktif()">
-<div id="kepala" class="row" data-component="sticky">
+<body id="kepalaAdm" onload="cekLamanAktif()">
+<div class="show-sm">
+	<a id="sm-toggle" href="#">
+	<!-- <a id="sm-toggle" href="#" data-component="toggleme" data-target="#menu-sm"> -->
+		<img class="tbl-menu" src="img/m_1.png" alt="">
+		<img class="tbl-menu" style="display: none;" src="img/m_2.png" alt="">
+	</a>
+</div>
+
+<div id="menu-sm" class="text-center">
+    <ul>
+        <li><a href="index.php">Halaman Utama</a></li>
+        <li><a href="admin.php">Halaman Admin</a></li>
+		<li><a id="linkprop" href="entryProp.php">Data Provinsi</a></li>
+		<li><a id="linkkuis" href="daftarkuis.php">Data Kuis</a></li>
+    </ul>
+</div>
+
+<div id="kepala" class="row hide-sm" data-component="sticky">
 	<div class="col-2 text-center" id="navbar-brand">
 		<a href="index.html"><img src="img/index/judul.png" class="logo" alt="Logo virtual map"></a>
 	</div>
 	<nav class="col-8" id="navbar-main">
 		<ul>
 <!-- <<<<<<< HEAD -->
+			<li><a href="admin.php">Halaman Admin</a></li>
 			<li><a id="linkprop" href="entryProp.php">Data Provinsi</a></li>
 			<li><a id="linkkuis" href="daftarkuis.php">Data Kuis</a></li>
 <!-- ======= -->
@@ -37,6 +57,17 @@
 		<p class="smaller"><?php echo $_SESSION["user"] ?></p>
 		<a href="logout.php" class="button secondary outline round">Logout</a>
 	</nav>
-</div>	
+</div>
+
+<script>
+    $("#menu-sm").hide();
+	$("#sm-toggle").click(
+		function(){
+			$(".tbl-menu").fadeToggle();
+			$("#menu-sm").slideToggle();
+		}
+	);
+</script>
+
 </body>
 </html>
