@@ -1,5 +1,6 @@
 html{
 	min-height: 100%;
+	/*cursor: url(../img/cursor_1.png),auto;*/
 }
 
 .no-js #loader { display: none;  }
@@ -168,18 +169,26 @@ html{
 	float: right;
 }*/
 
-#head #help{
+#head #kontrolKanan{
 	/*position: relative;*/
 	margin-right: 3%;
 	margin-top: 1%;
 /*	width: 5%;*/
 }
 
+.tbl-menu{
+	width: 50px;
+	margin: 10px 10px;
+	box-shadow: 0 0 5px #222;
+	border-radius: 20%;
+	padding: 5px 5px;
+}
+
 #content{
 	background-color: #960;
 	background-size: contain;
-/*	overflow: scroll;
-*/	/*min-height: 520px;*/
+	/*overflow: scroll;*/
+	/*min-height: 520px;*/
 /* 	no-wrap: whitespace; 
 	position: relative;;
 /* 	top: 10%; */

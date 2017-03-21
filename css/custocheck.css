@@ -7,9 +7,10 @@
 	width: 120px;
 	height: 40px;
 	background: #333;
-	margin: 20px 60px;
+	/*margin: 20px 60px;*/
 	border-radius: 50px;
 	position: relative;
+	display: inline-block;
 }
 
 .custom-chk:before{

@@ -13,17 +13,34 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery.magnify.js"></script>
-
+    <!-- <script src="js/jquery.maphilight.min.js"></script> -->
+<!--     <script src="js/jquery.zoom.js"></script> -->
+	
+	<!-- script loading screen -->
     <script>
     $(window).load(function() {
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");;
 	});
+	// $("document").ready(function()
+	// 	{	
+	// 		$("#map-img").maphilight(
+	// 			{
+	// 				fill: true,
+	// 				fillColor: '333',
+	// 				fillOpacity: 0.5
+	// 			}
+	// 		);
+	// 	}
+	// );
 	</script>
 </head>
 <body id="map">
+	
+	<!-- loading screen -->
 	<div class="se-pre-con"></div>
 
+	<!-- menu layar kecil -->
 	<div id="head-sm" class="show-sm w100">
 		<a id="sm-toggle" href="#">
 		<!-- <a id="sm-toggle" href="#" data-component="toggleme" data-target="#menu-sm"> -->
@@ -36,47 +53,79 @@
 	    <ul>
 	        <li><a href="#">Bantuan</a></li>
 	        <li><a href="index.html">Kembali ke Depan</a></li>
-	        <div class="custom-chk">
-				<!-- <button id="tblzoom+" class="button round small">ZOOM +</button> -->
-				<input type="checkbox" value="1" id="chkInput">
-				<label for="chkInput"></label>
-			</div>
+	        <li style="vertical-align:middle">
+	        	<p style="display: inline-block; margin-bottom: 0px; color: #fff">Kaca Pembesar</p>
+		        <div class="custom-chk">
+					<!-- <button id="tblzoom+" class="button round small">ZOOM +</button> -->
+					<input type="checkbox" value="1" id="chkInput" class="chkZoom">
+					<label for="chkInput"></label>
+				</div>
+			</li>
 	    </ul>
 	</div>
 
 	<div id="main">
 		<div class="row">
 			<div class="col col-12">
+
+				<!-- menu atas -->
 				<div id="head" class="hide-sm">
 					<div class="row between">
 						<!-- <img id="head-map-img" src="img/maps/header.png" alt=""> -->
 						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
-						<a href="" id="help" class="w5"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+						<p id="kontrolKanan" class="w15 row between">
+							<a href="#" class="w30" style="display: inline-block" id="lup">
+								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
+								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
+							</a>
+							<a href="#" style="display: inline-block" class="w30"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+						</p>
 					</div>
 				</div>
 				<div class="clear-fix"></div>
+
+				<!-- gambar peta -->
 				<div id="content">
-					<img id="map-img" src="img/maps/map.png" data-magnify-src="img/maps/map.png" alt="">
+					<img id="map-img" src="img/maps/map.png" data-magnify-src="img/maps/map.png" alt="" usemap="petaInd">
 				</div>
-				<div class="clear-fix"></div>
-				<div class="custom-chk hide-sm">
-					<!-- <button id="tblzoom+" class="button round small">ZOOM +</button> -->
-					<input type="checkbox" value="1" id="chkInput">
-					<label for="chkInput"></label>
-				</div>
+				<!-- <div class="clear-fix"></div> -->
+				<!-- <div class="custom-chk hide-sm">
+					<input type="checkbox" class="chkZoom" value="1" id="chkInputBig">
+					<label for="chkInputBig"></label>
+				</div> -->
+				<!-- <button id="tblzoom+" class="button round small">ZOOM +</button>
+				<button id="zoomIn" class="button round">+</button>
+				<button id="zoomOff" class="button round">-</button> -->
 			</div>
 		</div>
 
 	</div>
 
+	<!-- Experimen!!! -->
+	<map name="petaInd">
+	  <area shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun" onclick="gembus()">
+	  <area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">
+	  <area shape="circle" coords="124,58,8" href="venus.htm" alt="Venus">
+	</map>
 
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
     <!-- <script src="js/jquery.js"></script> -->
     <script src="js/kube.js"></script>
 
 	<script>
+		// experimen
+		function gembus(){
+			alert();
+		}
+		// ------
+
+		// var untuk kaca pembesar
 		var $perbesar="";
+
+		// sembunyikan menu untuk layar kecil
 		$("#menu-sm").hide();
+
+		// efek menu back
 		$("#back").hover(
 			function(){
 			    $("#back-img").attr("src", "img/maps/kembali_hover.png");
@@ -85,6 +134,8 @@
 			    $("#back-img").attr("src", "img/maps/kembali.png");
 			}
 		);
+
+		// efek menu help
 		$("#help").hover(
 			function(){
 			    $("#help-img").attr("src", "img/maps/tanya_hover.png");
@@ -93,13 +144,17 @@
 			    $("#help-img").attr("src", "img/maps/tanya.png");
 			}
 		);
+
+		// efek menu layar kecil
 		$("#sm-toggle").click(
 			function(){
 				$(".tbl-menu").fadeToggle();
 				$("#menu-sm").slideToggle();
 			}
 		);
-		$("#chkInput").click(function(){
+
+		// tombol slide untuk kaca pembesar
+		$(".chkZoom").click(function(){
 			if($(this).prop("checked")==true){
 				$perbesar=$("#map-img").magnify();
 			}
@@ -107,6 +162,23 @@
 				$perbesar.destroy();
 			}
 		});
+
+		// tombol kaca pembesar
+		$("#lup").click(function(){
+			$(".img-lup").fadeToggle();
+		});
+		$("#zoomOff").click(function(){
+			$perbesar=$("#map-img").magnify();
+		});
+		$("#zoomOn").click(function(){
+			$perbesar.destroy();
+		});
+		// $("#zoomIn").click(function(){
+		// 	$("#content").zoom();
+		// });
+		// $("#zoomOff").click(function(){
+		// 	$("#content").trigger("zoom.destroy");
+		// });
 		// $("#tblzoom+").click(
 		// 	function(){
 		// 		$("#map-img").width("200%");
