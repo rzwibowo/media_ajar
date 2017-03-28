@@ -86,11 +86,29 @@
 
 				<!-- gambar peta -->
 				<div id="content">
-					<img id="map-img" src="img/maps/map-mini_bener.png" data-magnify-src="img/maps/map-mini_bener.png" alt="" usemap="petaInd">
+					<img id="map-img" src="img/maps/map-mini_bener.png" data-magnify-src="img/maps/map.png" alt="" usemap="petaInd">
 						<map name="petaInd">
-	  <area shape="poly" coords="213,21,225,166,354,154,339,19,225,21" href="sun.htm" alt="Sun" onclick="gembus()">
+
+<?php
+include 'koneksi.php';
+$result = mysqli_query($koneksi,"SELECT coords,nama_prov,id_prov FROM provinsi");
+while ($rs=mysqli_fetch_array($result)) {
+	echo "<area shape='poly' coords='$rs[coords]'  title='$rs[nama_prov]'  onclick='gembus(\"$rs[id_prov]\")'  data-component='modal' data-target='#my-modal' >";
+}
+
+
+?>
 
 	</map>
+
+
+<div id="my-modal" class="modal-box hide">
+    <div class="modal">
+        <span class="close"></span>
+        <div class="modal-header" id="header-model"></div>
+        <div class="modal-body">...</div>
+    </div>
+</div>
 
 	<!-- 				<a href="maps.html">
 
@@ -118,8 +136,21 @@
 
 	<script>
 		// experimen
-		function gembus(){
-			alert();
+		function gembus(id){
+			 $.post("ajax_getdata.php",
+       		 {
+          		id: id,
+         		
+       		 },
+        	function(data,status){
+        		
+       			$("#header-model").html("<h1>"+data.nama+"</h1>");
+        	});
+
+
+			
+			
+			
 		}
 		// ------
 

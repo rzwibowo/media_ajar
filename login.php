@@ -34,6 +34,10 @@
 			<a href="index.html">Kembali ke Halaman Depan</a>
 		</div>
 	</div>
+	<div>
+
+</div>
+	</div>
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/kube.js"></script>
@@ -65,6 +69,12 @@
         
     });
 });
+    	 $("button").click(function(){
+    	 	$('#my-modal').on('open.modal', function()
+				{
+				   
+				});
+    	 });
     </script>
 </body>
 </html>
