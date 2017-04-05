@@ -34,6 +34,7 @@ if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</scr
 		</div>
 
 	</div>
+	
 
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
