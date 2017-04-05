@@ -13,6 +13,7 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery.magnify.js"></script>
+    <script src="js/jquery.imagemapster.min.js"></script>
     <!-- <script src="js/jquery.maphilight.min.js"></script> -->
 <!--     <script src="js/jquery.zoom.js"></script> -->
 	
@@ -86,7 +87,33 @@
 
 				<!-- gambar peta -->
 				<div id="content">
-					<img id="map-img" src="img/maps/map.png" data-magnify-src="img/maps/map.png" alt="" usemap="petaInd">
+					<img id="map-img" src="img/maps/map-mini_bener.png" data-magnify-src="img/maps/map.png" alt="" usemap="#petaInd">
+						<map id="petaInd" name="petaInd">
+
+						<?php
+						include 'koneksi.php';
+						$result = mysqli_query($koneksi,"SELECT coords,nama_prov,id_prov FROM provinsi");
+						while ($rs=mysqli_fetch_array($result)) {
+							echo "<area shape='poly' coords='$rs[coords]'  title='$rs[nama_prov]'  onclick='gembus(\"$rs[id_prov]\")'  data-component='modal' data-target='#my-modal' href='#' >";
+						}
+
+
+						?>
+						</map>
+
+
+<div id="my-modal" class="modal-box hide">
+    <div class="modal">
+        <span class="close"></span>
+        <div class="modal-header" id="header-model"></div>
+        <div class="modal-body">...</div>
+    </div>
+</div>
+
+	<!-- 				<a href="maps.html">
+
+<img src="img/maps/map.png" ismap id="klik" >
+</a> -->
 				</div>
 				<!-- <div class="clear-fix"></div> -->
 				<!-- <div class="custom-chk hide-sm">
@@ -102,11 +129,6 @@
 	</div>
 
 	<!-- Experimen!!! -->
-	<map name="petaInd">
-	  <area shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun" onclick="gembus()">
-	  <area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">
-	  <area shape="circle" coords="124,58,8" href="venus.htm" alt="Venus">
-	</map>
 
 	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
     <!-- <script src="js/jquery.js"></script> -->
@@ -114,10 +136,27 @@
 
 	<script>
 		// experimen
-		function gembus(){
-			alert();
+		function gembus(id){
+			 $.post("ajax_getdata.php",
+       		 {
+          		id: id,
+         		
+       		 },
+        	function(data,status){
+        		
+       			$("#header-model").html("<h1>"+data.nama+"</h1>");
+        	});			
 		}
 		// ------
+
+		$("#map-img").mapster({
+			fillColor: '2c3e50',
+			fillOpacity: 0.5,
+			stroke: true,
+			strokeColor: '95a5a6',
+			strokeOpacity: 0.7,
+			strokeWidth: 3
+		});
 
 		// var untuk kaca pembesar
 		var $perbesar="";
@@ -169,9 +208,11 @@
 		});
 		$("#zoomOff").click(function(){
 			$perbesar=$("#map-img").magnify();
+			$("#map-img").mapster('unbind');
 		});
 		$("#zoomOn").click(function(){
 			$perbesar.destroy();
+			$("#map-img").mapster();
 		});
 		// $("#zoomIn").click(function(){
 		// 	$("#content").zoom();
