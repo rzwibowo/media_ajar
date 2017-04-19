@@ -106,7 +106,10 @@
     <div class="modal">
         <span class="close"></span>
         <div class="modal-header" id="header-model"></div>
-        <div class="modal-body">...</div>
+        <div class="modal-body" id="info-prop">
+			<div id="gbr-adat"></div>
+			<table class="unstyled" id="info-adat"></table>
+		</div>
     </div>
 </div>
 
@@ -143,8 +146,18 @@
          		
        		 },
         	function(data,status){
-        		
-       			$("#header-model").html("<h1>"+data.nama+"</h1>");
+        		$("#header-model").html("<h1>"+data.nama+"</h1>");
+				$("#gbr-adat, #info-adat").remove();
+				$("#info-prop").append("<div id='gbr-adat'></div><table class='unstyled' id='info-adat'></table>");
+       			$("#gbr-adat").append("<img class='w30' src='img/baju/"+data.baju_adat+"'>");
+				$("#gbr-adat").append("<img class='w30' src='img/rumah/"+data.rumah_adat+"'>");
+				$("#info-adat").append("<tr><td>Nama Ibukota</td><td>:</td><td>"+data.ibukota+"</td></tr>");
+				$("#info-adat").append("<tr><td>Jumlah Penduduk</td><td>:</td><td>"+data.jml_penduduk+"</td></tr>");
+				$("#info-adat").append("<tr><td>Luas Wilayah</td><td>:</td><td>"+data.luas_wilayah+"</td></tr>");
+				$("#info-adat").append("<tr><td>Rumah Adat</td><td>:</td><td>"+data.nama_rumah_adat+"</td></tr>");
+				$("#info-adat").append("<tr><td>Tari Adat</td><td>:</td><td>"+data.tari_adat+"</td></tr>");
+				$("#info-adat").append("<tr><td>Bahasa Daerah</td><td>:</td><td>"+data.bahasa+"</td></tr>");
+				$("#info-adat").append("<tr><td>Suku</td><td>:</td><td>"+data.suku+"</td></tr>");
         	});			
 		}
 		// ------
