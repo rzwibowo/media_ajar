@@ -217,3 +217,74 @@ html{
 	width: 100%;
 }*/
 /*>>>>>>> eb1cc2748a0dc0d99954bb4494bc45f5a90ec207*/
+.popup{
+    display: none;
+    position: absolute;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	z-index:1001;
+ }
+ .bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background: #ddd;*/
+  background: transparent;
+
+ }
+ .content{
+  position: relative;
+ /* border:1px solid black;*/
+  top:50px;
+  width:700px; 
+  height: 500px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-image: url("pop_up_2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+
+ }
+ .content-text{
+ 	
+   
+ }
+ .close1{
+  display: inline-block;
+  padding: 7px 15px;
+  margin-left:0px;
+  cursor: pointer;
+  color: #fff;
+ 
+ }
+ #info_rumah{
+ 	border:2px solid #f2b90d;
+ 	border-radius: 8px;
+ }
+ #info_nama_provinsi{
+ 	text-align: center;
+ 	margin-top: 12px;
+ }
+ #info_nama_provinsi h3{
+ 	color: white;
+ }
+ #info_lain h4,ul{
+ 	color: #f2f20d;
+ }
+ #info_detail li{
+ 	list-style: none;
+
+ 	
+ }
+ #info_lain ul,ol {
+    margin: 0 0 0 0px;
+}
+.info{
+	height: 250px;
+}

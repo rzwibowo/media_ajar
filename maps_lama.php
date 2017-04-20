@@ -14,111 +14,27 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery.magnify.js"></script>
     <script src="js/jquery.imagemapster.min.js"></script>
-<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-      <script type="text/javascript">
-  	 $(window).load(function() {
+    <!-- <script src="js/jquery.maphilight.min.js"></script> -->
+<!--     <script src="js/jquery.zoom.js"></script> -->
+	
+	<!-- script loading screen -->
+    <script>
+    $(window).load(function() {
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");;
 	});
-   $(function(){
- 
-  // show popup
-  $('.popup-show').click(function(e) {
-   
-//    e.preventDefault();
-   $('.popup').fadeIn();
-    
-  });
- 
-  $('.bg,.close1').click(function(e){
-//    e.preventDefault();
-   $('.popup').fadeOut('slow');
-  });
-
-  $('.close1').hover(function(){
-	 	 $("#close").attr("src", "pop_up_2-x-hover.png");
-	},function(){
-		 $("#close").attr("src", "pop_up_2-x.png");
-	});
-    
-
-  
- });
+	// $("document").ready(function()
+	// 	{	
+	// 		$("#map-img").maphilight(
+	// 			{
+	// 				fill: true,
+	// 				fillColor: '333',
+	// 				fillOpacity: 0.5
+	// 			}
+	// 		);
+	// 	}
+	// );
 	</script>
-	<style type="text/css">
-.popup{
-    display: none;
-    position: absolute;
-	position: fixed;
-	top: 0%;
-	left: 0%;
-	width: 100%;
-	height: 100%;
-	z-index:1001;
- }
- .bg{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /*background: #ddd;*/
-  background: transparent;
-
- }
- .content{
-  position: relative;
- /* border:1px solid black;*/
-  top:50px;
-  width:700px; 
-  height: 500px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  background-image: url("pop_up_2.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  
-
- }
- .content-text{
- 	
-   
- }
- .close1{
-  display: inline-block;
-  padding: 7px 15px;
-  margin-left:0px;
-  cursor: pointer;
-  color: #fff;
- 
- }
- #info_rumah{
- 	border:2px solid #f2b90d;
- 	border-radius: 8px;
- }
- #info_nama_provinsi{
- 	text-align: center;
- 	margin-top: 12px;
- }
- #info_nama_provinsi h3{
- 	color: white;
- }
- #info_lain h4,ul{
- 	color: #f2f20d;
- }
- #info_detail li{
- 	list-style: none;
-
- 	
- }
- #info_lain ul,ol {
-    margin: 0 0 0 0px;
-}
-.info{
-	height: 250px;
-}
-	</style>
 </head>
 <body id="map">
 	
@@ -141,7 +57,7 @@
 	        <li style="vertical-align:middle">
 	        	<p style="display: inline-block; margin-bottom: 0px; color: #fff">Kaca Pembesar</p>
 		        <div class="custom-chk">
-				
+					<!-- <button id="tblzoom+" class="button round small">ZOOM +</button> -->
 					<input type="checkbox" value="1" id="chkInput" class="chkZoom">
 					<label for="chkInput"></label>
 				</div>
@@ -153,10 +69,10 @@
 		<div class="row">
 			<div class="col col-12">
 
-	
+				<!-- menu atas -->
 				<div id="head" class="hide-sm">
 					<div class="row between">
-					
+						<!-- <img id="head-map-img" src="img/maps/header.png" alt=""> -->
 						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
 						<p id="kontrolKanan" class="w15 row between">
 							<a href="#" class="w30" style="display: inline-block" id="lup">
@@ -174,56 +90,52 @@
 					<img id="map-img" src="img/maps/map-mini_bener.png" data-magnify-src="img/maps/map.png" alt="" usemap="#petaInd">
 						<map id="petaInd" name="petaInd">
 
-					<?php
-include 'koneksi.php';
-$result = mysqli_query($koneksi,"SELECT coords,nama_prov,id_prov FROM provinsi");
-while ($rs=mysqli_fetch_array($result)) {
-	echo "<area shape='poly' coords='$rs[coords]' href='#'  title='$rs[nama_prov]'  onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
-}
+						<?php
+						include 'koneksi.php';
+						$result = mysqli_query($koneksi,"SELECT coords,nama_prov,id_prov FROM provinsi");
+						while ($rs=mysqli_fetch_array($result)) {
+							echo "<area shape='poly' coords='$rs[coords]'  title='$rs[nama_prov]'  onclick='gembus(\"$rs[id_prov]\")'  data-component='modal' data-target='#my-modal' href='#' >";
+						}
 
 
-?>
-	</map>
- <div class="popup">
-  <div class="bg"></div>
-  <div class="content">
-   <div class="content-text">
-   	<div class="row">
-    	<div class="col col-10" id="info_nama_provinsi">
-    	</div>
-    	<div class="col col-2" >
-    		<div class="close1"><img id="close" src="pop_up_2-x.png"></div>
-    	</div>
-	</div>
-	<div class="row info" >
-		<div class="col col-4" id="info_rumah">
-				
-		</div>
-		<div class="col col-4" id="info_baju">
-			
-		</div>
-		<div class="col col-4" id="info_lain" >
-				<h4>Info Provinsi</h4>
-				<ul id="info_detail">
-					
-				</ul>
-		</div>
-	</div>
-   </div>
-   
-  </div>
- </div>
+						?>
+						</map>
 
+
+<div id="my-modal" class="modal-box hide">
+    <div class="modal">
+        <span class="close"></span>
+        <div class="modal-header" id="header-model"></div>
+        <div class="modal-body" id="info-prop">
+			<div id="gbr-adat"></div>
+			<table class="unstyled" id="info-adat"></table>
+		</div>
+    </div>
+</div>
+
+	<!-- 				<a href="maps.html">
+
+<img src="img/maps/map.png" ismap id="klik" >
+</a> -->
 				</div>
-				
+				<!-- <div class="clear-fix"></div> -->
+				<!-- <div class="custom-chk hide-sm">
+					<input type="checkbox" class="chkZoom" value="1" id="chkInputBig">
+					<label for="chkInputBig"></label>
+				</div> -->
+				<!-- <button id="tblzoom+" class="button round small">ZOOM +</button>
+				<button id="zoomIn" class="button round">+</button>
+				<button id="zoomOff" class="button round">-</button> -->
 			</div>
 		</div>
 
 	</div>
 
-	
-    <script src="js/kube.js"></script>
+	<!-- Experimen!!! -->
 
+	<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
+    <!-- <script src="js/jquery.js"></script> -->
+    <script src="js/kube.js"></script>
 
 	<script>
 		// experimen
@@ -234,16 +146,18 @@ while ($rs=mysqli_fetch_array($result)) {
          		
        		 },
         	function(data,status){
-       			$("#info_nama_provinsi").html("<h3>"+data.nama+"</h3>");
-       			$("#info_baju").html("<img src='img/baju/"+data.gbr_bju_adat+"'>");
-       			$("li").remove();
-       			$("#info_detail").append("<li>Nama Ibu Kota : "+data.ibukota+"</li>");
-       			$("#info_detail").append("<li>Jumlah Penduduk : "+data.jml_penduduk+"</li>");
-       			$("#info_detail").append("<li>Luas Wilayah : "+data.luas_wilayah+"</li>");
-       			$("#info_detail").append("<li>Nama Rumah Adat : "+data.rumah_adat+"</li>");
-       			$("#info_detail").append("<li>Nama Tarian Adat : "+data.tari_adat+"</li>");
-       			$("#info_detail").append("<li>Bahasa Daerah : "+data.bhs_daerah+"</li>");
-       			$("#info_detail").append("<li>Suku : "+data.suku+"</li>");
+        		$("#header-model").html("<h1>"+data.nama+"</h1>");
+				$("#gbr-adat, #info-adat").remove();
+				$("#info-prop").append("<div id='gbr-adat'></div><table class='unstyled' id='info-adat'></table>");
+       			$("#gbr-adat").append("<img class='w30' src='img/baju/"+data.baju_adat+"'>");
+				$("#gbr-adat").append("<img class='w30' src='img/rumah/"+data.rumah_adat+"'>");
+				$("#info-adat").append("<tr><td>Nama Ibukota</td><td>:</td><td>"+data.ibukota+"</td></tr>");
+				$("#info-adat").append("<tr><td>Jumlah Penduduk</td><td>:</td><td>"+data.jml_penduduk+"</td></tr>");
+				$("#info-adat").append("<tr><td>Luas Wilayah</td><td>:</td><td>"+data.luas_wilayah+"</td></tr>");
+				$("#info-adat").append("<tr><td>Rumah Adat</td><td>:</td><td>"+data.nama_rumah_adat+"</td></tr>");
+				$("#info-adat").append("<tr><td>Tari Adat</td><td>:</td><td>"+data.tari_adat+"</td></tr>");
+				$("#info-adat").append("<tr><td>Bahasa Daerah</td><td>:</td><td>"+data.bahasa+"</td></tr>");
+				$("#info-adat").append("<tr><td>Suku</td><td>:</td><td>"+data.suku+"</td></tr>");
         	});			
 		}
 		// ------
@@ -295,11 +209,9 @@ while ($rs=mysqli_fetch_array($result)) {
 		$(".chkZoom").click(function(){
 			if($(this).prop("checked")==true){
 				$perbesar=$("#map-img").magnify();
-				$("#map-img").mapster('unbind');
 			}
 			else if($(this).prop("checked")==false){
 				$perbesar.destroy();
-				$("#map-img").mapster();
 			}
 		});
 
@@ -315,7 +227,18 @@ while ($rs=mysqli_fetch_array($result)) {
 			$perbesar.destroy();
 			$("#map-img").mapster();
 		});
-		
+		// $("#zoomIn").click(function(){
+		// 	$("#content").zoom();
+		// });
+		// $("#zoomOff").click(function(){
+		// 	$("#content").trigger("zoom.destroy");
+		// });
+		// $("#tblzoom+").click(
+		// 	function(){
+		// 		$("#map-img").width("200%");
+		// 		$("#map-img").height("200%");
+		// 	}
+		// );
 	</script>
 </body>
 </html>
