@@ -35,14 +35,12 @@
 //    e.preventDefault();
    $('.popup').fadeOut('slow');
   });
-
   $('.close1').hover(function(){
 	 	 $("#close").attr("src", "pop_up_2-x-hover.png");
 	},function(){
 		 $("#close").attr("src", "pop_up_2-x.png");
 	});
     
-
   
  });
 	</script>
@@ -65,13 +63,12 @@
   bottom: 0;
   /*background: #ddd;*/
   background: transparent;
-
  }
  .content{
   position: relative;
- /* border:1px solid black;*/
+/*  border:1px solid black;*/
   top:50px;
-  width:700px; 
+  width:900px; 
   height: 500px;
   margin: 0 auto;
   padding: 10px 20px;
@@ -79,7 +76,6 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   
-
  }
  .content-text{
  	
@@ -96,6 +92,7 @@
  #info_rumah{
  	border:2px solid #f2b90d;
  	border-radius: 8px;
+	overflow: hidden;
  }
  #info_nama_provinsi{
  	text-align: center;
@@ -104,28 +101,28 @@
  #info_nama_provinsi h3{
  	color: white;
  }
- #info_lain h4,ul{
+ #info_lain h4,table{
  	color: #f2f20d;
  }
- #info_detail li{
- 	list-style: none;
 
- 	
- }
- #info_lain ul,ol {
-    margin: 0 0 0 0px;
+
+table, th, td {
+	padding: 0px 0px;
 }
-.info{
-	height: 250px;
+table{
+	/*border: 1px solid black;*/
 }
 	</style>
+
+
+
 </head>
 <body id="map">
 	
 	<!-- loading screen -->
 	<div class="se-pre-con"></div>
 
-	<!-- menu layar kecil -->
+	<!-- teombol menu layar kecil -->
 	<div id="head-sm" class="show-sm w100">
 		<a id="sm-toggle" href="#">
 		<!-- <a id="sm-toggle" href="#" data-component="toggleme" data-target="#menu-sm"> -->
@@ -134,6 +131,7 @@
 		</a>
 	</div>
 
+	<!-- menu layar kecil -->
 	<div id="menu-sm" class="text-center">
 	    <ul>
 	        <li><a href="#">Bantuan</a></li>
@@ -148,12 +146,14 @@
 			</li>
 	    </ul>
 	</div>
+	<!-- menu layar kecil selesai -->
+
 
 	<div id="main">
 		<div class="row">
 			<div class="col col-12">
 
-	
+	<!-- header -->
 				<div id="head" class="hide-sm">
 					<div class="row between">
 					
@@ -168,10 +168,14 @@
 					</div>
 				</div>
 				<div class="clear-fix"></div>
+	<!-- header selesai -->
 
 				<!-- gambar peta -->
 				<div id="content">
-					<img id="map-img" src="img/maps/map-mini_bener.png" data-magnify-src="img/maps/map.png" alt="" usemap="#petaInd">
+					<img id="map-img" src="img/maps/Peta-4-mini_bener.png" data-magnify-src="img/maps/Peta-4-mini.png" alt="" usemap="#petaInd">
+
+	<!-- pemanggilan koordinat area dari database -->
+
 						<map id="petaInd" name="petaInd">
 
 					<?php
@@ -180,10 +184,12 @@ $result = mysqli_query($koneksi,"SELECT coords,nama_prov,id_prov FROM provinsi")
 while ($rs=mysqli_fetch_array($result)) {
 	echo "<area shape='poly' coords='$rs[coords]' href='#'  title='$rs[nama_prov]'  onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
 }
-
-
 ?>
 	</map>
+
+	<!-- pemanggilan area selesai -->
+
+	<!-- popup info provinsi -->
  <div class="popup">
   <div class="bg"></div>
   <div class="content">
@@ -202,17 +208,22 @@ while ($rs=mysqli_fetch_array($result)) {
 		<div class="col col-4" id="info_baju">
 			
 		</div>
-		<div class="col col-4" id="info_lain" >
+		<div class="col col-4" id="info_lain"  >
 				<h4>Info Provinsi</h4>
-				<ul id="info_detail">
+
+				<table>
 					
-				</ul>
+				</table>
 		</div>
 	</div>
    </div>
    
   </div>
  </div>
+ 	<!-- popup info provinsi selesai -->
+
+
+
 
 				</div>
 				
@@ -226,7 +237,7 @@ while ($rs=mysqli_fetch_array($result)) {
 
 
 	<script>
-		// experimen
+		// pemanggilan popup dan data
 		function gembus(id){
 			 $.post("ajax_getdata.php",
        		 {
@@ -234,20 +245,23 @@ while ($rs=mysqli_fetch_array($result)) {
          		
        		 },
         	function(data,status){
+        		$("#info_rumah").html("<img src='img/rumah/"+data.gbr_rumah_adat+"'>");
        			$("#info_nama_provinsi").html("<h3>"+data.nama+"</h3>");
        			$("#info_baju").html("<img src='img/baju/"+data.gbr_bju_adat+"'>");
-       			$("li").remove();
-       			$("#info_detail").append("<li>Nama Ibu Kota : "+data.ibukota+"</li>");
-       			$("#info_detail").append("<li>Jumlah Penduduk : "+data.jml_penduduk+"</li>");
-       			$("#info_detail").append("<li>Luas Wilayah : "+data.luas_wilayah+"</li>");
-       			$("#info_detail").append("<li>Nama Rumah Adat : "+data.rumah_adat+"</li>");
-       			$("#info_detail").append("<li>Nama Tarian Adat : "+data.tari_adat+"</li>");
-       			$("#info_detail").append("<li>Bahasa Daerah : "+data.bhs_daerah+"</li>");
-       			$("#info_detail").append("<li>Suku : "+data.suku+"</li>");
+       			$("tr").remove();
+       			$("table").append("<tr><td width='46%'>Nama Ibu Kota</td><td> : </td><td> "+data.ibukota+"</td></tr>");
+       			$("table").append("<tr><td>Jumlah Penduduk</td><td> : </td><td> "+data.jml_penduduk+" juta</td></tr>");
+       			$("table").append("<tr><td>Luas Wilayah</td><td> : </td><td>"+data.luas_wilayah+" km²</td></tr>");
+       			$("table").append("<tr><td>Nama Rumah Adat</td><td> : </td><td> "+data.rumah_adat+"</td></tr>");
+       			$("table").append("<tr><td>Nama Baju Adat</td><td> : </td><td>"+data.nama_baju_adat+"</td></tr>");
+       			$("table").append("<tr><td>Nama Tarian Adat</td><td> : </td><td>"+data.tari_adat+"</td></tr>");
+       			$("table").append("<tr><td>Bahasa Daerah</td><td> : </td><td>"+data.bhs_daerah+"</td></tr>");
+       			$("table").append("<tr><td>Suku</td><td> : </td><td>"+data.suku+"</td></tr>");
         	});			
 		}
 		// ------
 
+		// highlight maps
 		$("#map-img").mapster({
 			fillColor: '2c3e50',
 			fillOpacity: 0.5,
@@ -256,13 +270,10 @@ while ($rs=mysqli_fetch_array($result)) {
 			strokeOpacity: 0.7,
 			strokeWidth: 3
 		});
-
 		// var untuk kaca pembesar
 		var $perbesar="";
-
 		// sembunyikan menu untuk layar kecil
 		$("#menu-sm").hide();
-
 		// efek menu back
 		$("#back").hover(
 			function(){
@@ -272,7 +283,6 @@ while ($rs=mysqli_fetch_array($result)) {
 			    $("#back-img").attr("src", "img/maps/kembali.png");
 			}
 		);
-
 		// efek menu help
 		$("#help").hover(
 			function(){
@@ -282,15 +292,12 @@ while ($rs=mysqli_fetch_array($result)) {
 			    $("#help-img").attr("src", "img/maps/tanya.png");
 			}
 		);
-
 		// efek menu layar kecil
-		$("#sm-toggle").click(
-			function(){
+		$("#sm-toggle").click(function(){
 				$(".tbl-menu").fadeToggle();
 				$("#menu-sm").slideToggle();
 			}
 		);
-
 		// tombol slide untuk kaca pembesar
 		$(".chkZoom").click(function(){
 			if($(this).prop("checked")==true){
@@ -302,7 +309,6 @@ while ($rs=mysqli_fetch_array($result)) {
 				$("#map-img").mapster();
 			}
 		});
-
 		// tombol kaca pembesar
 		$("#lup").click(function(){
 			$(".img-lup").fadeToggle();

@@ -65,6 +65,9 @@ include "koneksi.php";
     					<tr>
     						<th>Tarian Adat</th><td><?php echo $row['tari_adat'] ?></td>
     					</tr>
+                        <tr>
+                            <th>Baju Adat</th><td><?php echo $row['nama_baju_adat'] ?></td>
+                        </tr>
     					<tr>
     						<th>Bahasa Daerah</th><td><?php echo $row['bhs_daerah'] ?></td>
     					</tr>

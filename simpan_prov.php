@@ -29,6 +29,7 @@ $query=mysqli_query($koneksi,$queryUpdate)or die(mysqli_error($koneksi));
 
 
 $nama_prov=$_POST['nama_prov'];
+$baju_adat=$_POST['baju_adat'];
 $ibukota=$_POST['ibukota'];
 $jml_penduduk=$_POST['jml_penduduk'];
 $luas_wilayah=$_POST['luas_wilayah'];
@@ -39,7 +40,7 @@ $suku=$_POST['suku'];
 $gbr_baju_adat=$_FILES['gbr_baju_adat'];
 $gbr_rumah_adat=$_FILES['gbr_rumah_adat'];
 
-$queryInsert="INSERT INTO provinsi(nama_prov,ibukota,jml_penduduk,luas_wilayah,rumah_adat,tari_adat,bhs_daerah,suku) VALUES('$nama_prov','$ibukota','$jml_penduduk','$luas_wilayah','$rumah_adat','$tari_adat','$bhs_daerah','$suku')"; 
+$queryInsert="INSERT INTO provinsi(nama_prov,ibukota,jml_penduduk,luas_wilayah,rumah_adat,tari_adat,bhs_daerah,suku,nama_baju_adat) VALUES('$nama_prov','$ibukota','$jml_penduduk','$luas_wilayah','$rumah_adat','$tari_adat','$bhs_daerah','$suku','$baju_adat')"; 
 $query=mysqli_query($koneksi,$queryInsert);
 
 

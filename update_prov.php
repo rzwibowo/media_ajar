@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</script>";
 
 include "koneksi.php";
-
+$baju_adat 			 = $_POST['baju_adat'];
 $id                  = $_POST['id_prov'];
 $nama_prov           = $_POST['nama_prov'];
 $ibukota			 = $_POST['ibukota'];
@@ -21,7 +21,7 @@ $gbr_baju_adat_lama  = $_POST['gbr_baju_adat_lama'];
 
 
 
-$queryUpdate="UPDATE provinsi set nama_prov='$nama_prov', ibukota='$ibukota', jml_penduduk='$jml_penduduk', luas_wilayah='$luas_wilayah', rumah_adat='$rumah_adat', tari_adat='$tari_adat', bhs_daerah='$bhs_daerah', suku='$suku' WHERE id_prov='$id'"; 
+$queryUpdate="UPDATE provinsi set nama_prov='$nama_prov', ibukota='$ibukota', jml_penduduk='$jml_penduduk', luas_wilayah='$luas_wilayah', rumah_adat='$rumah_adat', tari_adat='$tari_adat', bhs_daerah='$bhs_daerah', suku='$suku',nama_baju_adat='$baju_adat' WHERE id_prov='$id'"; 
 $query=mysqli_query($koneksi,$queryUpdate)or die(mysqli_error($koneksi));
 
 if(!empty($_FILES['gbr_rumah_adat']["name"]))

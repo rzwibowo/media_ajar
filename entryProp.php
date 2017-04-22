@@ -83,6 +83,11 @@ if (!isset($_SESSION["user"])) header("Location: login.php");
     						</div>
                             <div id="message-luas_wilayah" style="margin-top: 5px;"></div>
     					</div>
+                        <div class="form-item">
+                            <label for="rumah_adat">Nama Baju Adat</label>
+                            <input type="text" name="baju_adat" class="w50" id="baju_adat">
+                            <div id="message-baju_adat" style="margin-top: 5px;"></div>
+                        </div>
     					<div class="form-item">
     						<label for="rumah_adat">Rumah Adat</label>
     						<input type="text" name="rumah_adat" class="w50" id="rumah_adat">

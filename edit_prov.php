@@ -12,12 +12,12 @@ $id= $_GET['r'];
                 $hasil = mysqli_query ($koneksi,$sql) or die ("Gagal Akses");
                 
                 
-				
-				?>
-				<table>
+                
+                ?>
+                <table>
 
-				<?php 
-				$row = mysqli_fetch_assoc($hasil);
+                <?php 
+                $row = mysqli_fetch_assoc($hasil);
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,57 +33,62 @@ $id= $_GET['r'];
 </head>
 <body>
     <div id="main">
-    	<div class="row align-center">
-    		<div class="col-6">
-    			<div class="head text-center">
-    				<h1>Data Provinsi</h1>
-    				
-    			</div>
-    			<form class="form" action="update_prov.php" method="POST" name="form-kirim" enctype="multipart/form-data">
-    				<fieldset>
-    						<input type="hidden" name="id_prov" class="w50" id="id_prov" value="<?php echo $row['id_prov']?>">
-    					<div class="form-item">
-    						<label for="nama_prov">Nama Provinsi</label>
-    						<input type="text" name="nama_prov" class="w50" id="nama_prov" value="<?php echo $row['nama_prov']?>">
+        <div class="row align-center">
+            <div class="col-6">
+                <div class="head text-center">
+                    <h1>Data Provinsi</h1>
+                    
+                </div>
+                <form class="form" action="update_prov.php" method="POST" name="form-kirim" enctype="multipart/form-data">
+                    <fieldset>
+                            <input type="hidden" name="id_prov" class="w50" id="id_prov" value="<?php echo $row['id_prov']?>">
+                        <div class="form-item">
+                            <label for="nama_prov">Nama Provinsi</label>
+                            <input type="text" name="nama_prov" class="w50" id="nama_prov" value="<?php echo $row['nama_prov']?>">
                               <div id="message-nama_prov" style="margin-top: 5px;"></div>
-    					</div>
-    					<div class="form-item">
-    						<label for="ibukota">Nama Ibukota</label>
-    						<input type="text" name="ibukota" class="w50" id="ibukota" value="<?php echo $row['ibukota']?>">
+                        </div>
+                        <div class="form-item">
+                            <label for="ibukota">Nama Ibukota</label>
+                            <input type="text" name="ibukota" class="w50" id="ibukota" value="<?php echo $row['ibukota']?>">
                             <div id="message-ibukota" style="margin-top: 5px;"></div>
-    					</div>
-    					<div class="form-item">
-    						<label for="jml_penduduk">Jumlah Penduduk</label>
-    						<input type="number" name="jml_penduduk" class="w30" id="jml_penduduk" value="<?php echo $row['jml_penduduk']?>">
+                        </div>
+                        <div class="form-item">
+                            <label for="jml_penduduk">Jumlah Penduduk</label>
+                            <input type="number" name="jml_penduduk" class="w30" id="jml_penduduk" value="<?php echo $row['jml_penduduk']?>">
                             <div id="message-jml_penduduk" style="margin-top: 5px;"></div>
-    					</div>
-    					<div class="form-item">
-    						<label for="luas_wilayah">Luas Wilayah</label>
-    						<div class="append w30">
-    							<input type="number" name="luas_wilayah" id="luas_wilayah" value="<?php echo $row['luas_wilayah']?>"><span>km²</span>
-    						</div>
+                        </div>
+                        <div class="form-item">
+                            <label for="luas_wilayah">Luas Wilayah</label>
+                            <div class="append w30">
+                                <input type="number" name="luas_wilayah" id="luas_wilayah" value="<?php echo $row['luas_wilayah']?>"><span>km²</span>
+                            </div>
                             <div id="message-luas_wilayah" style="margin-top: 5px;"></div>
-    					</div>
-    					<div class="form-item">
-    						<label for="rumah_adat">Rumah Adat</label>
-    						<input type="text" name="rumah_adat" class="w50" id="rumah_adat" value="<?php echo $row['rumah_adat']?>">
+                        </div>
+                        <div class="form-item">
+                            <label for="rumah_adat">Nama Baju Adat</label>
+                            <input type="text" name="baju_adat" class="w50" id="baju_adat" value="<?php echo $row['nama_baju_adat']?>">
+                            <div id="message-baju_adat" style="margin-top: 5px;"></div>
+                        </div>
+                        <div class="form-item">
+                            <label for="rumah_adat">Nama Rumah Adat</label>
+                            <input type="text" name="rumah_adat" class="w50" id="rumah_adat" value="<?php echo $row['rumah_adat']?>">
                             <div id="message-rumah_adat" style="margin-top: 5px;"></div>
-    					</div>
-    					<div class="form-item">
-    						<label for="tari_adat">Tari Adat</label>
-    						<input type="text" name="tari_adat" class="w50" id="tari_adat" value="<?php echo $row['tari_adat']?>">
+                        </div>
+                        <div class="form-item">
+                            <label for="tari_adat">Tari Adat</label>
+                            <input type="text" name="tari_adat" class="w50" id="tari_adat" value="<?php echo $row['tari_adat']?>">
                             <div id="message-tari_adat" style="margin-top: 5px;"></div>
-    					</div>
-    					<div class="form-item">
-    						<label for="bhs_daerah">Bahasa Daerah</label>
-    						<input type="text" name="bhs_daerah" class="w50" id="bhs_daerah" value="<?php echo $row['bhs_daerah']?>">
+                        </div>
+                        <div class="form-item">
+                            <label for="bhs_daerah">Bahasa Daerah</label>
+                            <input type="text" name="bhs_daerah" class="w50" id="bhs_daerah" value="<?php echo $row['bhs_daerah']?>">
                             <div id="message-bhs_daerah" style="margin-top: 5px;"></div>
-    					</div>
-    					<div class="form-item">
-    						<label for="suku">Suku</label>
-    						<input type="text" name="suku" class="w50" id="suku" value="<?php echo $row['suku']?>">
+                        </div>
+                        <div class="form-item">
+                            <label for="suku">Suku</label>
+                            <input type="text" name="suku" class="w50" id="suku" value="<?php echo $row['suku']?>">
                             <div id="message-suku" style="margin-top: 5px;"></div>
-    					</div>
+                        </div>
 
                         <div class="form-item">
                             <div>
@@ -104,14 +109,14 @@ $id= $_GET['r'];
                             <label for="gbr_baju_adat"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Baju Adat</label>
                             <div id="message-gbr_baju_adat" style="margin-top: 5px;"></div>
                         </div>
-    					<div class="row between">
-    						<button type="reset" class="button secondary outline w15">Reset</button>
-    						<button type="submit" class="button upper" id="kirim">Simpan</button>
-    					</div>
-    				</fieldset>
-    			</form>
-    		</div>
-    	</div>
+                        <div class="row between">
+                            <button type="reset" class="button secondary outline w15">Reset</button>
+                            <button type="submit" class="button upper" id="kirim">Simpan</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
