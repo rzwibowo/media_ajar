@@ -64,7 +64,12 @@ include "koneksi.php";
                                 echo "<li><a href='detail_kuis.php?id=".$rw['id']."&&soal=Soal ".$n."'>Soal no ".$n."</a></li>";
                               $n++;
                               }
-                                echo "<li><a href='entry_detail_kuis.php?id=".$row['id']."'> + Soal </a></li>";
+
+                                echo "<li><a href='entry_detail_kuis.php?id=".$row['id']."' class='button'> + </a>
+                                <a href='delete_kuis.php?r=".$row['id']."' class='button' onclick = 'if (! confirm(\'Yakin akan menghapus data kuis?\'))
+                                    { return false; }' style='background-color:#ff3366'> x </a></li>";
+
+
                                ?>
                         </ul>
                         

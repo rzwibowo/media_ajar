@@ -83,7 +83,8 @@ include "koneksi.php";
 
 
 <a href="edit_kuis.php?r=<?php echo $id ?>" class="button">Edit</a>
-<a href="delete_kuis.php?r=<?php echo $id ?>" class="button" onclick = "if (! confirm('Yakin akan menghapus data?')) { return false; }" style="background-color: #ff3333" >Hapus</a>
+<a href="delete_detail_kuis.php?r=<?php echo $id ?>" class="button" onclick = "if (! confirm('Yakin akan menghapus data?'))
+ { return false; }" style="background-color: #ff3333" >Hapus</a>
 
     		</div>
     	</div>
