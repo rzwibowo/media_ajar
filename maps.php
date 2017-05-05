@@ -23,95 +23,95 @@
 	});
    $(function(){
  
-  // show popup
-  $('.popup-show').click(function(e) {
-   
-//    e.preventDefault();
-   $('.popup').fadeIn();
-    
-  });
- 
-  $('.bg,.close1').click(function(e){
-//    e.preventDefault();
-   $('.popup').fadeOut('slow');
-  });
-  $('.close1').hover(function(){
-	 	 $("#close").attr("src", "pop_up_2-x-hover.png");
-	},function(){
-		 $("#close").attr("src", "pop_up_2-x.png");
+	// show popup
+	$('.popup-show').click(function(e) {
+	
+	//    e.preventDefault();
+	$('.popup').fadeIn();
+		
 	});
-    
-  
- });
+	
+	$('.bg,.close1').click(function(e){
+	//    e.preventDefault();
+	$('.popup').fadeOut('slow');
+	});
+	$('.close1').hover(function(){
+			$("#close").attr("src", "pop_up_2-x-hover.png");
+		},function(){
+			$("#close").attr("src", "pop_up_2-x.png");
+		});
+		
+	
+	});
 	</script>
 	<style type="text/css">
-.popup{
-    display: none;
-    position: absolute;
+	.popup{
+		display: none;
+		position: absolute;
+		position: fixed;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		z-index:1001;
+	}
+	.bg{
 	position: fixed;
-	top: 0%;
-	left: 0%;
-	width: 100%;
-	height: 100%;
-	z-index:1001;
- }
- .bg{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /*background: #ddd;*/
-  background: transparent;
- }
- .content{
-  position: relative;
-/*  border:1px solid black;*/
-  top:50px;
-  width:900px; 
-  height: 500px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  background-image: url("pop_up_2.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  
- }
- .content-text{
- 	
-   
- }
- .close1{
-  display: inline-block;
-  padding: 7px 15px;
-  margin-left:0px;
-  cursor: pointer;
-  color: #fff;
- 
- }
- #info_rumah{
- 	border:2px solid #f2b90d;
- 	border-radius: 8px;
-	overflow: hidden;
- }
- #info_nama_provinsi{
- 	text-align: center;
- 	margin-top: 12px;
- }
- #info_nama_provinsi h3{
- 	color: white;
- }
- #info_lain h4,table{
- 	color: #f2f20d;
- }
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	/*background: #ddd;*/
+	background: transparent;
+	}
+	.content{
+	position: relative;
+	/*  border:1px solid black;*/
+	top:50px;
+	width:900px; 
+	height: 500px;
+	margin: 0 auto;
+	padding: 10px 20px;
+	background-image: url("pop_up_2.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+	}
+	.content-text{
+		
+	
+	}
+	.close1{
+	display: inline-block;
+	padding: 7px 15px;
+	margin-left:0px;
+	cursor: pointer;
+	color: #fff;
+	
+	}
+	#info_rumah{
+		border:2px solid #f2b90d;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	#info_nama_provinsi{
+		text-align: center;
+		margin-top: 12px;
+	}
+	#info_nama_provinsi h3{
+		color: white;
+	}
+	#info_lain h4,table{
+		color: #f2f20d;
+	}
 
 
-table, th, td {
-	padding: 0px 0px;
-}
-table{
-	/*border: 1px solid black;*/
-}
+	table, th, td {
+		padding: 0px 0px;
+	}
+	table{
+		/*border: 1px solid black;*/
+	}
 	</style>
 
 
@@ -178,48 +178,48 @@ table{
 
 						<map id="petaInd" name="petaInd">
 
-					<?php
-include 'koneksi.php';
-$result = mysqli_query($koneksi,"SELECT coords,nama_prov,id_prov FROM provinsi");
-while ($rs=mysqli_fetch_array($result)) {
-	echo "<area shape='poly' coords='$rs[coords]' href='#'  title='$rs[nama_prov]'  onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
-}
-?>
-	</map>
+						<?php
+							include 'koneksi.php';
+							$result = mysqli_query($koneksi,"SELECT coords,nama_prov,id_prov FROM provinsi");
+							while ($rs=mysqli_fetch_array($result)) {
+								echo "<area shape='poly' coords='$rs[coords]' href='#'  title='$rs[nama_prov]'  onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
+							}
+						?>
+						</map>
 
 	<!-- pemanggilan area selesai -->
 
 	<!-- popup info provinsi -->
- <div class="popup">
-  <div class="bg"></div>
-  <div class="content">
-   <div class="content-text">
-   	<div class="row">
-    	<div class="col col-10" id="info_nama_provinsi">
-    	</div>
-    	<div class="col col-2" >
-    		<div class="close1"><img id="close" src="pop_up_2-x.png"></div>
-    	</div>
-	</div>
-	<div class="row info" >
-		<div class="col col-4" id="info_rumah">
-				
-		</div>
-		<div class="col col-4" id="info_baju">
-			
-		</div>
-		<div class="col col-4" id="info_lain"  >
-				<h4>Info Provinsi</h4>
+					<div class="popup">
+						<div class="bg"></div>
+							<div class="content">
+								<div class="content-text">
+									<div class="row">
+										<div class="col col-10" id="info_nama_provinsi">
+										</div>
+										<div class="col col-2" >
+											<div class="close1"><img id="close" src="pop_up_2-x.png"></div>
+										</div>
+									</div>
+									<div class="row info" >
+										<div class="col col-4" id="info_rumah">
+												
+										</div>
+										<div class="col col-4" id="info_baju">
+											
+										</div>
+										<div class="col col-4" id="info_lain"  >
+												<h4>Info Provinsi</h4>
 
-				<table>
-					
-				</table>
-		</div>
-	</div>
-   </div>
-   
-  </div>
- </div>
+												<table>
+													
+												</table>
+										</div>
+									</div>
+								</div>
+						
+						</div>
+					</div>
  	<!-- popup info provinsi selesai -->
 
 
@@ -227,6 +227,11 @@ while ($rs=mysqli_fetch_array($result)) {
 
 				</div>
 				
+				<div class="row pilih-peta between">
+					<a href="" class="button large">Peta pembagian waktu</a>
+					<a href="" class="button large">Peta batas wilayah</a>
+					<a href="" class="button large">Peta letak Indonesia</a>
+				</div>
 			</div>
 		</div>
 
