@@ -85,7 +85,7 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
         echo"<div class='col col-2 push-right'><input type='submit' class='button' value='Selesai' id='selesai' name='btn'/></div> ";     
     }else{
 
-        echo"<div class='col col-2 push-right' style='border:1px solid black'><input type='submit' class='button' value='Next' id='next' name='btn'/></div> ";        
+        echo"<div class='col col-2 push-right'><input type='submit' class='button' value='Next' id='next' name='btn'/></div> ";        
     }
         echo "</form>";
 

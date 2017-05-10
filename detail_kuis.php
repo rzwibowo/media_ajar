@@ -25,6 +25,9 @@ include "koneksi.php";
 
 </head>
 <body>
+<?php
+    include 'kepala.php';
+?>
     <div id="main">
     	<div class="row align-center">
     		<div class="col-6">

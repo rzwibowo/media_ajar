@@ -44,8 +44,9 @@
 	<nav class="col-8" id="navbar-main">
 		<ul>
 <!-- <<<<<<< HEAD -->
+			<li><a class="button round secondary outline smaller" href="" onclick="self.history.back()"><span class="caret left"></span>&nbsp;Kembali</a></li>
 			<li><a href="admin.php">Halaman Admin</a></li>
-			<li><a id="linkprop" href="entryProp.php">Data Provinsi</a></li>
+			<li><a id="linkprop" href="daftar_prov.php">Data Provinsi</a></li>
 			<li><a id="linkkuis" href="daftarkuis.php">Data Kuis</a></li>
 <!-- ======= -->
 			<!-- <li><a  href="daftar_prov.php">Data Provinsi</a></li>
