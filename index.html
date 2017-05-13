@@ -55,16 +55,16 @@
 				<div class="w70 text-center push-center">
 					<!-- <legend>Menu Utama</legend> -->
 					<div class="form-item">
-						<a href="materi.html" class="button large">Materi</a>
-					</div>
-					<div id="peta" class="form-item">
-						<a href="maps.php" role="button"><img id="peta-img" src="img/index/menu_peta.png" alt="" class="w50"></a>
+						<a href="materi.html" role="button"><img id="materi-img" src="img/index/menu_materi.png" alt=""></a>
 					</div>
 					<div class="form-item">
-						<a href="#" class="button large">Peta Pembagian Waktu</a>
+						<a href="maps.php" role="button"><img id="peta-img" src="img/index/menu_peta.png" alt=""></a>
 					</div>
 					<div class="form-item">
-						<a href="#" class="button large">Peta Buta</a>
+					</div>
+						<a href="materi.html" role="button"><img id="peta_waktu-img" src="img/index/menu_peta_waktu.png" alt=""></a>
+					<div class="form-item">
+						<a href="materi.html" role="button"><img id="peta_buta-img" src="img/index/menu_peta_buta.png" alt=""></a>
 					</div>
 					<div class="form-item">
 						<!-- <a href="" class="button large">pentingnya persatuan dan kesatuan NKRI</a> -->
@@ -145,12 +145,36 @@
 			    $("#abt-img").attr("src", "img/index/about.png");
 			}
 		);
-		$("#kuis").hover(
+		$("a[href='kuis.php']").hover(
 			function(){
 			    $("#kuis-img").attr("src", "img/index/menu_kuis_hover.png");
 			},
 			function(){
 			    $("#kuis-img").attr("src", "img/index/menu_kuis.png");
+			}
+		);
+		$("a[href='maps.php']").hover(
+			function(){
+			    $("#peta-img").attr("src", "img/index/menu_peta_hover.png");
+			},
+			function(){
+			    $("#peta-img").attr("src", "img/index/menu_peta.png");
+			}
+		);
+		$("a[href='materi.html']").hover(
+			function(){
+			    $("#materi-img").attr("src", "img/index/menu_materi_hover.png");
+			},
+			function(){
+			    $("#materi-img").attr("src", "img/index/menu_materi.png");
+			}
+		);
+		$("#peta").hover(
+			function(){
+			    $("#peta-img").attr("src", "img/index/menu_peta_hover.png");
+			},
+			function(){
+			    $("#peta-img").attr("src", "img/index/menu_peta.png");
 			}
 		);
 		$("#peta").hover(

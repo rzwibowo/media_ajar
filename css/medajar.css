@@ -292,3 +292,28 @@ html{
 .pilih-peta{
 	padding: 20px 20px;
 }
+
+
+
+#materi-page #materi-show {
+	background-image: url('../img/materi/bg_materi.png');
+	background-size: 100% 100%;
+	margin-top: 5%;
+	height: 480px;
+}
+
+@font-face { font-family: Indie Flower; src: url('../font/IndieFlower.ttf'); }
+#materi-page #materi-show .materi{
+	font-family: Indie Flower;
+	font-size: 2em;
+	line-height: 150%;
+	padding: 2% 5% 
+}
+
+#judul-materi{
+	font-family: Indie Flower;
+	background-color: #c90;
+	color: #fff;
+	border-radius: 10px;
+	padding: 2%;
+}
