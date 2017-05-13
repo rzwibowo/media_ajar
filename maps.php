@@ -17,9 +17,9 @@
 <!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
       <script type="text/javascript">
-  	 $(window).load(function() {
+  	$(window).load(function() {
 		// Animate loader off screen
-		$(".se-pre-con").fadeOut("slow");;
+		$(".se-pre-con").fadeOut("slow");
 	});
    $(function(){
  
@@ -40,7 +40,10 @@
 		},function(){
 			$("#close").attr("src", "pop_up_2-x.png");
 		});
-		
+  $('.bg,.close').click(function(e){
+   e.preventDefault();
+   $('.popup-pembagian-waktu').fadeOut('slow');
+  });
 	
 	});
 	</script>
@@ -79,7 +82,6 @@
 	}
 	.content-text{
 		
-	
 	}
 	.close1{
 	display: inline-block;
@@ -111,6 +113,38 @@
 	}
 	table{
 		/*border: 1px solid black;*/
+	}
+
+	.popup-pembagian-waktu{
+		display: none;
+		position: absolute;
+		position: fixed;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		z-index:1001;
+	}
+	.close{
+		  display: inline-block;
+		  padding: 7px 15px;
+		  cursor: pointer;
+		  background: #E74C3C;
+		  color: #fff;
+     }
+ 	.close:hover,.close:visited{
+  		background: #C0392B;
+ 	}
+ 	.content-pembagian-waktu{
+		position: relative;
+		/*  border:1px solid black;*/
+		top:100px;
+		width:1200px; 
+		height: 550px;
+		margin: 0 auto;
+		padding: 10px 20px;
+		background:rgba(51, 204, 255, .5);
+	/*51, 204, 255*/
 	}
 	</style>
 
@@ -172,7 +206,9 @@
 
 				<!-- gambar peta -->
 				<div id="content">
+				<div id="map-peta">
 					<img id="map-img" src="img/maps/Peta-4-mini_bener.png" data-magnify-src="img/maps/Peta-4-mini.png" alt="" usemap="#petaInd">
+				</div>
 
 	<!-- pemanggilan koordinat area dari database -->
 
@@ -222,15 +258,81 @@
 					</div>
  	<!-- popup info provinsi selesai -->
 
-
+	<!-- popup pembagian waktu -->
+					<div class="popup-pembagian-waktu">
+						<div class="bg"></div>
+							<div class="content-pembagian-waktu">
+							<div class="close"></div>
+								<div class="content-text">
+									<div class="row auto" style="text-align: center;">
+									    <div class="col">
+									    	
+									    	<h1>WIB</h1>
+									    	<div style="text-align:left;border: 0px solid black; color: white">
+									    		<ol style="margin-left: 30px;">
+													<li>DI Yogyakarta</li>
+													<li>DKI Jakarta</li>
+													<li>Jambi</li>
+													<li>Jawa Barat</li>
+													<li>Jawa Tengah</li>
+													<li>Jawa Timur</li>
+													<li>Bangka Belitung</li>
+													<li>Banten</li>
+													<li>Bengkulu</li>
+													<li>Kalimantan Barat</li>
+													<li>Kalimantan Tengah</li>
+													<li>Kepulauan Riau (Kepri)</li>
+													<li>Lampung</li>
+													<li>Nangroe Aceh Darussalam</li>
+													<li>Riau</li>
+													<li>Sumatera Barat</li>
+													<li>Sumatera Selatan</li>
+													<li>Sumatera Utara</li>
+									    		</ol>
+									    	</div>
+									    </div>
+									    <div class="col">
+									    	<h1>WITA</h1>
+									    	<div style="text-align:left;border: 0px solid black; color: white">
+												<ol style="margin-left: 30px;">
+													<li>Bali</li>
+													<li>Gorontalo</li>
+													<li>Kalimantan Selatan</li>
+													<li>Kalimantan Timur</li>									    	
+													<li>Kalimantan Utara</li>
+													<li>Nusa Tenggara Barat</li>
+													<li>Nusa Tenggara Timur</li>
+													<li>Sulawesi Barat</li>
+													<li>Sulawesi Selatan</li>
+													<li>Sulawesi Tengah</li>
+													<li>Sulawesi Tenggara</li>
+													<li>Sulawesi Utara</li>
+												</ol>
+									    	</div>
+									    </div>
+									    <div class="col">
+									    	<h1>WIT</h1>
+									    	<div style="text-align:left;border: 0px solid black; color: white">
+									    		<ol style="margin-left: 30px;">
+									    			<li>Maluku</li>
+									    			<li>Maluku Utara</li>
+													<li>Papua</li>
+													<li>Papua Barat</li>
+									    		</ol>
+									    	</div>
+									    </div>
+									</div>							
+								</div>
+							</div>
 
 
 				</div>
+<!-- popup pembagian waktu-->
 				
 				<div class="row pilih-peta between">
-					<a href="" class="button large">Peta pembagian waktu</a>
-					<a href="" class="button large">Peta batas wilayah</a>
-					<a href="" class="button large">Peta letak Indonesia</a>
+					<button class="button large" id="pembagian-waktu">Peta pembagian waktu</button>
+					<button  class="button large" id="batas-wilayah">Peta batas wilayah</button>
+					<button class="button large" id="latak-indonesia">Peta letak Indonesia</button>
 				</div>
 			</div>
 		</div>
@@ -243,6 +345,8 @@
 
 	<script>
 		// pemanggilan popup dan data
+		var batas_wilayah='on';
+		var letak_indonesia ='on';
 		function gembus(id){
 			 $.post("ajax_getdata.php",
        		 {
@@ -265,8 +369,66 @@
         	});			
 		}
 		// ------
+		//batas-wilayah
+		$("#batas-wilayah").click(function(){
+	      
+			if(batas_wilayah=='on')
+			{	
+				$('#map-peta').empty();
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\" usemap=\"#petaInd\">");
+				batas_wilayah='of';
+				
+			}else
+			{
+				$('#map-peta').empty();
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
+				batas_wilayah='on';
 
+			}
+			$("#map-img").mapster({
+				fillColor: '2c3e50',
+				fillOpacity: 0.5,
+				stroke: true,
+				strokeColor: '95a5a6',
+				strokeOpacity: 0.7,
+				strokeWidth: 3
+			});
+		});
+	//end batas wilayah
+	//letak indonesia
+		$("#latak-indonesia").click(function(){
+	      
+			if(letak_indonesia=='on')
+			{	
+				$('#map-peta').empty();
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\" usemap=\"#petaInd\">");
+				letak_indonesia='of';
+				
+			}else
+			{
+				$('#map-peta').empty();
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
+				letak_indonesia='on';
+
+			}
+			$("#map-img").mapster({
+				fillColor: '2c3e50',
+				fillOpacity: 0.5,
+				stroke: true,
+				strokeColor: '95a5a6',
+				strokeOpacity: 0.7,
+				strokeWidth: 3
+			});
+		});
+
+		//end letak indo
 		// highlight maps
+		$('#pembagian-waktu').click(function()
+		{
+
+			$('.popup-pembagian-waktu').fadeIn();
+		});
+		
 		$("#map-img").mapster({
 			fillColor: '2c3e50',
 			fillOpacity: 0.5,
@@ -275,7 +437,8 @@
 			strokeOpacity: 0.7,
 			strokeWidth: 3
 		});
-		// var untuk kaca pembesar
+		
+			// var untuk kaca pembesar
 		var $perbesar="";
 		// sembunyikan menu untuk layar kecil
 		$("#menu-sm").hide();
