@@ -4,8 +4,8 @@ session_start();
 include "koneksi.php";
 include "functionAll.php";
 
-$_SESSION[get_client_ip()]['benar']=0;
-$_SESSION[get_client_ip()]['salah']=0;
+$_SESSION[session_id()]['benar']=0;
+$_SESSION[session_id()]['salah']=0;
 // if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</script>";
 
 ?>

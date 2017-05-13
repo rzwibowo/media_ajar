@@ -3,7 +3,7 @@ session_start();
 include "functionAll.php";
 include "koneksi.php";
 
-if (!isset($_SESSION[get_client_ip()])) echo "<script>location.replace('kuis.php');</script>";
+if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');</script>";
 
 ?>
 <!DOCTYPE html>
@@ -46,13 +46,16 @@ if (!isset($_SESSION[get_client_ip()])) echo "<script>location.replace('kuis.php
                  $rs= mysqli_fetch_assoc($result);
                 ?>
                 <h3>Jumlah Soal : <?php echo $rs['jumlah']?></h3>
-                <h4>Jawaban  Benar :<?php echo  $_SESSION[get_client_ip()]['benar']; ?></h4>
+                <h4>Jawaban  Benar :<?php echo  $_SESSION[session_id()]['benar']; ?></h4>
 
-                <h4>Jawaban Salah  :<?php echo  $_SESSION[get_client_ip()]['salah'];?></h4>
+                <h4>Jawaban Salah  :<?php echo  $_SESSION[session_id()]['salah'];?></h4>
                
                  </div>
     			</div>
-                
+                <?php
+
+                unset($_SESSION[session_id()]);
+                ?>
     			
     		</div>
     	</div>

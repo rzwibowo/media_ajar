@@ -2,7 +2,7 @@
 session_start();
 include "functionAll.php";
 include "koneksi.php";
-if (!isset($_SESSION[get_client_ip()])) echo "<script>location.replace('login.php');</script>";
+if (!isset($_SESSION[session_id()])) echo "<script>location.replace('login.php');</script>";
 
 $ik      = $_GET['r'];
 $posisi  = $_GET['p'];
@@ -64,7 +64,7 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
     $query = mysqli_query($koneksi,"select * from detail_kuis WHERE id_kuis='$ik' limit $posisi,$batas ");
  
     $r=mysqli_fetch_assoc($query);
-    echo "<form action='mulai_kuis.php' method='GET' class='col col-12'>";
+    echo "<form action='mulai_kuis.php' method='GET' class='col col-12' id='form'>";
     echo "<div class='col col-12 ' id='soal'><b class='soal'>$no. $r[soal]</b></div>";
     echo "<div class='col col-12' id='pilihan'>&nbsp;&nbsp;&nbsp;&nbsp;<b class='pilihan'><input type='radio'  name='jawaban' value='a' id='radio_a'/>A. $r[pilihan_a]</b></div>";
     echo "<div class='col col-12' id='pilihan'>&nbsp;&nbsp;&nbsp;&nbsp;<b class='pilihan'><input type='radio'  name='jawaban' value='b' id='radio_b'/>B. $r[pilihan_b]</b></div>";
@@ -82,23 +82,22 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
    $count= mysqli_num_rows($result1);
   
    if($count == 0){
-        echo"<div class='col col-2 push-right'><input type='submit' class='button' value='Selesai' id='selesai' name='btn'/></div> ";     
+        echo"<div class='col col-2 push-right'><input type='submit' class='button' value='Selesai' id='selesai' name='btn' onclick='next()'/></div> ";     
     }else{
-
-        echo"<div class='col col-2 push-right'><input type='submit' class='button' value='Next' id='next' name='btn'/></div> ";        
+  echo"<div class='col col-2 push-right'><input type='submit' class='button' value='Next' id='Next' name='btn' onclick='next()'/></div> ";  
+       
     }
         echo "</form>";
 
     if(isset($_GET['btn'])){
             if($_GET['btn']=="Selesai"){
-                priksa_kuis($dk,$jawaban,get_client_ip(),$koneksi);
+                priksa_kuis($dk,$jawaban,session_id(),$koneksi);
                 header('Location: kuis_selesai.php?kd='.$ik);             
             }elseif($_GET['btn']=="Next"){
-                 priksa_kuis($dk,$jawaban,get_client_ip(),$koneksi);  
+                 priksa_kuis($dk,$jawaban,session_id(),$koneksi);  
             }
-    }
-         
-                   ?>
+    } 
+?>
                     </div>
     			</div>
                 
@@ -110,6 +109,33 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
     <!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/kube.js"></script>
-    
+    <script type="text/javascript">
+        
+    function next() 
+    {
+
+      $( "#form" ).submit(function( event ) {
+                
+            if ($("#radio_a").is(":checked")) {
+              return;
+             }else if($("#radio_b").is(":checked")){
+               return;
+             }else if($("#radio_c").is(":checked")){
+              return;
+             }else if($("#radio_d").is(":checked")){
+              return;
+             }else{
+                alert("Pilih Salah Satu Jawaban Terlebih Dahulu");
+                event.preventDefault();
+            }
+                
+       });
+            
+            
+            
+    }
+
+
+    </script>
 </body> 
 </html>
