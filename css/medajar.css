@@ -317,3 +317,9 @@ html{
 	border-radius: 10px;
 	padding: 2%;
 }
+
+#materi-page #back{
+	position: absolute;
+	left: 3%;
+	top: 3%;
+}
