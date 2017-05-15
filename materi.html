@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>DEPAN</title>
+	<title>Materi</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Kube CSS -->
@@ -72,7 +72,7 @@
 							<p class="materi" id="materi5">
 								Pembagian wilayah waktu di Indonesia terdiri atas Waktu Indonesia Bagian Barat (WIB), Waktu Indonesia Bagian Tengah (WITA), dan Waktu Indonesia Bagian Timur (WIT). Setiap perbedaan waktu memiliki selisih waktu satu jam. Jika di Kota Medan waktu menunjukkan pukul 08.00, maka di Kota Denpasar menunjukkan pukul 09.00, sedangkan di Kota Ambon sudah menunjukkan pukul 10.00. Coba perhatikan kota lainnya di peta!
 							<div class="form-item">
-								<a href="materi.html" role="button"><img id="peta_waktu-img" src="img/index/menu_peta_waktu.png" alt=""></a>
+								<a href="materi.html" id="peta_waktu" role="button"><img id="peta_waktu-img" src="img/index/menu_peta_waktu.png" alt=""></a>
 							</div>
 							</p>
 						</div>
@@ -99,6 +99,14 @@
     <script src="js/kube.js"></script>
 
     <script>
+    	$("#back").hover(
+			function(){
+			    $("#back-img").attr("src", "img/maps/kembali_hover.png");
+			},
+			function(){
+			    $("#back-img").attr("src", "img/maps/kembali.png");
+			}
+		);
     	$("#pre").click(function(){
     		$("#tabs").tabs("prev");
     		$(".materi").animation("flipIn")
@@ -121,6 +129,14 @@
 			},
 			function(){
 			    $("#nex-img").attr("src", "img/materi/next.png");
+			}
+		);
+    	$("#peta_waktu").hover(
+			function(){
+			    $("#peta_waktu-img").attr("src", "img/index/menu_peta_waktu_hover.png");
+			},
+			function(){
+			    $("#peta_waktu-img").attr("src", "img/index/menu_peta_waktu.png");
 			}
 		);
 	</script>

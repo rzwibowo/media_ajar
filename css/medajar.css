@@ -295,7 +295,7 @@ html{
 
 
 
-#materi-page #materi-show {
+#materi-show {
 	background-image: url('../img/materi/bg_materi.png');
 	background-size: 100% 100%;
 	margin-top: 5%;
@@ -303,7 +303,7 @@ html{
 }
 
 @font-face { font-family: Indie Flower; src: url('../font/IndieFlower.ttf'); }
-#materi-page #materi-show .materi{
+#materi-show .materi{
 	font-family: Indie Flower;
 	font-size: 2em;
 	line-height: 150%;
@@ -318,7 +318,7 @@ html{
 	padding: 2%;
 }
 
-#materi-page #back{
+#materi-page #back, #kuis-page #back{
 	position: absolute;
 	left: 3%;
 	top: 3%;
