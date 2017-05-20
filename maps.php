@@ -86,13 +86,13 @@
 				<div id="head" class="hide-sm">
 					<div class="row between">
 					
-						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
+						<a href="index.html" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
 						<p id="kontrolKanan" class="w15 row between">
-							<a href="#" class="w30" style="display: inline-block" id="lup">
+							<a href="#" style="display: inline-block" id="lup">
 								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
 								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
 							</a>
-							<a href="#" style="display: inline-block" class="w30"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>

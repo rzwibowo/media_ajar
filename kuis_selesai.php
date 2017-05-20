@@ -25,14 +25,25 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
     }
     </style>
 
+    <script src="js/jquery.js"></script>
+
 </head>
-<body>
+<body id="index">
 <?php
  //   include 'kepala.php';
 ?>
-    <div id="main">
-    	<div class="row align-center">
-    		<div class="col-6">
+    <div id="kuis-page">
+        <div id="ornamen" class="col col-12 text-center">
+            <img id="awan" src="img/index/awan-menu.gif" alt="">
+        <!-- <img id="pohon" src="img/index/pohon.png" alt=""> -->
+        </div>
+
+        <div class="row">
+            <a href="index.html" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
+        </div>
+        
+        <div  class="row align-center">
+    		<div id="materi-show" class="materi col-6">
     			<div class="text-center">
     				<h1>KUIS SELESAI</h1>
     				
@@ -64,5 +75,16 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
     <!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/kube.js"></script>
+
+    <script>
+        $("#back").hover(
+            function(){
+                $("#back-img").attr("src", "img/maps/kembali_hover.png");
+            },
+            function(){
+                $("#back-img").attr("src", "img/maps/kembali.png");
+            }
+        );
+    </script>
 </body>
 </html>

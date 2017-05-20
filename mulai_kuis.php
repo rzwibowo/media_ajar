@@ -41,12 +41,17 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
    
 
 </head>
-<body>
+<body id="index">
 
-    <div id="main">
+    <div id="ornamen" class="col col-12 text-center">
+        <img id="awan" src="img/index/awan-menu.gif" alt="">
+        <!-- <img id="pohon" src="img/index/pohon.png" alt=""> -->
+    </div>
+
+    <div id="kuis-page">
     	<div class="row align-center">
-    		<div class="col-6">
-    			<div class="text-center">
+    		<div id="materi-show" class="col-6">
+    			<div class="materi text-center">
     				<h1>MULAI KUIS</h1>
     				
     			</div>

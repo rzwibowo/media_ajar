@@ -20,20 +20,24 @@ $_SESSION[session_id()]['salah']=0;
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
-   
+
+    <script src="js/jquery.js"></script> 
 
 </head>
 <body>
 <?php
     // include 'kepala.php';
 ?>
-    <div id="main">
+    
+    <div id="kuis-page">
+        <div class="row">
+            <a href="index.html" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
+        </div>
     	<div class="row align-center">
     		<div class="col-6">
     			<div class="text-center">
     				<h1>KUIS</h1>
     				
-    			</div>
                
                 <br>
                  <?php 
@@ -44,8 +48,6 @@ $_SESSION[session_id()]['salah']=0;
 
                 
                 ?>
-    			<div>
-                   
                 <?php while ($row = mysqli_fetch_array ($hasil)){
                    
                     echo "<a href='mulai_kuis.php?r=".$row['id']."&p=0'>".$row['nama']."</a><br>";
@@ -60,7 +62,16 @@ $_SESSION[session_id()]['salah']=0;
     </div>
 
     <!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/kube.js"></script>
+    <script>
+        $("#back").hover(
+            function(){
+                $("#back-img").attr("src", "img/maps/kembali_hover.png");
+            },
+            function(){
+                $("#back-img").attr("src", "img/maps/kembali.png");
+            }
+        );
+    </script>
 </body>
 </html>
