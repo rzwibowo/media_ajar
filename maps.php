@@ -248,24 +248,28 @@
 			if(batas_wilayah=='on')
 			{	
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\" usemap=\"#petaInd\">");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\" >");
 				batas_wilayah='of';
+				$('html, body').animate({scrollTop:0},'slow');
+				$('#batas-wilayah').attr('style','background-color:#039');
 				
 			}else
 			{
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" >");
 				batas_wilayah='on';
+				$('html, body').animate({scrollTop:0},'slow');
+				$('#batas-wilayah').attr('style','');
 
 			}
-			$("#map-img").mapster({
-				fillColor: '2c3e50',
-				fillOpacity: 0.5,
-				stroke: true,
-				strokeColor: '95a5a6',
-				strokeOpacity: 0.7,
-				strokeWidth: 3
-			});
+			// $("#map-img").mapster({
+			// 	fillColor: '2c3e50',
+			// 	fillOpacity: 0.5,
+			// 	stroke: true,
+			// 	strokeColor: '95a5a6',
+			// 	strokeOpacity: 0.7,
+			// 	strokeWidth: 3
+			// });
 		});
 	//end batas wilayah
 	//letak indonesia
@@ -274,24 +278,28 @@
 			if(letak_indonesia=='on')
 			{	
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\" usemap=\"#petaInd\">");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\" >");
 				letak_indonesia='of';
+				$('html, body').animate({scrollTop:0},'slow');
+				$('#latak-indonesia').attr('style','background-color:#039');
 				
 			}else
 			{
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" >");
 				letak_indonesia='on';
+				$('html, body').animate({scrollTop:0},'slow');
+				$('#latak-indonesia').attr('style','');
 
 			}
-			$("#map-img").mapster({
-				fillColor: '2c3e50',
-				fillOpacity: 0.5,
-				stroke: true,
-				strokeColor: '95a5a6',
-				strokeOpacity: 0.7,
-				strokeWidth: 3
-			});
+			// $("#map-img").mapster({
+			// 	fillColor: '2c3e50',
+			// 	fillOpacity: 0.5,
+			// 	stroke: true,
+			// 	strokeColor: '95a5a6',
+			// 	strokeOpacity: 0.7,
+			// 	strokeWidth: 3
+			// });
 		});
 
 		//end letak indo
@@ -300,6 +308,7 @@
 		{
 
 			$('.popup-pembagian-waktu').fadeIn();
+			$('html, body').animate({scrollTop:0},'slow');
 		});
 		
 		$("#map-img").mapster({

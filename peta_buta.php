@@ -109,14 +109,6 @@ unset($_SESSION['kuis_pulau']);
 	    <ul>
 	        <li><a href="#">Bantuan</a></li>
 	        <li><a href="index.html">Kembali ke Depan</a></li>
-	        <li style="vertical-align:middle">
-	        	<p style="display: inline-block; margin-bottom: 0px; color: #fff">Kaca Pembesar</p>
-		        <div class="custom-chk">
-				
-					<input type="checkbox" value="1" id="chkInput" class="chkZoom">
-					<label for="chkInput"></label>
-				</div>
-			</li>
 	    </ul>
 	</div>
 	<!-- menu layar kecil selesai -->
@@ -131,12 +123,9 @@ unset($_SESSION['kuis_pulau']);
 					<div class="row between">
 					
 						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
-						<p id="kontrolKanan" class="w15 row between">
-							<a href="#" class="w30" style="display: inline-block" id="lup">
-								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
-								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
-							</a>
-							<a href="#" style="display: inline-block" class="w30"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+						<p id="kontrolKanan">
+
+							<a href="#" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -145,7 +134,7 @@ unset($_SESSION['kuis_pulau']);
 
 				<!-- gambar peta -->
 				<div id="content">
-					<img id="map-img" src="img/maps/peta buta 2.png" data-magnify-src="img/maps/Peta-4-mini.png" alt="" usemap="#petaInd">
+					<img id="map-img" src="img/maps/peta buta 2.png" alt="" usemap="#petaInd">
 
 	<!-- pemanggilan koordinat area dari database -->
 
@@ -180,7 +169,7 @@ unset($_SESSION['kuis_pulau']);
 						<div class="bg"></div>
 							<div class="content-kuis">
 								<div class="content-text">
-								<p>Silahkan Nama Pulau</p>
+								<p>Apa Nama Pulaunya?</p>
 								<input type="hidden" id="id_pulau">
 								<input type="text" id="nama_pulau" >
 								<div style="text-align: center; margin-top: 15px;"><button id="ok">OK</button></div>
@@ -333,29 +322,6 @@ unset($_SESSION['kuis_pulau']);
 				$("#menu-sm").slideToggle();
 			}
 		);
-		// tombol slide untuk kaca pembesar
-		$(".chkZoom").click(function(){
-			if($(this).prop("checked")==true){
-				$perbesar=$("#map-img").magnify();
-				$("#map-img").mapster('unbind');
-			}
-			else if($(this).prop("checked")==false){
-				$perbesar.destroy();
-				$("#map-img").mapster();
-			}
-		});
-		// tombol kaca pembesar
-		$("#lup").click(function(){
-			$(".img-lup").fadeToggle();
-		});
-		$("#zoomOff").click(function(){
-			$perbesar=$("#map-img").magnify();
-			$("#map-img").mapster('unbind');
-		});
-		$("#zoomOn").click(function(){
-			$perbesar.destroy();
-			$("#map-img").mapster();
-		});
 		
 	</script>
 </body>
