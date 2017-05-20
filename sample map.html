@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+#map {
+    position:relative
+}
+.map_title {
+    position:absolute;    
+}
+</style>
+</head>
+<body>
+
+<p>Click on the sun or on one of the planets to watch it closer:</p>
+
+<div id="map">
+    <img src="http://placehold.it/145x126" width="145" height="126" alt="Planets" usemap="#planetmap">
+</div>
+
+<map name="planetmap">
+    <area shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun" data-name="Sun">
+    <area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury"  data-name="Mercury">
+    <area shape="circle" coords="124,58,8" href="venus.htm" alt="Venus" data-name="Venus">
+</map>
+
+
+<script>
+$(function() {
+
+    $('area').each(function(){
+        var txt=$(this).data('name');
+        var coor=$(this).attr('coords');
+        var coorA=coor.split(',');
+        var left=coorA[0];
+        var top=coorA[1];
+
+        var $span=$('<span class="map_title">'+txt+'</span>');        
+        $span.css({top: top+'px', left: left+'px', position:'absolute'});
+        $span.appendTo('#map');
+    })
+
+})
+</script>
+</body>
+</html>

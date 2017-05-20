@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2017 at 06:54 PM
+-- Generation Time: May 20, 2017 at 11:52 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -50,6 +50,68 @@ INSERT INTO `detail_kuis` (`id`, `soal`, `pilihan_a`, `pilihan_b`, `pilihan_c`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `detail_pembagian_waktu`
+--
+
+CREATE TABLE `detail_pembagian_waktu` (
+  `id` int(11) NOT NULL,
+  `nama_daerah` varchar(50) NOT NULL,
+  `id_pembagian_waktu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_pembagian_waktu`
+--
+
+INSERT INTO `detail_pembagian_waktu` (`id`, `nama_daerah`, `id_pembagian_waktu`) VALUES
+(11, 'Semarang', 2),
+(12, 'Wonosobo', 2),
+(13, 'Pekalongan', 2),
+(14, 'Surakarta', 2),
+(15, 'Tegal', 2),
+(16, 'Cilacap', 2),
+(17, 'Kebumen', 2),
+(18, 'Klaten', 2),
+(19, 'Purworejo', 2),
+(20, 'Sragen', 2),
+(21, 'Bandung', 1),
+(22, 'Bandung Barat', 1),
+(23, 'Bekasi', 1),
+(24, 'Bogor', 1),
+(25, 'Ciamis', 1),
+(26, 'Cianjur', 1),
+(27, 'Cirebon', 1),
+(28, 'Garut', 1),
+(29, 'Indramayu', 1),
+(30, 'Karawang', 1),
+(31, 'Makassar', 3),
+(32, 'Bontoala', 3),
+(33, 'Biring Kanaya ', 3),
+(34, 'Mamajang', 3),
+(35, 'Manggala', 3),
+(36, 'Panakkukang', 3),
+(37, 'Rappocini', 3),
+(38, 'Tallo', 3),
+(39, 'Tamalanrea', 3),
+(40, 'Tamalate', 3),
+(41, 'Denpasar Barat', 4),
+(42, 'Denpasar Selatan', 4),
+(43, 'Denpasar Timur', 4),
+(44, 'Denpasar Utara', 4),
+(45, 'Asmat', 5),
+(46, 'Biak Numfor', 5),
+(47, 'Boven Digoel', 5),
+(48, 'Deiyai', 5),
+(49, 'Dogiyai', 5),
+(50, 'Buru', 6),
+(51, 'Buru Selatan', 6),
+(52, 'Kepulauan Aru', 6),
+(53, 'Maluku Barat Daya', 6),
+(54, 'Maluku Tengah', 6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kuis`
 --
 
@@ -66,6 +128,30 @@ INSERT INTO `kuis` (`id`, `nama`) VALUES
 (1, 'Jogja'),
 (2, 'Jawa Timur'),
 (3, '8Â°');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembagian_waktu`
+--
+
+CREATE TABLE `pembagian_waktu` (
+  `id` int(11) NOT NULL,
+  `waktu` varchar(4) NOT NULL,
+  `propinsi` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pembagian_waktu`
+--
+
+INSERT INTO `pembagian_waktu` (`id`, `waktu`, `propinsi`) VALUES
+(1, 'wib', 'Jawa Barat'),
+(2, 'wib', 'Jawa Tengah'),
+(3, 'wita', 'Makasar'),
+(4, 'wita', 'Bali'),
+(5, 'wit', 'Papua'),
+(6, 'wit', 'Maluku');
 
 -- --------------------------------------------------------
 
@@ -187,9 +273,22 @@ ALTER TABLE `detail_kuis`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `detail_pembagian_waktu`
+--
+ALTER TABLE `detail_pembagian_waktu`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pembagian_waktu` (`id_pembagian_waktu`);
+
+--
 -- Indexes for table `kuis`
 --
 ALTER TABLE `kuis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pembagian_waktu`
+--
+ALTER TABLE `pembagian_waktu`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -220,10 +319,20 @@ ALTER TABLE `user`
 ALTER TABLE `detail_kuis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `detail_pembagian_waktu`
+--
+ALTER TABLE `detail_pembagian_waktu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+--
 -- AUTO_INCREMENT for table `kuis`
 --
 ALTER TABLE `kuis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `pembagian_waktu`
+--
+ALTER TABLE `pembagian_waktu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `peta_buta_pulau`
 --
@@ -239,6 +348,16 @@ ALTER TABLE `provinsi`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `detail_pembagian_waktu`
+--
+ALTER TABLE `detail_pembagian_waktu`
+  ADD CONSTRAINT `detail_pembagian_waktu_ibfk_1` FOREIGN KEY (`id_pembagian_waktu`) REFERENCES `pembagian_waktu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

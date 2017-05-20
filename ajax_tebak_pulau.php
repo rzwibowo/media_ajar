@@ -5,33 +5,6 @@ include 'koneksi.php';
 $id_pulau = $_POST['id_pulau'];
 $nama_pulau = $_POST['nama_pulau'];
 
-
-
-
-
-
-// $a = array(
-//     1 => array(
-//         'a' => 1,
-//         'b' => 2,
-//         'c' => 3
-//     ));
-
-//  $b = array(2=> array(
-//         'a' => 1,
-//         'b' => 2,
-//         'c' => 3));
-//   $c = array(3=> array(
-//         'a' => 1,
-//         'b' => 2,
-//         'c' => 3));
-// $data = array_merge($a, $b);
-
-// $data = array_merge($data,$c);
-
-// foreach ($data as $row ) {
-// }
-
 header('Content-Type: application/json');
 if(!isset($_SESSION["kuis_pulau"]))
 {

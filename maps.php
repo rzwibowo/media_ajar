@@ -7,15 +7,13 @@
 
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
-    <link rel="stylesheet" href="css/medajar.css">
     <link rel="stylesheet" href="css/magnify.css">
     <link rel="stylesheet" href="css/custocheck.css">
+    <link rel="stylesheet" href="css/medajar.css">
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery.magnify.js"></script>
     <script src="js/jquery.imagemapster.min.js"></script>
-<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
       <script type="text/javascript">
   	$(window).load(function() {
 		// Animate loader off screen
@@ -47,109 +45,6 @@
 	
 	});
 	</script>
-	<style type="text/css">
-	.popup{
-		display: none;
-		position: absolute;
-		position: fixed;
-		top: 0%;
-		left: 0%;
-		width: 100%;
-		height: 100%;
-		z-index:1001;
-	}
-	.bg{
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	/*background: #ddd;*/
-	background: transparent;
-	}
-	.content{
-	position: relative;
-	/*  border:1px solid black;*/
-	top:50px;
-	width:900px; 
-	height: 500px;
-	margin: 0 auto;
-	padding: 10px 20px;
-	background-image: url("pop_up_2.png");
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	
-	}
-	.content-text{
-		
-	}
-	.close1{
-	display: inline-block;
-	padding: 7px 15px;
-	margin-left:0px;
-	cursor: pointer;
-	color: #fff;
-	
-	}
-	#info_rumah{
-		border:2px solid #f2b90d;
-		border-radius: 8px;
-		overflow: hidden;
-	}
-	#info_nama_provinsi{
-		text-align: center;
-		margin-top: 12px;
-	}
-	#info_nama_provinsi h3{
-		color: white;
-	}
-	#info_lain h4,table{
-		color: #f2f20d;
-	}
-
-
-	table, th, td {
-		padding: 0px 0px;
-	}
-	table{
-		/*border: 1px solid black;*/
-	}
-
-	.popup-pembagian-waktu{
-		display: none;
-		position: absolute;
-		position: fixed;
-		top: 0%;
-		left: 0%;
-		width: 100%;
-		height: 100%;
-		z-index:1001;
-	}
-	.close{
-		  display: inline-block;
-		  padding: 7px 15px;
-		  cursor: pointer;
-		  background: #E74C3C;
-		  color: #fff;
-     }
- 	.close:hover,.close:visited{
-  		background: #C0392B;
- 	}
- 	.content-pembagian-waktu{
-		position: relative;
-		/*  border:1px solid black;*/
-		top:100px;
-		width:1200px; 
-		height: 550px;
-		margin: 0 auto;
-		padding: 10px 20px;
-		background:rgba(51, 204, 255, .5);
-	/*51, 204, 255*/
-	}
-	</style>
-
-
-
 </head>
 <body id="map">
 	
@@ -265,61 +160,36 @@
 							<div class="close"></div>
 								<div class="content-text">
 									<div class="row auto" style="text-align: center;">
-									    <div class="col">
-									    	
-									    	<h1>WIB</h1>
-									    	<div style="text-align:left;border: 0px solid black; color: white">
-									    		<ol style="margin-left: 30px;">
-													<li>DI Yogyakarta</li>
-													<li>DKI Jakarta</li>
-													<li>Jambi</li>
-													<li>Jawa Barat</li>
-													<li>Jawa Tengah</li>
-													<li>Jawa Timur</li>
-													<li>Bangka Belitung</li>
-													<li>Banten</li>
-													<li>Bengkulu</li>
-													<li>Kalimantan Barat</li>
-													<li>Kalimantan Tengah</li>
-													<li>Kepulauan Riau (Kepri)</li>
-													<li>Lampung</li>
-													<li>Nangroe Aceh Darussalam</li>
-													<li>Riau</li>
-													<li>Sumatera Barat</li>
-													<li>Sumatera Selatan</li>
-													<li>Sumatera Utara</li>
-									    		</ol>
+
+									   	<div class="col" style="border: 0px solid black;">
+
+									       <div class="col" style="border: 0px solid black;" id="peren-wib">
+										   	<div class="wib-wita-wit" id="wib" onclick="GetDataPembagianWaktu('wib','Pembagian Waktu Indonesia Bagian Barat')">
+										    	<h1>WIB</h1>
+										        </div>
 									    	</div>
+
+									    	<div style="text-align: right;" id="button-back-wib"><button style=" background-color: #ff3333" onclick="GetDataPembagianWaktu('wib','Pembagian Waktu Indonesia Bagian Barat')">Kembali</button></div>
 									    </div>
-									    <div class="col">
-									    	<h1>WITA</h1>
-									    	<div style="text-align:left;border: 0px solid black; color: white">
-												<ol style="margin-left: 30px;">
-													<li>Bali</li>
-													<li>Gorontalo</li>
-													<li>Kalimantan Selatan</li>
-													<li>Kalimantan Timur</li>									    	
-													<li>Kalimantan Utara</li>
-													<li>Nusa Tenggara Barat</li>
-													<li>Nusa Tenggara Timur</li>
-													<li>Sulawesi Barat</li>
-													<li>Sulawesi Selatan</li>
-													<li>Sulawesi Tengah</li>
-													<li>Sulawesi Tenggara</li>
-													<li>Sulawesi Utara</li>
-												</ol>
+
+									    <div class="col" style="border: 0px solid black;">
+
+									       <div class="col" style="border: 0px solid black;" id="peren-wita">
+										   	<div class="wib-wita-wit" id="wita" onclick="GetDataPembagianWaktu('wita','Pembagian Waktu Indonesia Bagian Tengah')">
+										    	<h1>WITA</h1>
+										        </div>
 									    	</div>
+
+									    	<div style="text-align: right;" id="button-back-wita"><button style=" background-color: #ff3333" onclick="GetDataPembagianWaktu('wita','Pembagian Waktu Indonesia Bagian Tengah')">Kembali</button></div>
 									    </div>
-									    <div class="col">
-									    	<h1>WIT</h1>
-									    	<div style="text-align:left;border: 0px solid black; color: white">
-									    		<ol style="margin-left: 30px;">
-									    			<li>Maluku</li>
-									    			<li>Maluku Utara</li>
-													<li>Papua</li>
-													<li>Papua Barat</li>
-									    		</ol>
+
+									    <div class="col" style="border: 0px solid black;">
+									    	<div class="col" style="border: 0px solid black;" id="peren-wit">
+										   		<div class="wib-wita-wit" id="wit"  onclick="GetDataPembagianWaktu('wit','Pembagian Waktu Indonesia Bagian Timur')">
+										    	<h1>WIT</h1>
+										        </div>
 									    	</div>
+									    	<div style="text-align: right;" id="button-back-wit"><button style=" background-color: #ff3333"  onclick="GetDataPembagianWaktu('wit','Pembagian Waktu Indonesia Bagian Timur')">Kembali</button></div>
 									    </div>
 									</div>							
 								</div>
@@ -344,6 +214,9 @@
 
 
 	<script>
+		$("#button-back-wib").hide();
+		$("#button-back-wita").hide();
+		$("#button-back-wit").hide();
 		// pemanggilan popup dan data
 		var batas_wilayah='on';
 		var letak_indonesia ='on';
@@ -489,6 +362,68 @@
 			$perbesar.destroy();
 			$("#map-img").mapster();
 		});
+
+
+
+		function getPembagianKabupaten(id,div)
+		{
+			
+			 $("#button-back-"+div+"").show();
+			  $.post("AjaxGetKabupatan.php",
+       		 {
+          		id_pembagian_waktu: id,
+         		
+       		 },
+        	function(data,status){
+        		$('#'+div+'').empty();
+        		if(div=='wib'){
+			        $('#wib').append('<h3>Pembagian Waktu Indonesia Bagian Barat</h3>');
+        		}else if(div=='wita')
+        		{
+        			 $('#wita').append('<h3>Pembagian Waktu Indonesia Bagian Tengah</h3>');
+        		}else if(div=='wit')
+        		{
+        			 $('#wit').append('<h3>Pembagian Waktu Indonesia Bagian Timur</h3>');
+        		}
+        		 $('#'+div+'').append('<ol style=\'text-align:left\'></ol>');
+	        	 $.each(data, function(index,val) {
+	        	 	 $('#'+div+' > ol').append('<li>'+val.nama_daerah+'</li>');
+                       	
+      			 });
+      			
+        	});		
+
+
+		}
+
+  function GetDataPropinsi(waktu,div)
+  {
+
+  	 $.post("ajaxGetDataWIPropinsi.php",
+       		 {
+          		bagian_waktu: waktu,
+         		
+       		 },
+        	function(data,val){
+        		
+        		 $.each(data, function(index,val) {
+                       	 $('#'+div+'').append('<div onclick="getPembagianKabupaten('+val.id+',\''+div+'\')" style=\"background-color:#ff0066;width:150px;margin:0 auto; cursor: pointer;\">'+val.propinsi+'</div><div style=\" margin-bottom:5px;\"></div>');
+      			 });
+        	});
+
+  }
+		//// wib
+
+         function GetDataPembagianWaktu(div,title)
+ 		 	{
+
+  		 $('#'+div+'').remove();
+			 $('#peren-'+div+'').append("<div class='data-propinsi-wib-wita-wit'id='"+div+"'></div>");
+			 $('#'+div+'').append('<h3>'+title+'</h3>');
+			 GetDataPropinsi(div,div);
+			 $("#button-back-"+div+"").hide();
+
+ 	 	}
 		
 	</script>
 </body>
