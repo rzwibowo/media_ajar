@@ -262,11 +262,8 @@
 			if(batas_wilayah=='on')
 			{	
 				$('#map-peta').empty();
-<<<<<<< HEAD
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\">");
-=======
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\" >");
->>>>>>> 1cb30c03c3752535c36afdcc7935e84260fbaea8
 				batas_wilayah='of';
 				$('html, body').animate({scrollTop:0},'slow');
 				$('#batas-wilayah').attr('style','background-color:#039');
@@ -296,11 +293,8 @@
 			if(letak_indonesia=='on')
 			{	
 				$('#map-peta').empty();
-<<<<<<< HEAD
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\">");
-=======
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\" >");
->>>>>>> 1cb30c03c3752535c36afdcc7935e84260fbaea8
 				letak_indonesia='of';
 				$('html, body').animate({scrollTop:0},'slow');
 				$('#latak-indonesia').attr('style','background-color:#039');

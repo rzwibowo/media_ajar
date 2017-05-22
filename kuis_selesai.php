@@ -39,7 +39,7 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
         </div>
 
         <div class="row">
-            <a href="index.html" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
+            <a href="kuis.php" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
         </div>
         
         <div  class="row align-center">
