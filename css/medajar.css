@@ -315,8 +315,6 @@ html{
 	padding: 2%;
 }
 
-<<<<<<< HEAD
-
 .popup{
 		display: none;
 		position: absolute;
@@ -434,11 +432,11 @@ html{
 	margin-top: 10px ; 
 }
 
-=======
 #materi-page #back, #kuis-page #back{
 	position: absolute;
 	left: 3%;
 	top: 3%;
+<<<<<<< HEAD
 }
 
 	.view-kuis{
@@ -478,3 +476,6 @@ html{
 	
 	}
 >>>>>>> 7e6610e53c269dccdee62da24f3503e61393c9b2
+=======
+}
+>>>>>>> 1cb30c03c3752535c36afdcc7935e84260fbaea8
