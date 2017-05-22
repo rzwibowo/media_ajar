@@ -14,12 +14,12 @@ function priksa_kuis($id_kuis,$jawaban,$session,$koneksi){
     }
 }
 
-function query_check_jawaban($koneksi,$id_soal,$jawaban)
+function query_check_jawaban($koneksi,$id_soal,$jawaban,$tabel,$nama_field)
 {
 
-    $result   = mysqli_query($koneksi,"SELECT nama_pulau FROM peta_buta_pulau WHERE id='$id_soal'");
+    $result   = mysqli_query($koneksi,"SELECT $nama_field FROM $tabel WHERE id='$id_soal'");
     $rs       = mysqli_fetch_assoc($result);
-    if(strtolower($jawaban)==strtolower($rs['nama_pulau']))
+    if(strtolower($jawaban)==strtolower($rs[''.$nama_field.'']))
     {
         return "benar";
 
@@ -27,5 +27,19 @@ function query_check_jawaban($koneksi,$id_soal,$jawaban)
         return "salah";
     }
 }
+function query_check_jawaban_kuis_provinsi($koneksi,$id_soal,$jawaban,$tabel,$nama_field)
+{
+
+    $result   = mysqli_query($koneksi,"SELECT $nama_field FROM $tabel WHERE id_prov='$id_soal'");
+    $rs       = mysqli_fetch_assoc($result);
+    if(strtolower($jawaban)==strtolower($rs[''.$nama_field.'']))
+    {
+        return "benar";
+
+    }else{
+        return "salah";
+    }
+}
+
 
 ?>

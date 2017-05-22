@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2017 at 11:52 AM
+-- Generation Time: May 22, 2017 at 01:57 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -156,6 +156,28 @@ INSERT INTO `pembagian_waktu` (`id`, `waktu`, `propinsi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `peta_buta_laut`
+--
+
+CREATE TABLE `peta_buta_laut` (
+  `id` int(11) NOT NULL,
+  `nama_laut` varchar(50) NOT NULL,
+  `coordinat` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `peta_buta_laut`
+--
+
+INSERT INTO `peta_buta_laut` (`id`, `nama_laut`, `coordinat`) VALUES
+(1, 'Laut jawa', '467,294,433,325,441,366,596,381,608,358,610,335'),
+(2, 'Laut Banda', '864,356,896,334,990,337,986,386,952,400,810,406,800,380,808,367'),
+(3, 'Laut Buru', '1119,394,1138,377,1155,381,1204,373,1208,394,1190,401,1128,404'),
+(4, 'Laut Arafuru', '710,516,704,473,600,471,556,466,544,500,562,520,650,525');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `peta_buta_pulau`
 --
 
@@ -180,6 +202,27 @@ INSERT INTO `peta_buta_pulau` (`id`, `nama_pulau`, `coordinat`) VALUES
 (8, 'nusa tenggara barat', '691,441,692,445,698,442,709,442,716,438,711,426,700,426,695,426,691,426,680,421,674,421,668,417,668,426,662,428,658,429,650,430,645,423,636,426,632,430,631,435,624,437,635,444,646,446,656,450'),
 (9, 'bali', '618,434,624,435,630,430,623,419,608,419,600,421,596,422,595,426,605,432,613,438'),
 (10, 'sumatera', '373,353,376,323,375,315,378,307,376,296,381,287,385,282,394,286,418,287,427,287,433,286,438,276,428,269,421,268,416,271,397,274,392,269,381,262,380,248,373,239,433,115,442,107,437,96,428,92,420,101,428,109,426,118,370,239,364,244,360,245,356,251,352,257,345,255,341,234,337,224,342,216,347,216,351,215,345,205,339,204,342,186,346,178,340,173,332,173,324,174,320,178,326,226,314,222,320,214,318,207,318,201,311,190,297,191,302,186,304,181,296,175,289,171,282,162,274,162,268,160,266,151,259,149,254,151,244,143,240,150,232,146,232,136,224,134,221,127,196,109,184,103,177,96,175,87,164,74,136,68,108,60,96,66,101,81,138,112,156,133,133,142,116,131,109,131,114,138,128,143,148,170,160,196,168,191,188,226,184,236,198,254,206,262,216,269,242,258,272,303,300,327,339,349');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peta_buta_selat`
+--
+
+CREATE TABLE `peta_buta_selat` (
+  `id` int(11) NOT NULL,
+  `nama_selat` varchar(50) NOT NULL,
+  `coordinat` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `peta_buta_selat`
+--
+
+INSERT INTO `peta_buta_selat` (`id`, `nama_selat`, `coordinat`) VALUES
+(1, 'selat karimata', '446,229,440,186,345,186,364,238'),
+(2, 'selat sunda', '390,363,388,348,375,355,360,358,329,355,340,378,354,377,361,363,374,364'),
+(3, 'selat makassar', '703,308,709,260,724,225,728,202,696,198,690,210,693,224,684,242,668,257,661,308');
 
 -- --------------------------------------------------------
 
@@ -292,9 +335,21 @@ ALTER TABLE `pembagian_waktu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `peta_buta_laut`
+--
+ALTER TABLE `peta_buta_laut`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `peta_buta_pulau`
 --
 ALTER TABLE `peta_buta_pulau`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `peta_buta_selat`
+--
+ALTER TABLE `peta_buta_selat`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -334,10 +389,20 @@ ALTER TABLE `kuis`
 ALTER TABLE `pembagian_waktu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `peta_buta_laut`
+--
+ALTER TABLE `peta_buta_laut`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `peta_buta_pulau`
 --
 ALTER TABLE `peta_buta_pulau`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `peta_buta_selat`
+--
+ALTER TABLE `peta_buta_selat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `provinsi`
 --

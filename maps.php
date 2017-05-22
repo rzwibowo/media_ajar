@@ -18,9 +18,17 @@
   	$(window).load(function() {
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");
+		
 	});
+
    $(function(){
- 
+   	<?php
+   		if(isset($_GET['pembagian_waktu']) && $_GET['pembagian_waktu']=="on"){
+           echo "$('.popup-pembagian-waktu').fadeIn()";
+   		}
+        
+   	?>
+ 	
 	// show popup
 	$('.popup-show').click(function(e) {
 	
@@ -46,6 +54,12 @@
 	});
 	</script>
 </head>
+<?php
+// if(isset($_GET['pembagian_waktu']) && $_GET['pembagian_waktu']=='on' )
+// {
+// 	echo "<script> $('.popup-pembagian-waktu').fadeIn();</script>";
+// }
+?>
 <body id="map">
 	
 	<!-- loading screen -->
@@ -248,7 +262,7 @@
 			if(batas_wilayah=='on')
 			{	
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\" usemap=\"#petaInd\">");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\">");
 				batas_wilayah='of';
 				
 			}else
@@ -274,7 +288,7 @@
 			if(letak_indonesia=='on')
 			{	
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\" usemap=\"#petaInd\">");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\">");
 				letak_indonesia='of';
 				
 			}else

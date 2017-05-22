@@ -10,7 +10,8 @@ if(!isset($_SESSION["kuis_pulau"]))
 {
 $_SESSION['kuis_pulau']['id'] = session_id();
 $_SESSION['kuis_pulau']['jumlah_soal']=10;
-$status_soal =query_check_jawaban($koneksi,$id_pulau,$nama_pulau);
+$status_soal =query_check_jawaban($koneksi,$id_pulau,$nama_pulau,'peta_buta_pulau','nama_pulau');
+
 $data_array = array(
     1 => array(
         'id_kuis' => $id_pulau,
@@ -24,7 +25,7 @@ echo json_encode(array('status' =>$status_soal,'jumdata'=>1));
 	//unset($_SESSION['kuis_pulau']);
   $count_array = count($_SESSION['kuis_pulau']['soal_kuis'])+1;
  
- $status_soal =query_check_jawaban($koneksi,$id_pulau,$nama_pulau);
+ $status_soal =query_check_jawaban($koneksi,$id_pulau,$nama_pulau,'peta_buta_pulau','nama_pulau');
  	$array = $_SESSION['kuis_pulau']['soal_kuis'];
  	$data_array = array(
     $count_array => array(
@@ -35,8 +36,6 @@ echo json_encode(array('status' =>$status_soal,'jumdata'=>1));
  	$array=array_merge($array,$data_array);
     $_SESSION['kuis_pulau']['soal_kuis']=$array;
    
-
-
     if($count_array == $_SESSION['kuis_pulau']['jumlah_soal'])
  	{
 
@@ -55,9 +54,6 @@ echo json_encode(array('status' =>$status_soal,'jumdata'=>1));
 		echo json_encode(array('status' =>$status_soal,'jumdata'=>$count_array));	
 	}
     
-
-
-
 }
 
 //echo $id_pulau." ".$nama_pulau;
