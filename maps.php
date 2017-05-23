@@ -22,12 +22,12 @@
 	});
 
    $(function(){
-   	<?php
-   		if(isset($_GET['pembagian_waktu']) && $_GET['pembagian_waktu']=="on"){
-           echo "$('.popup-pembagian-waktu').fadeIn()";
-   		}
+   	// <?php
+   	// 	if(isset($_GET['pembagian_waktu']) && $_GET['pembagian_waktu']=="on"){
+    //        echo "$('.popup-pembagian-waktu').fadeIn()";
+   	// 	}
         
-   	?>
+   	// ?>
  	
 	// show popup
 	$('.popup-show').click(function(e) {
@@ -168,7 +168,7 @@
  	<!-- popup info provinsi selesai -->
 
 	<!-- popup pembagian waktu -->
-					<div class="popup-pembagian-waktu">
+					<!-- <div class="popup-pembagian-waktu">
 						<div class="bg"></div>
 							<div class="content-pembagian-waktu">
 							<div class="close"></div>
@@ -210,11 +210,11 @@
 							</div>
 
 
-				</div>
+				</div> -->
 <!-- popup pembagian waktu-->
 				
 				<div class="row pilih-peta between">
-					<button class="button large" id="pembagian-waktu">Peta pembagian waktu</button>
+					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->
 					<button  class="button large" id="batas-wilayah">Peta batas wilayah</button>
 					<button class="button large" id="latak-indonesia">Peta letak Indonesia</button>
 				</div>
@@ -258,12 +258,12 @@
 		// ------
 		//batas-wilayah
 		$("#batas-wilayah").click(function(){
-	      
+	      	$('#map-peta').fadeOut('fast');
 			if(batas_wilayah=='on')
 			{	
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\">");
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\" >");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah_mini.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\">");
+	      		$('#map-peta').fadeIn('slow');
 				batas_wilayah='of';
 				$('html, body').animate({scrollTop:0},'slow');
 				$('#batas-wilayah').attr('style','background-color:#039');
@@ -271,30 +271,31 @@
 			}else
 			{
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" >");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
+	      		$('#map-peta').fadeIn('slow');
 				batas_wilayah='on';
 				$('html, body').animate({scrollTop:0},'slow');
 				$('#batas-wilayah').attr('style','');
 
 			}
-			// $("#map-img").mapster({
-			// 	fillColor: '2c3e50',
-			// 	fillOpacity: 0.5,
-			// 	stroke: true,
-			// 	strokeColor: '95a5a6',
-			// 	strokeOpacity: 0.7,
-			// 	strokeWidth: 3
-			// });
+				$("#map-img").mapster({
+					fillColor: '2c3e50',
+					fillOpacity: 0.5,
+					stroke: true,
+					strokeColor: '95a5a6',
+					strokeOpacity: 0.7,
+					strokeWidth: 3
+				});
 		});
 	//end batas wilayah
 	//letak indonesia
 		$("#latak-indonesia").click(function(){
-	      
+	      	$('#map-peta').fadeOut('fast');
 			if(letak_indonesia=='on')
 			{	
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\">");
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\" >");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo_mini.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\">");
+	      		$('#map-peta').fadeIn('slow');
 				letak_indonesia='of';
 				$('html, body').animate({scrollTop:0},'slow');
 				$('#latak-indonesia').attr('style','background-color:#039');
@@ -302,30 +303,31 @@
 			}else
 			{
 				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" >");
+	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
+	      		$('#map-peta').fadeIn('slow');
 				letak_indonesia='on';
 				$('html, body').animate({scrollTop:0},'slow');
 				$('#latak-indonesia').attr('style','');
 
 			}
-			// $("#map-img").mapster({
-			// 	fillColor: '2c3e50',
-			// 	fillOpacity: 0.5,
-			// 	stroke: true,
-			// 	strokeColor: '95a5a6',
-			// 	strokeOpacity: 0.7,
-			// 	strokeWidth: 3
-			// });
+				$("#map-img").mapster({
+					fillColor: '2c3e50',
+					fillOpacity: 0.5,
+					stroke: true,
+					strokeColor: '95a5a6',
+					strokeOpacity: 0.7,
+					strokeWidth: 3
+				});
 		});
 
 		//end letak indo
 		// highlight maps
-		$('#pembagian-waktu').click(function()
-		{
+		// $('#pembagian-waktu').click(function()
+		// {
 
-			$('.popup-pembagian-waktu').fadeIn();
-			$('html, body').animate({scrollTop:0},'slow');
-		});
+		// 	$('.popup-pembagian-waktu').fadeIn();
+		// 	$('html, body').animate({scrollTop:0},'slow');
+		// });
 		
 		$("#map-img").mapster({
 			fillColor: '2c3e50',
@@ -390,65 +392,65 @@
 
 
 
-		function getPembagianKabupaten(id,div)
-		{
+		// function getPembagianKabupaten(id,div)
+		// {
 			
-			 $("#button-back-"+div+"").show();
-			  $.post("AjaxGetKabupatan.php",
-       		 {
-          		id_pembagian_waktu: id,
+		// 	 $("#button-back-"+div+"").show();
+		// 	  $.post("AjaxGetKabupatan.php",
+  //      		 {
+  //         		id_pembagian_waktu: id,
          		
-       		 },
-        	function(data,status){
-        		$('#'+div+'').empty();
-        		if(div=='wib'){
-			        $('#wib').append('<h3>Pembagian Waktu Indonesia Bagian Barat</h3>');
-        		}else if(div=='wita')
-        		{
-        			 $('#wita').append('<h3>Pembagian Waktu Indonesia Bagian Tengah</h3>');
-        		}else if(div=='wit')
-        		{
-        			 $('#wit').append('<h3>Pembagian Waktu Indonesia Bagian Timur</h3>');
-        		}
-        		 $('#'+div+'').append('<ol style=\'text-align:left\'></ol>');
-	        	 $.each(data, function(index,val) {
-	        	 	 $('#'+div+' > ol').append('<li>'+val.nama_daerah+'</li>');
+  //      		 },
+  //       	function(data,status){
+  //       		$('#'+div+'').empty();
+  //       		if(div=='wib'){
+		// 	        $('#wib').append('<h3>Pembagian Waktu Indonesia Bagian Barat</h3>');
+  //       		}else if(div=='wita')
+  //       		{
+  //       			 $('#wita').append('<h3>Pembagian Waktu Indonesia Bagian Tengah</h3>');
+  //       		}else if(div=='wit')
+  //       		{
+  //       			 $('#wit').append('<h3>Pembagian Waktu Indonesia Bagian Timur</h3>');
+  //       		}
+  //       		 $('#'+div+'').append('<ol style=\'text-align:left\'></ol>');
+	 //        	 $.each(data, function(index,val) {
+	 //        	 	 $('#'+div+' > ol').append('<li>'+val.nama_daerah+'</li>');
                        	
-      			 });
+  //     			 });
       			
-        	});		
+  //       	});		
 
 
-		}
+		// }
 
-  function GetDataPropinsi(waktu,div)
-  {
+  // function GetDataPropinsi(waktu,div)
+  // {
 
-  	 $.post("ajaxGetDataWIPropinsi.php",
-       		 {
-          		bagian_waktu: waktu,
+  // 	 $.post("ajaxGetDataWIPropinsi.php",
+  //      		 {
+  //         		bagian_waktu: waktu,
          		
-       		 },
-        	function(data,val){
+  //      		 },
+  //       	function(data,val){
         		
-        		 $.each(data, function(index,val) {
-                       	 $('#'+div+'').append('<div onclick="getPembagianKabupaten('+val.id+',\''+div+'\')" style=\"background-color:#ff0066;width:150px;margin:0 auto; cursor: pointer;\">'+val.propinsi+'</div><div style=\" margin-bottom:5px;\"></div>');
-      			 });
-        	});
+  //       		 $.each(data, function(index,val) {
+  //                      	 $('#'+div+'').append('<div onclick="getPembagianKabupaten('+val.id+',\''+div+'\')" style=\"background-color:#ff0066;width:150px;margin:0 auto; cursor: pointer;\">'+val.propinsi+'</div><div style=\" margin-bottom:5px;\"></div>');
+  //     			 });
+  //       	});
 
-  }
-		//// wib
+  // }
+		// //// wib
 
-         function GetDataPembagianWaktu(div,title)
- 		 	{
+  //        function GetDataPembagianWaktu(div,title)
+ 	// 	 	{
 
-  		 $('#'+div+'').remove();
-			 $('#peren-'+div+'').append("<div class='data-propinsi-wib-wita-wit'id='"+div+"'></div>");
-			 $('#'+div+'').append('<h3>'+title+'</h3>');
-			 GetDataPropinsi(div,div);
-			 $("#button-back-"+div+"").hide();
+  // 		 $('#'+div+'').remove();
+		// 	 $('#peren-'+div+'').append("<div class='data-propinsi-wib-wita-wit'id='"+div+"'></div>");
+		// 	 $('#'+div+'').append('<h3>'+title+'</h3>');
+		// 	 GetDataPropinsi(div,div);
+		// 	 $("#button-back-"+div+"").hide();
 
- 	 	}
+ 	//  	}
 		
 	</script>
 </body>

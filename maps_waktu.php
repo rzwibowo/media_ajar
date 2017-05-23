@@ -14,6 +14,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery.magnify.js"></script>
     <script src="js/jquery.imagemapster.min.js"></script>
+    <script src="js/hitung.js"></script>
       <script type="text/javascript">
   	$(window).load(function() {
 		// Animate loader off screen
@@ -48,6 +49,16 @@
 	
 	});
 	</script>
+	<style>	
+		#head{
+		 	/*white-space: nowrap; */
+			background: #960 url("img/bagi_waktu/header_bagi_waktu.png") no-repeat;
+			background-size: contain;
+			position: relative;
+			/*z-index: 0;*/
+			height: 110px;
+		}
+	</style>
 </head>
 <?php
 // if(isset($_GET['pembagian_waktu']) && $_GET['pembagian_waktu']=='on' )
@@ -96,11 +107,12 @@
 					<div class="row between">
 					
 						<a href="index.html" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
-						<p id="kontrolKanan" class="w15 row between">
+						<p id="kontrolKanan" class="w20 row between">
 							<a href="#" style="display: inline-block" id="lup">
 								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
 								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
 							</a>
+							<a id="kalk" href="#" style="display: inline-block" onclick="$.modalwindow({target:'#mod_kalk'});"><img id="kalk-img" id="help-img" src="img/bagi_waktu/kalk.png" alt=""></a>
 							<a href="#" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
@@ -158,6 +170,113 @@
 						?>
 						</map>
 	<!-- pemanggilan area selesai -->
+
+	<!-- Modal Kalk -->
+		<div id="mod_kalk" class="modal-box hide">
+		    <div class="modal">
+		        <span class="close"></span>
+		        <div class="modal-header">Kalkulator Waktu</div>
+		        <div class="text-center offset-2">
+			        <div class="row">
+			        	<div class="col col-4">
+			        		Kota Asal
+			        	</div>
+			        	<div class="col col-6">
+			        		Waktu
+			        	</div>
+			        </div>
+			        <div class="row">
+			        	<div class="col col-4">
+			        		<select name="kota-A" id="kota-A" onchange="hitungJam()">
+								<optgroup label="WIB">
+								<?php
+									$sql="select * from bagi_waktu where wilayah_waktu='WIB'";
+									$hasil=mysqli_query($koneksi,$sql)
+										or die("gagal akses");
+									while ($baris=mysqli_fetch_array($hasil)) {
+										echo "<option value='".$baris['wilayah_waktu']."'>".$baris['kota']."</option>";
+									}
+								?>
+								</optgroup>
+								<optgroup label="WITA">
+								<?php
+									$sql="select * from bagi_waktu where wilayah_waktu='WITA'";
+									$hasil=mysqli_query($koneksi,$sql)
+										or die("gagal akses");
+									while ($baris=mysqli_fetch_array($hasil)) {
+										echo "<option value='".$baris['wilayah_waktu']."'>".$baris['kota']."</option>";
+									}
+								?>
+								</optgroup>
+								<optgroup label="WIB">
+								<?php
+									$sql="select * from bagi_waktu where wilayah_waktu='WIT'";
+									$hasil=mysqli_query($koneksi,$sql)
+										or die("gagal akses");
+									while ($baris=mysqli_fetch_array($hasil)) {
+										echo "<option value='".$baris['wilayah_waktu']."'>".$baris['kota']."</option>";
+									}
+								?>
+								</optgroup>
+							</select>
+			        	</div>
+			        	<div class="col col-6">
+			        		<input name="jam-A" id="jam-A" type="number" max="23" min="0" placeholder="Jam" onchange="hitungJam()" onkeyup="hitungJam()" class="w30" style="display: inline">
+							<input name="menit-A" id="menit-A" type="number" max="59" min="0" placeholder="Menit" onkeyup="salinMenit()" onchange="salinMenit()" class="w30" style="display: inline">
+			        	</div>
+			        </div>
+			        <div class="row">
+			        	<div class="col col-4">
+			        		Kota Tujuan
+			        	</div>
+			        	<div class="col col-6">
+			        		Waktu
+			        	</div>
+			        </div>
+			        <div class="row">
+			        	<div class="col col-4">
+			        		<select name="kota-B" id="kota-B" onchange="hitungJam()">
+								<optgroup label="WIB">
+								<?php
+									$sql="select * from bagi_waktu where wilayah_waktu='WIB'";
+									$hasil=mysqli_query($koneksi,$sql)
+										or die("gagal akses");
+									while ($baris=mysqli_fetch_array($hasil)) {
+										echo "<option value='".$baris['wilayah_waktu']."'>".$baris['kota']."</option>";
+									}
+								?>
+								</optgroup>
+								<optgroup label="WITA">
+								<?php
+									$sql="select * from bagi_waktu where wilayah_waktu='WITA'";
+									$hasil=mysqli_query($koneksi,$sql)
+										or die("gagal akses");
+									while ($baris=mysqli_fetch_array($hasil)) {
+										echo "<option value='".$baris['wilayah_waktu']."'>".$baris['kota']."</option>";
+									}
+								?>
+								</optgroup>
+								<optgroup label="WIB">
+								<?php
+									$sql="select * from bagi_waktu where wilayah_waktu='WIT'";
+									$hasil=mysqli_query($koneksi,$sql)
+										or die("gagal akses");
+									while ($baris=mysqli_fetch_array($hasil)) {
+										echo "<option value='".$baris['wilayah_waktu']."'>".$baris['kota']."</option>";
+									}
+								?>
+								</optgroup>
+							</select>
+			        	</div>
+			        	<div class="col col-6">
+			        		<input name="jam-B" id="jam-B" type="number" max="23" min="0" placeholder="Jam" disabled="disabled" class="w30" style="display: inline">
+							<input name="menit-B" id="menit-B" type="number" max="59" min="0" placeholder="Menit" disabled="disabled" class="w30" style="display: inline">
+			        	</div>
+			        </div>
+			        <div class="text-center" style="height: 5%">&nbsp;</div>
+			    </div>
+		    </div>
+		</div>
 
 	<!-- popup info provinsi -->
 					<div class="popup">
@@ -237,7 +356,7 @@
 		// ------
 		//wib
 		$("#wib").click(function(){
-	      	$('#map-peta').fadeOut('slow');
+	      	$('#map-peta').fadeOut('fast');
 			if(wib=='on')
 			{	
 				$('#map-peta').empty();
@@ -269,7 +388,7 @@
 	//end wib
 	//wita
 		$("#wita").click(function(){
-	      	$('#map-peta').fadeOut('slow');
+	      	$('#map-peta').fadeOut('fast');
 			if(wita=='on')
 			{	
 				$('#map-peta').empty();
@@ -302,7 +421,7 @@
 		//end wita
 		//wit
 		$("#wit").click(function(){
-	      	$('#map-peta').fadeOut('slow');
+	      	$('#map-peta').fadeOut('fast');
 			if(wit=='on')
 			{	
 				$('#map-peta').empty();
@@ -364,6 +483,15 @@
 			},
 			function(){
 			    $("#help-img").attr("src", "img/maps/tanya.png");
+			}
+		);
+		// efek menu kalkulator
+		$("#kalk").hover(
+			function(){
+			    $("#kalk-img").attr("src", "img/bagi_waktu/kalk_hover.png");
+			},
+			function(){
+			    $("#kalk-img").attr("src", "img/bagi_waktu/kalk.png");
 			}
 		);
 		// efek menu layar kecil

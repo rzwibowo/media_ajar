@@ -64,13 +64,7 @@
 						<a href="materi.html" role="button"><img id="materi-img" src="img/index/menu_materi.png" alt=""></a>
 					</div>
 					<div >
-						<a href="maps.php" role="button"><img id="peta-img" src="img/index/menu_peta.png" alt=""></a>
-					</div>
-					<div>
-						<a href="maps_waktu.php" role="button"><img id="peta_waktu-img" src="img/index/menu_peta_waktu.png" alt=""></a>
-					</div>
-					<div >
-						<a href="tebak_pulau.php" role="button"><img id="peta_buta-img" src="img/index/menu_peta_buta.png" alt=""></a>
+						<a href="#" id="peta_aja" onclick="$.modalwindow({target:'#mod_peta'});"><img id="peta_aja-img" src="img/index/menu_peta_aja.png" alt=""></a>
 					</div>
 					<div >
 						<!-- <a href="" class="button large">pentingnya persatuan dan kesatuan NKRI</a> -->
@@ -84,6 +78,25 @@
 			</div>
 
 			
+		</div>
+
+		<!-- Modal Peta -->
+		<div id="mod_peta" class="modal-box hide">
+		    <div class="modal">
+		        <span class="close"></span>
+		        <div class="modal-header">Peta</div>
+		        <div class="text-center">
+			        <div >
+						<a href="maps.php" role="button"><img id="peta-img" src="img/index/menu_peta.png" alt=""></a>
+					</div>
+					<div>
+						<a href="maps_waktu.php" role="button"><img id="peta_waktu-img" src="img/index/menu_peta_waktu.png" alt=""></a>
+					</div>
+					<div >
+						<a href="tebak_pulau.php" role="button"><img id="peta_buta-img" src="img/index/menu_peta_buta.png" alt=""></a>
+					</div>
+				</div>
+		    </div>
 		</div>
 
 		<!-- Modal Settings -->
@@ -183,12 +196,12 @@
 			    $("#materi-img").attr("src", "img/index/menu_materi.png");
 			}
 		);
-		$("#peta").hover(
+		$("#peta_aja").hover(
 			function(){
-			    $("#peta-img").attr("src", "img/index/menu_peta_hover.png");
+			    $("#peta_aja-img").attr("src", "img/index/menu_peta_aja_hover.png");
 			},
 			function(){
-			    $("#peta-img").attr("src", "img/index/menu_peta.png");
+			    $("#peta_aja-img").attr("src", "img/index/menu_peta_aja.png");
 			}
 		);
 		$("a[href='tebak_pulau.php']").hover(

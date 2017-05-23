@@ -24,6 +24,10 @@ html{
 	background-repeat: no-repeat;
 }
 
+#index #menu a img, #index #mod_peta a img{
+	margin: 2% 0;
+}
+
 #map{
 	min-height: 100%;
 	background-color: #960;
