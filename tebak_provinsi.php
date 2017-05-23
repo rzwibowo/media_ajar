@@ -257,20 +257,20 @@ unset($_SESSION['kuis_provinsi']);
 	            }else if(data.status =='selesai')
 	            {
 	            	console.log(data.benar+" data_benar");
-	              if(data.benar==10)
+	              if((data.benar > 25) && (data.benar <=10))
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA PULAU<br>TERSEBAR DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-	              }else if((data.benar < 10) && (data.benar >= 7))
+	              }else if((data.benar > 17) && (data.benar <= 25))
 	              {
 	              	  $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-				  }else if((data.benar < 7) && (data.benar >= 4))
+				  }else if((data.benar > 8) && (data.benar <= 17))
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
 
-				  }else if((data.benar < 4) && (data.benar >= 1))
+				  }else if((data.benar > 0) && (data.benar <= 8))
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
