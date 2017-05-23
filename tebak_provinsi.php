@@ -6,7 +6,7 @@ unset($_SESSION['kuis_provinsi']);
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>PETA INDONESIA</title>
+	<title>PETA BUTA: TEBAK PROVINSI</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=0">
 
     <!-- Kube CSS -->
@@ -29,7 +29,16 @@ unset($_SESSION['kuis_provinsi']);
 	});
 
 	</script>
-
+	<style>	
+		#head{
+		 	/*white-space: nowrap; */
+			background: #960 url("img/peta_buta/tebak_provinsi.png") no-repeat;
+			background-size: contain;
+			position: relative;
+			/*z-index: 0;*/
+			height: 110px;
+		}
+	</style>
 </head>
 <body id="map">
 	
@@ -50,14 +59,6 @@ unset($_SESSION['kuis_provinsi']);
 	    <ul>
 	        <li><a href="#">Bantuan</a></li>
 	        <li><a href="index.html">Kembali ke Depan</a></li>
-	        <li style="vertical-align:middle">
-	        	<p style="display: inline-block; margin-bottom: 0px; color: #fff">Kaca Pembesar</p>
-		        <div class="custom-chk">
-				
-					<input type="checkbox" value="1" id="chkInput" class="chkZoom">
-					<label for="chkInput"></label>
-				</div>
-			</li>
 	    </ul>
 	</div>
 	<!-- menu layar kecil selesai -->
@@ -72,12 +73,9 @@ unset($_SESSION['kuis_provinsi']);
 					<div class="row between">
 					
 						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
-						<p id="kontrolKanan" class="w15 row between">
-							<a href="#" class="w30" style="display: inline-block" id="lup">
-								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
-								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
-							</a>
-							<a href="#" style="display: inline-block" class="w30"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+						<p id="kontrolKanan">
+
+							<a href="#" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -86,7 +84,7 @@ unset($_SESSION['kuis_provinsi']);
 
 				<!-- gambar peta -->
 				<div id="content">
-					<img id="map-img" src="img/maps/tabak provinsi.png"  alt="" usemap="#petaInd">
+					<img id="map-img" src="img/maps/tebak_provinsi.png"  alt="" usemap="#petaInd">
 
 	<!-- pemanggilan koordinat area dari database -->
 
@@ -134,11 +132,11 @@ unset($_SESSION['kuis_provinsi']);
 
 				</div>
 				
-<!-- 				<div class="row pilih-peta between">
-					<a href="" class="button large">Peta pembagian waktu</a>
-					<a href="" class="button large">Peta batas wilayah</a>
-					<a href="" class="button large">Peta letak Indonesia</a>
-				</div> -->
+				<div class="row pilih-peta between">
+					<a href="tebak_pulau.php" class="button large">Peta Buta: Tebak Pulau</a>
+					<a href="tebak_selat.php" class="button large">Peta Buta: Tebak Selat</a>
+					<a href="tebak_laut.php" class="button large">Peta Buta: Tebak Laut</a>
+				</div>
 			</div>
 		</div>
 
@@ -323,29 +321,7 @@ unset($_SESSION['kuis_provinsi']);
 				$("#menu-sm").slideToggle();
 			}
 		);
-		// tombol slide untuk kaca pembesar
-		$(".chkZoom").click(function(){
-			if($(this).prop("checked")==true){
-				$perbesar=$("#map-img").magnify();
-				$("#map-img").mapster('unbind');
-			}
-			else if($(this).prop("checked")==false){
-				$perbesar.destroy();
-				$("#map-img").mapster();
-			}
-		});
-		// tombol kaca pembesar
-		$("#lup").click(function(){
-			$(".img-lup").fadeToggle();
-		});
-		$("#zoomOff").click(function(){
-			$perbesar=$("#map-img").magnify();
-			$("#map-img").mapster('unbind');
-		});
-		$("#zoomOn").click(function(){
-			$perbesar.destroy();
-			$("#map-img").mapster();
-		});
+
 		
 	</script>
 </body>
