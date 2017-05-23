@@ -224,6 +224,7 @@ unset($_SESSION['kuis_provinsi']);
 
 			$('#id_provinsi').val(id);
 			$('.popup-kuis').fadeIn();
+			$('#nama_provinsi').focus();
 		}
 
      	  $('#ok').click(function(e){

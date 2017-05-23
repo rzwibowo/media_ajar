@@ -162,6 +162,7 @@ unset($_SESSION['kuis_selat']);
 			}
 			$('#id_selat').val(id);
 			$('.popup-kuis').fadeIn();
+			$('#nama_selat').focus();
 		}
 
      	  $('#ok').click(function(e){

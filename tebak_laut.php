@@ -119,7 +119,7 @@ unset($_SESSION['kuis_laut']);
 						<div class="bg"></div>
 							<div class="content-kuis-form">
 								<div class="content-text">
-								<p>Tulis Nama Pulau</p>
+								<p>Tulis Nama Laut</p>
 								<input type="hidden" id="id_laut">
 								<input type="text" id="nama_laut" >
 								<div style="text-align: center; margin-top: 15px;"><button id="ok">OK</button></div>
@@ -166,6 +166,7 @@ unset($_SESSION['kuis_laut']);
 			}
 			$('#id_laut').val(id);
 			$('.popup-kuis').fadeIn();
+			$('#nama_laut').focus();
 		}
 
      	  $('#ok').click(function(e){

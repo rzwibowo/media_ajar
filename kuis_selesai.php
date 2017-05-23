@@ -9,7 +9,7 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kuis</title>
+    <title>KUIS: SELESAI</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

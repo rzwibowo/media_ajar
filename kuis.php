@@ -12,7 +12,7 @@ $_SESSION[session_id()]['salah']=0;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kuis</title>
+    <title>KUIS</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,18 +24,22 @@ $_SESSION[session_id()]['salah']=0;
     <script src="js/jquery.js"></script> 
 
 </head>
-<body>
+<body id="index">
 <?php
     // include 'kepala.php';
 ?>
     
     <div id="kuis-page">
+        <div id="ornamen" class="col col-12 text-center">
+            <img id="awan" src="img/index/awan-menu.gif" alt="">
+        <!-- <img id="pohon" src="img/index/pohon.png" alt=""> -->
+        </div>
         <div class="row">
             <a href="index.html" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
         </div>
     	<div class="row align-center">
     		<div class="col-6">
-    			<div class="text-center">
+    			<div id="materi-show" class="text-center">
     				<h1>KUIS</h1>
     				
                

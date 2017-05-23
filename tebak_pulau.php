@@ -178,6 +178,7 @@ unset($_SESSION['kuis_pulau']);
 			}
 			$('#id_pulau').val(id);
 			$('.popup-kuis').fadeIn();
+			$('#nama_pulau').focus();
 		}
 
      	  $('#ok').click(function(e){
