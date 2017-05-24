@@ -78,7 +78,7 @@ unset($_SESSION['kuis_laut']);
 						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
 						<p id="kontrolKanan">
 
-							<a href="#" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" id="help" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>

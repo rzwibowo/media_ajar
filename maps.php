@@ -107,9 +107,9 @@
 						<p id="kontrolKanan" class="w15 row between">
 							<a href="#" style="display: inline-block" id="lup">
 								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
-								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
+								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoomO_1.png" alt="">
 							</a>
-							<a href="#" style="display: inline-block" onclick="$.modalwindow({target:'#mod_help'});"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" id="help" style="display: inline-block" onclick="$.modalwindow({target:'#mod_help'});"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -233,6 +233,7 @@
 					<div id="pilih-peta-tombol" style="display: none">
 						<button class="button round large" id="batas-wilayah">Peta batas wilayah</button>
 						<button class="button round large" id="latak-indonesia">Peta letak Indonesia</button>
+						<button class="button round large" id="peta-default">Peta Indonesia<span class="smaller">&nbsp;(Default)</span></button>
 					</div>
 				</div>
 			</div>
@@ -258,8 +259,8 @@
 		// $("#button-back-wita").hide();
 		// $("#button-back-wit").hide();
 		// // pemanggilan popup dan data
-		var batas_wilayah='on';
-		var letak_indonesia ='on';
+		// var batas_wilayah='on';
+		// var letak_indonesia ='on';
 		function gembus(id){
 			 $.post("ajax_getdata.php",
        		 {
@@ -285,25 +286,36 @@
 		//batas-wilayah
 		$("#batas-wilayah").click(function(){
 	      	$('#map-peta').fadeOut('fast');
-			if(batas_wilayah=='on')
-			{	
+			// if(batas_wilayah=='on')
+			// {	
 				$('#map-peta').empty();
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/batas_wilayah_mini.png\" data-magnify-src=\"img/maps/batas_wilayah.png\" alt=\"\">");
 	      		$('#map-peta').fadeIn('slow');
-				batas_wilayah='of';
+				// batas_wilayah='of';
 				$('html, body').animate({scrollTop:0},'slow');
-				$('#batas-wilayah').attr('style','background-color:#039');
-				
-			}else
-			{
+				// $('#batas-wilayah').attr('style','background-color:#039');
+		
+			// }else
+			// {
+				// $("#map-img").mapster({
+				// 	fillColor: '2c3e50',
+				// 	fillOpacity: 0.5,
+				// 	stroke: true,
+				// 	strokeColor: '95a5a6',
+				// 	strokeOpacity: 0.7,
+				// 	strokeWidth: 3
+				// });
+		});
+		$("#peta-default").click(function(){
+	      	$('#map-peta').fadeOut('fast');
 				$('#map-peta').empty();
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
 	      		$('#map-peta').fadeIn('slow');
-				batas_wilayah='on';
+				// batas_wilayah='on';
 				$('html, body').animate({scrollTop:0},'slow');
-				$('#batas-wilayah').attr('style','');
+				// $('#batas-wilayah').attr('style','');
 
-			}
+		// }
 				$("#map-img").mapster({
 					fillColor: '2c3e50',
 					fillOpacity: 0.5,
@@ -317,33 +329,33 @@
 	//letak indonesia
 		$("#latak-indonesia").click(function(){
 	      	$('#map-peta').fadeOut('fast');
-			if(letak_indonesia=='on')
-			{	
+			// if(letak_indonesia=='on')
+			// {	
 				$('#map-peta').empty();
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/letak_indo_mini.png\" data-magnify-src=\"img/maps/letak_indo.png\" alt=\"\">");
 	      		$('#map-peta').fadeIn('slow');
 				letak_indonesia='of';
 				$('html, body').animate({scrollTop:0},'slow');
-				$('#latak-indonesia').attr('style','background-color:#039');
+				// $('#latak-indonesia').attr('style','background-color:#039');
 				
-			}else
-			{
-				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
-	      		$('#map-peta').fadeIn('slow');
-				letak_indonesia='on';
-				$('html, body').animate({scrollTop:0},'slow');
-				$('#latak-indonesia').attr('style','');
+			// }else
+			// {
+			// 	$('#map-peta').empty();
+	  //           $("#map-peta").append("<img id=\"map-img\" src=\"img/maps/Peta-4-mini_bener.png\" data-magnify-src=\"img/maps/Peta-4-mini.png\" alt=\"\" usemap=\"#petaInd\">");
+	  //     		$('#map-peta').fadeIn('slow');
+			// 	letak_indonesia='on';
+			// 	$('html, body').animate({scrollTop:0},'slow');
+			// 	$('#latak-indonesia').attr('style','');
 
-			}
-				$("#map-img").mapster({
-					fillColor: '2c3e50',
-					fillOpacity: 0.5,
-					stroke: true,
-					strokeColor: '95a5a6',
-					strokeOpacity: 0.7,
-					strokeWidth: 3
-				});
+			// }
+			// 	$("#map-img").mapster({
+			// 		fillColor: '2c3e50',
+			// 		fillOpacity: 0.5,
+			// 		stroke: true,
+			// 		strokeColor: '95a5a6',
+			// 		strokeOpacity: 0.7,
+			// 		strokeWidth: 3
+			// 	});
 		});
 
 		//end letak indo
@@ -384,6 +396,24 @@
 			},
 			function(){
 			    $("#help-img").attr("src", "img/maps/tanya.png");
+			}
+		);
+		// efek menu zoomIN
+		$("#zoomOff").hover(
+			function(){
+			    $("#zoomOff").attr("src", "img/maps/zoom_2.png");
+			},
+			function(){
+			    $("#zoomOff").attr("src", "img/maps/zoom_1.png");
+			}
+		);
+		// efek menu zoomOUT
+		$("#zoomOn").hover(
+			function(){
+			    $("#zoomOn").attr("src", "img/maps/zoomO_2.png");
+			},
+			function(){
+			    $("#zoomOn").attr("src", "img/maps/zoomO_1.png");
 			}
 		);
 		// efek menu layar kecil

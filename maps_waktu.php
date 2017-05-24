@@ -113,10 +113,10 @@
 						<p id="kontrolKanan" class="w20 row between">
 							<a href="#" style="display: inline-block" id="lup">
 								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
-								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
+								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoomO_1.png" alt="">
 							</a>
 							<a id="kalk" href="#" style="display: inline-block" onclick="$.modalwindow({target:'#mod_kalk'});"><img id="kalk-img" id="help-img" src="img/bagi_waktu/kalk.png" alt=""></a>
-							<a href="#" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" id="help" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -322,6 +322,7 @@
 						<button class="button round large" id="wib">Waktu Indonesia Barat</button>
 						<button  class="button round large" id="wita">Waktu Indonesia Tengah</button>
 						<button class="button round large" id="wit">Waktu Indonesia Timur</button>
+						<button class="button round large" id="peta-default">Peta Pembagian Waktu<span class="smaller">&nbsp;(Default)</span></button>
 					</div>
 				</div>
 			</div>
@@ -344,9 +345,9 @@
 			$(".caret").toggle();
 		});
 		// pemanggilan popup dan data
-		var wib='on';
-		var wita ='on';
-		var wit ='on';
+		// var wib='on';
+		// var wita ='on';
+		// var wit ='on';
 		function gembus(id){
 			 $.post("ajax_getdata.php",
        		 {
@@ -372,25 +373,36 @@
 		//wib
 		$("#wib").click(function(){
 	      	$('#map-peta').fadeOut('fast');
-			if(wib=='on')
-			{	
+			// if(wib=='on')
+			// {	
 				$('#map-peta').empty();
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/wib_mini.png\" data-magnify-src=\"img/bagi_waktu/wib.png\" alt=\"\" usemap=\"#petaIndWIB\">");
 	      		$('#map-peta').fadeIn('slow');
-				wib='of';
+				// wib='of';
 				$('html, body').animate({scrollTop:0},'slow');
-				$('#wib').attr('style','background-color:#039');
-				
-			}else
-			{
+				// $('#wib').attr('style','background-color:#039');
+			$("#map-img").mapster({
+				fillColor: '2c3e50',
+				fillOpacity: 0.5,
+				stroke: true,
+				strokeColor: '95a5a6',
+				strokeOpacity: 0.7,
+				strokeWidth: 3
+			});
+		});	
+			// }else
+			// {
+		$("#peta-default").click(function(){
+	      	$('#map-peta').fadeOut('fast');
+		
 				$('#map-peta').empty();
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/bagi_waktu_mini.png\" data-magnify-src=\"img/bagi_waktu/bagi_waktu.png\" alt=\"\" usemap=\"#petaInd\">");
 	      		$('#map-peta').fadeIn('slow');
-				wib='on';
+				// wib='on';
 				$('html, body').animate({scrollTop:0},'slow');
-				$('#wib').attr('style','');
+				// $('#wib').attr('style','');
 
-			}
+			// }
 			$("#map-img").mapster({
 				fillColor: '2c3e50',
 				fillOpacity: 0.5,
@@ -404,25 +416,25 @@
 	//wita
 		$("#wita").click(function(){
 	      	$('#map-peta').fadeOut('fast');
-			if(wita=='on')
-			{	
+			// if(wita=='on')
+			// {	
 				$('#map-peta').empty();
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/wita_mini.png\" data-magnify-src=\"img/bagi_waktu/wita.png\" alt=\"\" usemap=\"#petaIndWITA\">");
 	      		$('#map-peta').fadeIn('slow');
-				wita='of';
+				// wita='of';
 				$('html, body').animate({scrollTop:0},'slow');
-				$('#wita').attr('style','background-color:#039');
+				// $('#wita').attr('style','background-color:#039');
 				
-			}else
-			{
-				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/bagi_waktu_mini.png\" data-magnify-src=\"img/bagi_waktu/bagi_waktu.png\" alt=\"\" usemap=\"#petaInd\">");
-	      		$('#map-peta').fadeIn('slow');
-				wita='on';
-				$('html, body').animate({scrollTop:0},'slow');
-				$('#wita').attr('style','');
+			// }else
+			// {
+			// 	$('#map-peta').empty();
+	  //           $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/bagi_waktu_mini.png\" data-magnify-src=\"img/bagi_waktu/bagi_waktu.png\" alt=\"\" usemap=\"#petaInd\">");
+	  //     		$('#map-peta').fadeIn('slow');
+			// 	wita='on';
+			// 	$('html, body').animate({scrollTop:0},'slow');
+			// 	$('#wita').attr('style','');
 
-			}
+			// }
 			$("#map-img").mapster({
 				fillColor: '2c3e50',
 				fillOpacity: 0.5,
@@ -437,25 +449,25 @@
 		//wit
 		$("#wit").click(function(){
 	      	$('#map-peta').fadeOut('fast');
-			if(wit=='on')
-			{	
+			// if(wit=='on')
+			// {	
 				$('#map-peta').empty();
 	            $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/wit_mini.png\" data-magnify-src=\"img/bagi_waktu/wit.png\" alt=\"\" usemap=\"#petaIndWIT\">");
 	      		$('#map-peta').fadeIn('slow');
-				wit='of';
+				// wit='of';
 				$('html, body').animate({scrollTop:0},'slow');
-				$('#wit').attr('style','background-color:#039');
+				// $('#wit').attr('style','background-color:#039');
 				
-			}else
-			{
-				$('#map-peta').empty();
-	            $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/bagi_waktu_mini.png\" data-magnify-src=\"img/bagi_waktu/bagi_waktu.png\" alt=\"\" usemap=\"#petaInd\">");
-	      		$('#map-peta').fadeIn('slow');
-				wit='on';
-				$('html, body').animate({scrollTop:0},'slow');
-				$('#wit').attr('style','');
+			// }else
+			// {
+			// 	$('#map-peta').empty();
+	  //           $("#map-peta").append("<img id=\"map-img\" src=\"img/bagi_waktu/bagi_waktu_mini.png\" data-magnify-src=\"img/bagi_waktu/bagi_waktu.png\" alt=\"\" usemap=\"#petaInd\">");
+	  //     		$('#map-peta').fadeIn('slow');
+			// 	wit='on';
+			// 	$('html, body').animate({scrollTop:0},'slow');
+			// 	$('#wit').attr('style','');
 
-			}
+			// }
 			$("#map-img").mapster({
 				fillColor: '2c3e50',
 				fillOpacity: 0.5,
@@ -498,6 +510,24 @@
 			},
 			function(){
 			    $("#help-img").attr("src", "img/maps/tanya.png");
+			}
+		);
+		// efek menu zoomIN
+		$("#zoomOff").hover(
+			function(){
+			    $("#zoomOff").attr("src", "img/maps/zoom_2.png");
+			},
+			function(){
+			    $("#zoomOff").attr("src", "img/maps/zoom_1.png");
+			}
+		);
+		// efek menu zoomOUT
+		$("#zoomOn").hover(
+			function(){
+			    $("#zoomOn").attr("src", "img/maps/zoomO_2.png");
+			},
+			function(){
+			    $("#zoomOn").attr("src", "img/maps/zoomO_1.png");
 			}
 		);
 		// efek menu kalkulator

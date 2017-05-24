@@ -488,3 +488,7 @@ html{
 #pilih-peta-tombol .button{
 	background-color: #963;
 }
+#pilih-peta-lain:hover,
+#pilih-peta-tombol .button:hover{
+	background-color: #f90; 
+}
