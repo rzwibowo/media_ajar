@@ -312,10 +312,14 @@
  	<!-- popup info provinsi selesai -->
 
 				
-				<div class="row pilih-peta between">
-					<button class="button large" id="wib">Waktu Indonesia Barat</button>
-					<button  class="button large" id="wita">Waktu Indonesia Tengah</button>
-					<button class="button large" id="wit">Waktu Indonesia Timur</button>
+				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
+					<button class="button round" id="pilih-peta-lain">Pilih Wilayah Waktu</button>
+					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->
+					<div id="pilih-peta-tombol" style="display: none">
+						<button class="button round large" id="wib">Waktu Indonesia Barat</button>
+						<button  class="button round large" id="wita">Waktu Indonesia Tengah</button>
+						<button class="button round large" id="wit">Waktu Indonesia Timur</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -327,7 +331,14 @@
 
 
 	<script>
-
+		$(document).ready(function(){
+			$("#head").animation("slideInLeft");
+			$("#map-peta").animation("zoomIn");
+			$("#pilih-peta-lain").animation("slideInLeft");
+		});
+		$("#pilih-peta-lain").click(function(){
+			$("#pilih-peta-tombol").toggle("slide");
+		});
 		// pemanggilan popup dan data
 		var wib='on';
 		var wita ='on';

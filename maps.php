@@ -106,7 +106,7 @@
 								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
 								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoom_2.png" alt="">
 							</a>
-							<a href="#" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" style="display: inline-block" onclick="$.modalwindow({target:'#mod_help'});"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -212,11 +212,25 @@
 
 				</div> -->
 <!-- popup pembagian waktu-->
-				
-				<div class="row pilih-peta between">
+				<!-- Modal Help -->
+				<div id="mod_help" class="modal-box hide">
+				    <div class="modal">
+				        <span class="close"></span>
+				        <div class="modal-header">Bantuan</div>
+				        <div>
+				        	
+				        </div>
+				    </div>
+				</div>
+				<!-- modal help selesai -->
+
+				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
+					<button class="button round" id="pilih-peta-lain">Lihat Peta Lain</button>
 					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->
-					<button  class="button large" id="batas-wilayah">Peta batas wilayah</button>
-					<button class="button large" id="latak-indonesia">Peta letak Indonesia</button>
+					<div id="pilih-peta-tombol" style="display: none">
+						<button class="button round large" id="batas-wilayah">Peta batas wilayah</button>
+						<button class="button round large" id="latak-indonesia">Peta letak Indonesia</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -228,10 +242,18 @@
 
 
 	<script>
-		$("#button-back-wib").hide();
-		$("#button-back-wita").hide();
-		$("#button-back-wit").hide();
-		// pemanggilan popup dan data
+		$(document).ready(function(){
+			$("#head").animation("slideInLeft");
+			$("#map-peta").animation("zoomIn");
+			$("#pilih-peta-lain").animation("slideInLeft");
+		});
+		$("#pilih-peta-lain").click(function(){
+			$("#pilih-peta-tombol").toggle("slide");
+		});
+		// $("#button-back-wib").hide();
+		// $("#button-back-wita").hide();
+		// $("#button-back-wit").hide();
+		// // pemanggilan popup dan data
 		var batas_wilayah='on';
 		var letak_indonesia ='on';
 		function gembus(id){

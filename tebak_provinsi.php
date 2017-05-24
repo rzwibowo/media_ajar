@@ -132,10 +132,14 @@ unset($_SESSION['kuis_provinsi']);
 
 				</div>
 				
-				<div class="row pilih-peta between">
-					<a href="tebak_pulau.php" class="button large">Peta Buta: Tebak Pulau</a>
-					<a href="tebak_selat.php" class="button large">Peta Buta: Tebak Selat</a>
-					<a href="tebak_laut.php" class="button large">Peta Buta: Tebak Laut</a>
+				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
+					<button class="button round" id="pilih-peta-lain">Pilih Peta Buta Lain</button>
+					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->
+					<div id="pilih-peta-tombol" style="display: none">
+						<a href="tebak_pulau.php" class="button large">Peta Buta: Tebak Pulau</a>
+						<a href="tebak_selat.php" class="button large">Peta Buta: Tebak Selat</a>
+						<a href="tebak_laut.php" class="button large">Peta Buta: Tebak Laut</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -147,6 +151,14 @@ unset($_SESSION['kuis_provinsi']);
 
 
 	<script>
+		$(document).ready(function(){
+			$("#head").animation("slideInLeft");
+			$("#map-img").animation("zoomIn");
+			$("#pilih-peta-lain").animation("slideInLeft");
+		});
+		$("#pilih-peta-lain").click(function(){
+			$("#pilih-peta-tombol").toggle("slide");
+		});
 		// pemanggilan popup dan data
 		function gembus(id){
 
