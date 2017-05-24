@@ -22,7 +22,10 @@ $_SESSION[session_id()]['salah']=0;
     <link rel="stylesheet" href="css/medajar.css">
 
     <script src="js/jquery.js"></script> 
-
+    
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
 </head>
 <body id="index">
 <?php

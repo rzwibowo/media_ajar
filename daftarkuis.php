@@ -44,7 +44,7 @@ include "koneksi.php";
                 
                 ?>
     			<div>
-                    <ul style="list-style-type: none;">
+                    <ul style="list-style-type: none; color: #000;">
                 <?php while ($row = mysqli_fetch_array ($hasil)){
                     ?>              
                     

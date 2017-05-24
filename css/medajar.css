@@ -481,3 +481,10 @@ html{
 		background-color: white;
 	
 	}
+
+#pilih-peta-lain{
+	background-color: #630;
+}
+#pilih-peta-tombol .button{
+	background-color: #963;
+}

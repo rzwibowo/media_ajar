@@ -17,6 +17,9 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
     <style type="text/css">
     .example {
     border: 1px solid rgba(0, 0, 0, 0.07);

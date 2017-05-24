@@ -24,6 +24,9 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
     <style type="text/css">
         .soal{
           font-size: 35px;

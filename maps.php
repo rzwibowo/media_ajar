@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/magnify.css">
     <link rel="stylesheet" href="css/custocheck.css">
     <link rel="stylesheet" href="css/medajar.css">
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery.magnify.js"></script>
@@ -225,7 +228,7 @@
 				<!-- modal help selesai -->
 
 				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
-					<button class="button round" id="pilih-peta-lain">Lihat Peta Lain</button>
+					<button class="button round" id="pilih-peta-lain">Lihat Peta Lain<span class="caret right"></span><span class="caret left" style="display: none"></span></button>
 					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->
 					<div id="pilih-peta-tombol" style="display: none">
 						<button class="button round large" id="batas-wilayah">Peta batas wilayah</button>
@@ -249,6 +252,7 @@
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
+			$(".caret").toggle();
 		});
 		// $("#button-back-wib").hide();
 		// $("#button-back-wita").hide();
