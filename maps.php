@@ -109,7 +109,7 @@
 								<img id="zoomOff" class="img-lup" src="img/maps/zoom_1.png" alt="">
 								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoomO_1.png" alt="">
 							</a>
-							<a href="#" id="help" style="display: inline-block" onclick="$.modalwindow({target:'#mod_help'});"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" id="help" style="display: inline-block" onclick="$.modalwindow({ target:'#mod_help'});"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -221,7 +221,9 @@
 				        <span class="close"></span>
 				        <div class="modal-header">Bantuan</div>
 				        <div>
-				        	
+				        	<?php
+				        		include "mod_help_maps.html"
+				        	?>
 				        </div>
 				    </div>
 				</div>

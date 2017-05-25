@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>PETA INDONESIA</title>
+	<title>PETA PEMBAGIAN WAKTU</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=0">
 
     <!-- Kube CSS -->
@@ -116,7 +116,7 @@
 								<img id="zoomOn" class="img-lup" style="display: none" src="img/maps/zoomO_1.png" alt="">
 							</a>
 							<a id="kalk" href="#" style="display: inline-block" onclick="$.modalwindow({target:'#mod_kalk'});"><img id="kalk-img" id="help-img" src="img/bagi_waktu/kalk.png" alt=""></a>
-							<a href="#" id="help" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" id="help" style="display: inline-block" onclick="$.modalwindow({ target:'#mod_help'});"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -211,7 +211,7 @@
 									}
 								?>
 								</optgroup>
-								<optgroup label="WIB">
+								<optgroup label="WIT">
 								<?php
 									$sql="select * from bagi_waktu where wilayah_waktu='WIT'";
 									$hasil=mysqli_query($koneksi,$sql)
@@ -259,7 +259,7 @@
 									}
 								?>
 								</optgroup>
-								<optgroup label="WIB">
+								<optgroup label="WIT">
 								<?php
 									$sql="select * from bagi_waktu where wilayah_waktu='WIT'";
 									$hasil=mysqli_query($koneksi,$sql)
@@ -313,7 +313,19 @@
 						</div>
 					</div>
  	<!-- popup info provinsi selesai -->
-
+				<!-- Modal Help -->
+				<div id="mod_help" class="modal-box hide">
+				    <div class="modal">
+				        <span class="close"></span>
+				        <div class="modal-header">Bantuan</div>
+				        <div>
+				        	<?php
+				        		include "mod_help_maps_waktu.html"
+				        	?>
+				        </div>
+				    </div>
+				</div>
+				<!-- modal help selesai -->
 				
 				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
 					<button class="button round" id="pilih-peta-lain">Pilih Wilayah Waktu<span class="caret right"></span><span class="caret left" style="display: none"></span></button>

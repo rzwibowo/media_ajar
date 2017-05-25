@@ -78,7 +78,7 @@ unset($_SESSION['kuis_provinsi']);
 						<a href="index.html" id="back" class="w10"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
 						<p id="kontrolKanan">
 
-							<a href="#" id="help" style="display: inline-block"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
+							<a href="#" id="help" style="display: inline-block" onclick="$.modalwindow({ target:'#mod_help'});"><img id="help-img" src="img/maps/tanya.png" alt=""></a>
 						</p>
 					</div>
 				</div>
@@ -135,6 +135,20 @@ unset($_SESSION['kuis_provinsi']);
 
 				</div>
 				
+				<!-- Modal Help -->
+				<div id="mod_help" class="modal-box hide">
+				    <div class="modal">
+				        <span class="close"></span>
+				        <div class="modal-header">Bantuan</div>
+				        <div>
+				        	<?php
+				        		include "mod_help_maps_buta.html"
+				        	?>
+				        </div>
+				    </div>
+				</div>
+				<!-- modal help selesai -->
+
 				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
 					<button class="button round" id="pilih-peta-lain">Pilih Peta Buta Lain<span class="caret right"></span><span class="caret left" style="display: none"></span></button>
 					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->

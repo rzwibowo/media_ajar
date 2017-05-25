@@ -16,9 +16,11 @@
 		function cekLamanAktif(){
 			if (window.location.pathname=="/media_ajar/daftar_prov.php") {
 				document.getElementById("linkprop").style.cssText="color:#2980b9; font-weight:bold";
+				document.getElementById("linkprop_mini").style.cssText="color:#2980b9; font-weight:bold";
 			}
 			else if (window.location.pathname=="/media_ajar/daftarkuis.php") {
 				document.getElementById("linkkuis").style.cssText="color:#2980b9; font-weight:bold";
+				document.getElementById("linkkuis_mini").style.cssText="color:#2980b9; font-weight:bold";
 			}
 		}
 	</script>	
@@ -36,8 +38,8 @@
     <ul>
         <li><a href="index.php">Halaman Utama</a></li>
         <li><a href="admin.php">Halaman Admin</a></li>
-		<li><a id="linkprop" href="entryProp.php">Data Provinsi</a></li>
-		<li><a id="linkkuis" href="daftarkuis.php">Data Kuis</a></li>
+		<li><a id="linkprop-mini" href="entryProp.php">Data Provinsi</a></li>
+		<li><a id="linkkuis-mini" href="daftarkuis.php">Data Kuis</a></li>
     </ul>
 </div>
 

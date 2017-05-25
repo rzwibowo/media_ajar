@@ -1,0 +1,90 @@
+<head>
+	<style>
+		.bantuan-show{
+			padding: 5% 5%;
+		}
+	</style>
+</head>
+<nav id="tabs" class="tabs" data-component="tabs">
+    <ul>
+        <li><a href="#tab1">Umum</a></li>
+        <li><a href="#tab2">Tebak Wilayah</a></li>
+        <li><a href="#tab3">Peta Lain</a></li>
+    </ul>
+</nav>
+<div id="tab1" class="bantuan-show">
+	<h4>Kembali ke Menu Utama</h4>
+	<p>
+		Untuk kembali ke menu utama, klik tombol <b>Kembali</b> di kiri atas.
+		<br>
+		<span>
+			<img src="img/maps/kembali.png" alt="">
+		</span>  
+	</p>
+	<h4>Menutup Menu Bantuan</h4>
+	<p>
+		Untuk menutup kotak bantuan ini, klik tombol <b>X</b> dengan kotak merah.
+	</p>
+	<div  >
+		<button class="pr button round"><span class="caret left"></span></button>
+		<button class="ne button round"><span class="caret right"></span></button>
+	</div>
+</div>
+<div id="tab2" class="bantuan-show">
+	<h4>Menebak Wilayah</h4>
+	<p>
+		Peta Buta adalah peta tanpa keterangan. Tugas kamu adalah menebak daerah di peta tersebut. Misalnya pada Peta Tebak Pulau:
+		<ol>
+			<li>
+				Arahkan kursor ke suatu pulau<br>
+				<img src="img/peta_indo_help/petaButa_(1).png" class="w50" alt="">
+			</li>
+			<li>
+				Klik pulau tersebut, kamu diminta untuk mengetikkan nama pulau<br>
+				<img src="img/peta_indo_help/petaButa_(2).png" class="w50" alt="">
+			</li>
+			<li>
+				Jika sudah selesai, klik <b>OK</b>. Akan muncul keterangan apakah jawabanmu benar atau tidak	
+			</li>
+			<li>
+				Jika kamu sudah menebak semua bagian dari peta, kamu akan mendapat skor
+			</li>
+		</ol>
+	</p>
+	<span  >
+		<button class="pr button round"><span class="caret left"></span></button>
+		<button class="ne button round"><span class="caret right"></span></button>
+	</span>
+</div>
+<div id="tab3" class="bantuan-show">
+	<h4>Memilih Bentuk Peta Lain</h4>
+	<p>
+		Terdapat empat pilihan Peta Buta, yaitu Peta Buta Pulau, Peta Buta Laut, Peta Buta Selat, dan Peta Buta Provinsi. Untuk memilihnya:
+		<ol>
+			<li>
+				Klik pada tombol <b>Pilih Peta Buta Lain <span class="caret right"></span></b><br>
+				<img src="img/peta_indo_help/petaButa_(3).png" alt="">
+			</li>
+			<li>
+				Akan muncul pilihan peta, silakan klik salah satu dari pilihan peta tersebut <br>
+				<img src="img/peta_indo_help/petaButa_(4).png" alt="">
+			</li>
+			<li>
+				Untuk menutup pilihan peta, klik tombol <b>Pilih Peta Buta Lain <span class="caret left"></span></b><br>
+				<img src="img/peta_indo_help/petaButa_(5).png" alt="">	
+			</li>
+		</ol>
+	</p>
+	<span  >
+		<button class="pr button round"><span class="caret left"></span></button>
+		<button class="ne button round"><span class="caret right"></span></button>
+	</span>
+</div>
+<script>
+	$(".pr").click(function(){
+		$("#tabs").tabs("prev");
+	});
+	$(".ne").click(function(){
+		$("#tabs").tabs("next");
+	});
+</script>
