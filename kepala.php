@@ -6,6 +6,10 @@
 	<link rel="stylesheet" href="css/kube.css">
 	<link rel="stylesheet" href="css/medajar.css">
 
+	<link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
+
     <script src="js/jquery.js"></script>
 
 	<script>

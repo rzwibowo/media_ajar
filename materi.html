@@ -8,6 +8,9 @@
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
 
     <script src="js/jquery.js"></script>
 
@@ -66,7 +69,7 @@
 						<div id="tab3">
 							<p class="materi">
 								Wilayah Indonesia diapit oleh dua benua, yaitu Benua Asia dan Benua Australia. Wilayah Indonesia juga diapit oleh dua samudra, yaitu Samudra Hindia dan Samudra Pasifik. Letak Indonesia sangat strategis untuk perkembangan dan pembangunan negara Indonesia.<br>
-								<img class="w60" src="img/maps/letak_indo.png" alt="">
+								<img class="w60" src="img/maps/letak_indo_mini.png" alt="">
 							</p>
 						</div>
 						<div id="tab4">
@@ -105,6 +108,9 @@
     <script src="js/kube.js"></script>
 
     <script>
+    	$(document).ready(function(){
+    		$("#materi-show").animation("zoomIn");
+    	});
     	$("#back").hover(
 			function(){
 			    $("#back-img").attr("src", "img/maps/kembali_hover.png");

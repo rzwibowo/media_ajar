@@ -9,7 +9,7 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kuis</title>
+    <title>KUIS: SELESAI</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +17,9 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
     <link rel="stylesheet" href="css/medajar.css">
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
     <style type="text/css">
     .example {
     border: 1px solid rgba(0, 0, 0, 0.07);

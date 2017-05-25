@@ -24,6 +24,10 @@ html{
 	background-repeat: no-repeat;
 }
 
+#index #menu a img, #index #mod_peta a img{
+	margin: 2% 0;
+}
+
 #map{
 	min-height: 100%;
 	background-color: #960;
@@ -290,7 +294,9 @@ html{
 	padding: 20px 20px;
 }
 
-
+#kuis-page #materi-show{
+	padding: 2%;
+}
 
 #materi-show {
 	background-image: url('../img/materi/bg_materi.png');
@@ -299,16 +305,16 @@ html{
 	height: 480px;
 }
 
-@font-face { font-family: Indie Flower; src: url('../font/IndieFlower.ttf'); }
+@font-face { font-family: Boogaloo-Regular; src: url('../font/Boogaloo-Regular.ttf'); }
 #materi-show .materi{
-	font-family: Indie Flower;
+	font-family: Boogaloo-Regular;
 	font-size: 2em;
 	line-height: 150%;
 	padding: 2% 5% 
 }
 
 #judul-materi{
-	font-family: Indie Flower;
+	font-family: Boogaloo-Regular;
 	background-color: #c90;
 	color: #fff;
 	border-radius: 10px;
@@ -436,7 +442,7 @@ html{
 	position: absolute;
 	left: 3%;
 	top: 3%;
-<<<<<<< HEAD
+
 }
 
 	.view-kuis{
@@ -475,7 +481,10 @@ html{
 		background-color: white;
 	
 	}
->>>>>>> 7e6610e53c269dccdee62da24f3503e61393c9b2
-=======
+
+#pilih-peta-lain{
+	background-color: #630;
 }
->>>>>>> 1cb30c03c3752535c36afdcc7935e84260fbaea8
+#pilih-peta-tombol .button{
+	background-color: #963;
+}

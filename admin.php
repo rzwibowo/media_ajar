@@ -12,6 +12,9 @@ if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</scr
 
     <!-- Kube CSS -->
     <link rel="stylesheet" href="css/kube.css">
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
 </head>
 <body>
 	<div id="main">

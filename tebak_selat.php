@@ -14,6 +14,9 @@ unset($_SESSION['kuis_selat']);
     <link rel="stylesheet" href="css/medajar.css">
     <link rel="stylesheet" href="css/magnify.css">
     <link rel="stylesheet" href="css/custocheck.css">
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery.magnify.js"></script>
@@ -134,10 +137,14 @@ unset($_SESSION['kuis_selat']);
 
 				</div>
 				
-				<div class="row pilih-peta between">
+				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
+					<button class="button round" id="pilih-peta-lain">Pilih Peta Buta Lain<span class="caret right"></span><span class="caret left" style="display: none"></span></button>
+					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->
+					<div id="pilih-peta-tombol" style="display: none">
 					<a href="tebak_pulau.php" class="button large">Peta Buta: Tebak Pulau</a>
 					<a href="tebak_laut.php" class="button large">Peta Buta: Tebak Laut</a>
 					<a href="tebak_provinsi.php" class="button large">Peta Buta: Tebak Provinsi</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -149,6 +156,15 @@ unset($_SESSION['kuis_selat']);
 
 
 	<script>
+		$(document).ready(function(){
+			$("#head").animation("slideInLeft");
+			$("#map-img").animation("zoomIn");
+			$("#pilih-peta-lain").animation("slideInLeft");
+		});
+		$("#pilih-peta-lain").click(function(){
+			$("#pilih-peta-tombol").toggle("slide");
+			$(".caret").toggle();
+		});
 		// pemanggilan popup dan data
 		function gembus(id){
 
@@ -162,6 +178,7 @@ unset($_SESSION['kuis_selat']);
 			}
 			$('#id_selat').val(id);
 			$('.popup-kuis').fadeIn();
+			$('#nama_selat').focus();
 		}
 
      	  $('#ok').click(function(e){
