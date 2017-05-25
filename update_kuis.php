@@ -1,48 +1,28 @@
-4600 5c00 9128 4982 6c02 ab4a 9518 6d5f
-bba0 e4c4 03ce 743b 859e 710a 445c 6165
-483a 088c d6e6 1e6b ff3f c4c3 eb97 9a96
-e6bf d35b 1ede a29e e234 5695 2abf 853e
-6728 71c9 c3a0 335e e476 c766 c5fa 3292
-9353 c2e3 d28e aef9 910d ffb6 bdf7 584f
-b8f7 4e50 ef38 c141 c005 cd33 2258 f038
-9f17 5fd4 e177 d68b d5ac 9c9a 636a 1bd0
-827f d666 bda1 6f36 71b9 0075 971c dd7a
-72ab 06ff 503b 1c48 bfca 1b8a 2459 de9e
-dacd c154 2578 f29c dd8a 0a35 8617 3c38
-b441 fadd 6d8c d1be 6f72 b11c 7eed 1fe9
-9c4d 3a3b 9542 b56e 15d3 55a6 5828 4ef7
-b9c4 376c 3f97 fd04 9d4b 949a 4782 c4bc
-6431 efe8 0a5c 2934 8bef e27d 9eec 2db8
-f4a7 8ced 027f c550 ee7c 45b9 97f7 10db
-2443 d720 a917 08cb f81b 3bfa 7e3b cfa4
-8b17 f0c4 889a c20b 42d2 eb29 9239 856a
-e5e4 697f a056 6e39 0b3c c580 93f7 084e
-5207 b207 0725 ee06 e6fd 472d 98de 1513
-1b8f 0390 53bd 8c28 7a7c 37e6 9e7a 835a
-3914 8fac f7b8 65df a9c5 26df 0876 a58a
-a305 0f53 ab94 ba37 8074 341a 1b08 afce
-e459 1b1f ce51 2500 9dff 5ba3 da6f 82b2
-8efd e804 5456 8238 725f c1e4 38cb 850f
-6087 1843 2452 4c64 162e d245 78ef 0aac
-b1ee b193 e9fb 729a 9750 7218 88bf 5f44
-433c e8ab a6a6 cea4 04d0 fe69 8fca 521c
-fe1f ddf0 2f57 6925 046a 55c9 ae5e de0a
-3593 bf19 5dc5 db5f 6ee0 7d1b 18a9 eb9f
-6e6c 22fe bf0a 100d 798a faee 3262 63fd
-0056 ecac d4d4 241a b661 30b4 4498 6b3e
-4d6b c5c8 50fe 9b48 7090 b564 b409 4b37
-eb35 b032 f560 b16b 51f9 50ee d767 c5f5
-bd8e f984 ede7 ce0d e85e 826a 9a5a a36d
-7c8f f161 fb27 fcbe 9d5c dbef 2008 819e
-31af f301 0e30 b7d2 a718 f712 f072 4221
-927c 8cdd 6da5 e809 5fb0 f0d3 50e5 0e1e
-01ec 55e5 a66b f19f 730d ba26 c96a 0236
-779c b64a 7e33 48a7 338b f2ae c78f a14c
-b3bd 90eb 7af7 92fa 9127 0000 04c1 2101
-c47a 19a8 8bff cf79 7d43 ce54 9a0a 019e
-bb25 5b56 b000 1245 c1e9 9137 25fa 3bea
-9fcb aec8 a4b7 9f63 e68e d80e 22e6 afa4
-33e7 9e90 3fd4 17a5 f33b 6fd9 a92c 161d
-476f f7c4 9e48 d064 040c d6b4 3e7a 1aaf
-25e9 5322 e82f aeb1 86e2 c8a6 34d5 f042
-c505 424d d63f e51c 40c0 424a ac12 bc6b
+<?php 
+
+session_start();
+if (!isset($_SESSION["user"])) echo "<script>location.replace('login.php');</script>";
+
+include "koneksi.php";
+
+$id        = $_POST['id'];
+$soal      = $_POST['soal'];
+$pilihan_a = $_POST['pilihan_a'];
+$pilihan_b = $_POST['pilihan_b'];
+$pilihan_c = $_POST['pilihan_c'];
+$pilihan_d = $_POST['pilihan_d'];
+$jawaban   = $_POST['jawaban'];
+
+
+$queryUpdate="UPDATE detail_kuis set soal='$soal', pilihan_a='$pilihan_a', pilihan_b='$pilihan_b', pilihan_c='$pilihan_c', pilihan_d='$pilihan_d', jawaban='$jawaban' WHERE id='$id'"; 
+$query=mysqli_query($koneksi,$queryUpdate)or die(mysqli_error($koneksi));
+
+if($query)
+{
+	echo "<script>alert('Data fierhasil dirubah'); window.location.replace('daftarkuis.php');</script>";
+}
+
+mysqli_close($koneksi);
+
+
+?>
