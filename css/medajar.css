@@ -25,7 +25,7 @@ html{
 }
 
 #index #menu a img, #index #mod_peta a img{
-	margin: 2% 0;
+	margin: 1% 0;
 }
 
 #map{
@@ -319,6 +319,30 @@ html{
 	color: #fff;
 	border-radius: 10px;
 	padding: 2%;
+}
+
+#kompetensi-show {
+	background-image: url('../img/materi/bg_materi.png');
+	background-size: 100% 100%;
+	margin-top: 5%;
+	height: 480px;
+}
+
+@font-face { font-family: Boogaloo-Regular; src: url('../font/Boogaloo-Regular.ttf'); }
+#kompetensi-show .kompetensi{
+	font-family: Boogaloo-Regular;
+	font-size: 2em;
+	line-height: 150%;
+	padding: 2% 5% 
+}
+
+#judul-kompetensi{
+	font-family: Boogaloo-Regular;
+	background-color: #c90;
+	color: #fff;
+	border-radius: 10px;
+	padding: 2%;
+	text-align: center;
 }
 
 .popup{

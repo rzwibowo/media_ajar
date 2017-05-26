@@ -122,7 +122,7 @@ unset($_SESSION['kuis_pulau']);
 						<div class="bg"></div>
 							<div class="content-kuis-form">
 								<div class="content-text">
-								<p>Tulis Nama Pulau</p>
+								<p>Apakah nama pulau ini?</p>
 								<input type="hidden" id="id_pulau">
 								<input type="text" id="nama_pulau" >
 								<div style="text-align: center; margin-top: 15px;"><button id="ok">OK</button></div>

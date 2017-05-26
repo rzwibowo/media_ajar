@@ -63,7 +63,9 @@
 				</div>
 				<div class="w70 text-center push-center">
 					<!-- <legend>Menu Utama</legend> -->
-
+					<div >
+						<a href="kompetensi.html" role="button"><img id="kompetensi-img" src="img/index/menu_kompetensi.png" alt=""></a>
+					</div>
 					<div >
 						<a href="materi.html" role="button"><img id="materi-img" src="img/index/menu_materi.png" alt=""></a>
 					</div>
@@ -178,6 +180,14 @@
 			},
 			function(){
 			    $("#kuis-img").attr("src", "img/index/menu_kuis.png");
+			}
+		);
+		$("a[href='kompetensi.html']").hover(
+			function(){
+			    $("#kompetensi-img").attr("src", "img/index/menu_kompetensi_hover.png");
+			},
+			function(){
+			    $("#kompetensi-img").attr("src", "img/index/menu_kompetensi.png");
 			}
 		);
 		$("a[href='maps.php']").hover(
