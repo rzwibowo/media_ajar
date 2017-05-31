@@ -308,9 +308,9 @@ html{
 @font-face { font-family: Boogaloo-Regular; src: url('../font/Boogaloo-Regular.ttf'); }
 #materi-show .materi{
 	font-family: Boogaloo-Regular;
-	font-size: 2em;
-	line-height: 150%;
-	padding: 2% 5% 
+	font-size: 1.8em;
+	line-height: 120%;
+	padding: 1% 5% 
 }
 
 #judul-materi{
