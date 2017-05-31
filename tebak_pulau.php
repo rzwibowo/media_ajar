@@ -115,6 +115,7 @@ unset($_SESSION['kuis_pulau']);
 								<div class="content-text" id="message">
 									
 								</div>
+								<div class="row"><a href="tebak_pulau.php" class="button" id="coba_lagi">COBA LAGI</a></div>
 							</div>
 					</div>
 
@@ -174,6 +175,7 @@ unset($_SESSION['kuis_pulau']);
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");
 			$("#pilih-peta-lain").animation("slideInLeft");
+			$("#coba_lagi").hide();
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
@@ -238,7 +240,7 @@ unset($_SESSION['kuis_pulau']);
 
 	            }else if(data.status =='selesai')
 	            {
-	            	console.log(data.benar+" data_benar");
+	            	$("#coba_lagi").show();
 	              if(data.benar==10)
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA PULAU<br>TERSEBAR DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");

@@ -113,7 +113,7 @@ unset($_SESSION['kuis_selat']);
 								<div class="content-text" id="message">
 									
 								</div>
-								<div class="row"><a href="peta_buta.php" class="button">COBA LAGI</a></div>
+								<div class="row"><a href="tebak_selat.php" class="button" id="coba_lagi">COBA LAGI</a></div>
 						
 						</div>
 					</div>
@@ -174,6 +174,7 @@ unset($_SESSION['kuis_selat']);
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");
 			$("#pilih-peta-lain").animation("slideInLeft");
+			$("#coba_lagi").hide();
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
@@ -223,7 +224,7 @@ unset($_SESSION['kuis_selat']);
 
 	            }else if(data.status =='selesai')
 	            {
-	            
+	              $("#coba_lagi").show();
 	              if(data.benar==3)
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA SELAT<br> DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");

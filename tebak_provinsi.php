@@ -97,7 +97,7 @@ unset($_SESSION['kuis_provinsi']);
 							include 'koneksi.php';
 							$result = mysqli_query($koneksi,"SELECT * FROM provinsi");
 							while ($rs=mysqli_fetch_array($result)) {
-								echo "<area shape='poly' coords='$rs[coords]' href='#'  title=\"$rs[id_prov]\"  onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
+								echo "<area shape='poly' coords='$rs[coords]' href='#' onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
 							}
 
 						?>
@@ -113,6 +113,7 @@ unset($_SESSION['kuis_provinsi']);
 								<div class="content-text" id="message">
 									
 								</div>
+								<div class="row"><a href="tebak_provinsi.php" class="button" id="coba_lagi">COBA LAGI</a></div>
 							</div>
 					</div>
 
@@ -172,6 +173,7 @@ unset($_SESSION['kuis_provinsi']);
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");
 			$("#pilih-peta-lain").animation("slideInLeft");
+			$("#coba_lagi").hide();
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
@@ -269,7 +271,7 @@ unset($_SESSION['kuis_provinsi']);
           		nama_provinsi:nama_provinsi,
        		 },
         	function(data,status){
-
+                 
 	        	if(data.status == 'benar')
 	        	{
 	        		
@@ -286,7 +288,7 @@ unset($_SESSION['kuis_provinsi']);
 
 	            }else if(data.status =='selesai')
 	            {
-	            	console.log(data.benar+" data_benar");
+	            	$("#coba_lagi").show();
 	              if((data.benar > 25) && (data.benar <=10))
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA PROVINSI<br> DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");
