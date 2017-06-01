@@ -36,6 +36,14 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
  //   include 'kepala.php';
 ?>
     <div id="kuis-page">
+        <button class="button round kontrolAudio" onclick="jeda()">▌▌</button>
+        <button class="button round kontrolAudio" style="display: none" onclick="main()">►</button>
+        
+        <audio id="backsound" autoplay loop>
+            <source src="snd/backsound_1.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+
         <div id="ornamen" class="col col-12 text-center">
             <img id="awan" src="img/index/awan-menu.gif" alt="">
         <!-- <img id="pohon" src="img/index/pohon.png" alt=""> -->
@@ -86,6 +94,27 @@ if (!isset($_SESSION[session_id()])) echo "<script>location.replace('kuis.php');
             },
             function(){
                 $("#back-img").attr("src", "img/maps/kembali.png");
+            }
+        );
+        $("a,button").click(
+            function(){
+                new Audio("snd/Click.ogg").play(); 
+            }
+        );
+        $("a,button").mouseover(
+            function(){
+                new Audio("snd/hover.ogg").play(); 
+            }
+        );
+        function jeda(){
+            document.getElementById("backsound").pause();
+        }
+        function main(){
+            document.getElementById("backsound").play();
+        }
+        $(".kontrolAudio").click(function()
+            {
+                $(".kontrolAudio").fadeToggle();
             }
         );
     </script>

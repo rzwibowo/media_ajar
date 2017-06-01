@@ -52,6 +52,14 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
     </div>
 
     <div id="kuis-page">
+        <button class="button round kontrolAudio" onclick="jeda()">▌▌</button>
+        <button class="button round kontrolAudio" style="display: none" onclick="main()">►</button>
+        
+        <audio id="backsound" autoplay loop>
+            <source src="snd/backsound_3.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+
     	<div class="row align-center">
     		<div id="materi-show" class="col-6">
     			<div class="materi text-center">
@@ -142,7 +150,27 @@ if(isset($_GET['jawaban']) && isset($_GET['dk'])){
             
             
     }
-
+    $("a,button").click(
+            function(){
+                new Audio("snd/Click.ogg").play(); 
+            }
+        );
+        $("a,button").mouseover(
+            function(){
+                new Audio("snd/hover.ogg").play(); 
+            }
+        );
+        function jeda(){
+            document.getElementById("backsound").pause();
+        }
+        function main(){
+            document.getElementById("backsound").play();
+        }
+        $(".kontrolAudio").click(function()
+            {
+                $(".kontrolAudio").fadeToggle();
+            }
+        );
 
     </script>
 </body> 
