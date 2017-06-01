@@ -102,6 +102,13 @@
 
 
 	<div id="main">
+		<button class="button round kontrolAudio" onclick="jeda()">▌▌</button>
+		<button class="button round kontrolAudio" style="display: none" onclick="main()">►</button>
+		
+		<audio id="backsound" autoplay loop>
+		  	<source src="snd/backsound_2.ogg" type="audio/ogg">
+			Your browser does not support the audio element.
+		</audio>
 		<div class="row">
 			<div class="col col-12">
 
@@ -580,10 +587,27 @@
 			$perbesar.destroy();
 			$("#map-img").mapster();
 		});
-
-
-
-				
+		$("a,button,area").click(
+			function(){
+				new Audio("snd/Click.ogg").play(); 
+			}
+		);
+		$("a,button,area").mouseover(
+			function(){
+				new Audio("snd/hover.ogg").play(); 
+			}
+		);
+		function jeda(){
+			document.getElementById("backsound").pause();
+		}
+		function main(){
+			document.getElementById("backsound").play();
+		}
+		$(".kontrolAudio").click(function()
+			{
+				$(".kontrolAudio").fadeToggle();
+			}
+		);				
 	</script>
 </body>
 </html>

@@ -35,6 +35,13 @@
 	</div>
 	
 	<div id="materi-page">
+		<button class="button round kontrolAudio" onclick="jeda()">▌▌</button>
+		<button class="button round kontrolAudio" style="display: none" onclick="main()">►</button>
+		
+		<audio id="backsound" autoplay loop>
+		  	<source src="snd/backsound_1.ogg" type="audio/ogg">
+			Your browser does not support the audio element.
+		</audio>
 
 		<div class="row">
 			<a href="index.html" id="back"><img id="back-img" src="img/maps/kembali.png" alt=""></a>
@@ -170,6 +177,27 @@
 			},
 			function(){
 			    $("#nex-img").attr("src", "img/materi/next.png");
+			}
+		);
+		$("a,button").click(
+			function(){
+				new Audio("snd/Click.ogg").play(); 
+			}
+		);
+		$("a,button").mouseover(
+			function(){
+				new Audio("snd/hover.ogg").play(); 
+			}
+		);
+		function jeda(){
+			document.getElementById("backsound").pause();
+		}
+		function main(){
+			document.getElementById("backsound").play();
+		}
+		$(".kontrolAudio").click(function()
+			{
+				$(".kontrolAudio").fadeToggle();
 			}
 		);
 	</script>

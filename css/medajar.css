@@ -3,6 +3,14 @@ html{
 	/*cursor: url(../img/cursor_1.png),auto;*/
 }
 
+body{
+	cursor: url(../img/arrow.png),auto;
+}
+
+a:hover, button:hover, area:hover{
+	cursor: url(../img/hand.png),auto;
+}
+
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
 .se-pre-con {
@@ -515,4 +523,10 @@ html{
 #pilih-peta-lain:hover,
 #pilih-peta-tombol .button:hover{
 	background-color: #f90; 
+}
+.kontrolAudio{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 5;
 }
