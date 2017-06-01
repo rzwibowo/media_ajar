@@ -43,6 +43,8 @@ unset($_SESSION['kuis_selat']);
 		}
 	</style>
 </head>
+<div id="label_map">
+</div>
 <body id="map">
 	
 	<!-- loading screen -->
@@ -121,6 +123,7 @@ unset($_SESSION['kuis_selat']);
 									
 								</div>
 								<div class="row"><a href="tebak_selat.php" class="button" id="coba_lagi">COBA LAGI</a></div>
+								<div class="row"><a href="#" class="button" id="selesai">SELESAI</a></div>
 						
 						</div>
 					</div>
@@ -182,6 +185,7 @@ unset($_SESSION['kuis_selat']);
 			$("#map-img").animation("zoomIn");
 			$("#pilih-peta-lain").animation("slideInLeft");
 			$("#coba_lagi").hide();
+			$("#selesai").hide();
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
@@ -207,7 +211,6 @@ unset($_SESSION['kuis_selat']);
      	  	var id_selat =  $('#id_selat').val();
      	  	var nama_selat=  $('#nama_selat').val();
           
-     	  	$('#nama_selat').val("");
      	  	$('.popup-kuis').fadeOut('slow');
      	  	$.post("ajax_tebak_selat.php",
        		{
@@ -215,7 +218,7 @@ unset($_SESSION['kuis_selat']);
           		nama_selat:nama_selat,
        		 },
         	function(data,status){
-        		
+        		console.log(data.status);
 	        	if(data.status == 'benar')
 	        	{
 	        	
@@ -231,26 +234,32 @@ unset($_SESSION['kuis_selat']);
 
 	            }else if(data.status =='selesai')
 	            {
-	              $("#coba_lagi").show();
+	            
 	              if(data.benar==3)
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA SELAT<br> DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#selesai").show();
 	              }else if(data.benar == 2)
 	              {
 	              	  $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                   $("#coba_lagi").show();
 				  }else if(data.benar == 1)
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                   $("#coba_lagi").show();
 
 				  }else if(data.benar == 0)
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#coba_lagi").show();
 				  }
 	            }
+	            $("#label_map").append("<label style='"+data.position_css+"'>"+$('#nama_selat').val()+"</label>");
+	           $('#nama_selat').val("");
         	});	
         	});
 

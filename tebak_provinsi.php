@@ -121,6 +121,7 @@ unset($_SESSION['kuis_provinsi']);
 									
 								</div>
 								<div class="row"><a href="tebak_provinsi.php" class="button" id="coba_lagi">COBA LAGI</a></div>
+								<div class="row"><a href="#" class="button" id="selesai">SELESAI</a></div>
 							</div>
 					</div>
 
@@ -181,6 +182,7 @@ unset($_SESSION['kuis_provinsi']);
 			$("#map-img").animation("zoomIn");
 			$("#pilih-peta-lain").animation("slideInLeft");
 			$("#coba_lagi").hide();
+			$("#selesai").hide();
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
@@ -289,35 +291,36 @@ unset($_SESSION['kuis_provinsi']);
 	            }
 	            else if (data.status == 'salah')
 	            {
-	            	console.log(data.jumdata);
 	              $('#message').html("<br><div class='row'><div><h1>UPS, AYO COBA LAGI!</h1></div></div><div class='row'><h1 style='text-align:center'>KAMU PASTI BISA</h1></div>");
 	              $('.popup').fadeIn('slow').delay(1000).hide('slow');
 
 	            }else if(data.status =='selesai')
 	            {
-	            	$("#coba_lagi").show();
 	              if((data.benar > 25) && (data.benar <=10))
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA PROVINSI<br> DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#selesai").show();
 	              }else if((data.benar > 17) && (data.benar <= 25))
 	              {
 	              	  $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                  $("#coba_lagi").show();
 				  }else if((data.benar > 8) && (data.benar <= 17))
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-
+	                 $("#coba_lagi").show();
 				  }else if((data.benar > 0) && (data.benar <= 8))
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-
+	                 $("#coba_lagi").show();
 				  }else if(data.benar == 0)
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#coba_lagi").show();
 				  }
 	            }
         	});	

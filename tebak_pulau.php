@@ -45,6 +45,9 @@ unset($_SESSION['kuis_pulau']);
 	</style>
 
 </head>
+
+<div id="label_map">
+</div>
 <body id="map">
 	
 	<!-- loading screen -->
@@ -124,6 +127,7 @@ unset($_SESSION['kuis_pulau']);
 									
 								</div>
 								<div class="row"><a href="tebak_pulau.php" class="button" id="coba_lagi">COBA LAGI</a></div>
+								<div class="row"><a href="#" class="button" id="selesai">SELESAI</a></div>
 							</div>
 					</div>
 
@@ -179,11 +183,14 @@ unset($_SESSION['kuis_pulau']);
 
 
 	<script>
+
+
 		$(document).ready(function(){
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");
 			$("#pilih-peta-lain").animation("slideInLeft");
 			$("#coba_lagi").hide();
+			$("#selesai").hide();
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
@@ -224,7 +231,7 @@ unset($_SESSION['kuis_pulau']);
      	  $('#ok').click(function(e){
      	  	var id_pulau =  $('#id_pulau').val();
      	  	var nama_pulau =  $('#nama_pulau').val();
-     	  	$('#nama_pulau').val("");
+     	  
      	  	$('.popup-kuis').fadeOut('slow');
      	  	$.post("ajax_tebak_pulau.php",
        		{
@@ -248,31 +255,37 @@ unset($_SESSION['kuis_pulau']);
 
 	            }else if(data.status =='selesai')
 	            {
-	            	$("#coba_lagi").show();
+	            	
 	              if(data.benar==10)
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA PULAU<br>TERSEBAR DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#selesai").show();
 	              }else if((data.benar < 10) && (data.benar >= 7))
 	              {
 	              	  $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                   $("#coba_lagi").show();
 				  }else if((data.benar < 7) && (data.benar >= 4))
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-
+	                 $("#coba_lagi").show();
 				  }else if((data.benar < 4) && (data.benar >= 1))
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-
+	                 $("#coba_lagi").show();
 				  }else if(data.benar == 0)
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#coba_lagi").show();
 				  }
 	            }
+
+	        	$("#label_map").append("<label style='"+data.position_css+"'>"+$('#nama_pulau').val()+"</label>");
+	           $('#nama_pulau').val("");
         	});	
         	});
 

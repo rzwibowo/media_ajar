@@ -43,6 +43,8 @@ unset($_SESSION['kuis_laut']);
 		}
 	</style>
 </head>
+<div id="label_map">
+</div>
 <body id="map">
 	
 	<!-- loading screen -->
@@ -121,6 +123,7 @@ unset($_SESSION['kuis_laut']);
 									
 								</div>
 								<div class="row"><a href="tebak_laut.php" class="button" id="coba_lagi">COBA LAGI</a></div>
+								<div class="row"><a href="#" class="button" id="selesai">SELESAI</a></div>
 						
 						</div>
 					</div>
@@ -182,6 +185,7 @@ unset($_SESSION['kuis_laut']);
 			$("#map-img").animation("zoomIn");
 			$("#pilih-peta-lain").animation("slideInLeft");
 			$("#coba_lagi").hide();
+			$("#selesai").hide();
 		});
 		$("#pilih-peta-lain").click(function(){
 			$("#pilih-peta-tombol").toggle("slide");
@@ -211,7 +215,6 @@ unset($_SESSION['kuis_laut']);
      	  	var id_laut =  $('#id_laut').val();
      	  	var nama_laut=  $('#nama_laut').val();
           
-     	  	$('#nama_laut').val("");
      	  	$('.popup-kuis').fadeOut('slow');
      	  	$.post("ajax_tebak_laut.php",
        		{
@@ -241,26 +244,32 @@ unset($_SESSION['kuis_laut']);
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA LAUT<br>DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#selesai").show();
 	              }else if(data.benar == 3)
 	              {
 	              	  $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#coba_lagi").show();
 				  }else if(data.benar = 2)
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-
+	                 $("#coba_lagi").show();
 				  }else if(data.benar = 1)
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
-
+	                 $("#coba_lagi").show();
 				  }else if(data.benar == 0)
 				  {
 				  	 $('#message').html("<br><div class='row'><div><h2>MAAF!<br>KAMU BELUM MENJAWAB SEMUA DENGAN BENAR, <br>SILAHKAN COBA LAGI</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'><img src='img/start_silver.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
+	                 $("#coba_lagi").show();
 				  }
 	            }
+	            console.log(data.position_css);
+	            $("#label_map").append("<label style='"+data.position_css+"'>"+$('#nama_laut').val()+"</label>");
+	           $('#nama_laut').val("");
         	});	
         	});
 
