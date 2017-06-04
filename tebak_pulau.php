@@ -184,7 +184,11 @@ unset($_SESSION['kuis_pulau']);
 
 	<script>
 
+        $("#selesai").click(function(){
 
+			$('.popup').fadeOut('slow');	     	
+
+	     });
 		$(document).ready(function(){
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");
@@ -285,6 +289,7 @@ unset($_SESSION['kuis_pulau']);
 	            }
 
 	        	$("#label_map").append("<label style='"+data.position_css+"'>"+$('#nama_pulau').val()+"</label>");
+	        	console.log(data.position_css);
 	           $('#nama_pulau').val("");
         	});	
         	});

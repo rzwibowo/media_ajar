@@ -43,14 +43,15 @@ unset($_SESSION['kuis_laut']);
 		}
 	</style>
 </head>
-<div id="label_map">
-</div>
+
 <body id="map">
+	<div id="label_map">
 	
+</div>
 	<!-- loading screen -->
 	<div class="se-pre-con"></div>
 
-		<!-- teombol menu layar kecil -->
+		<!-- teombol menu layar kecsil -->
 	<div id="head-sm" class="show-sm w100">
 		<a id="sm-toggle" href="#">
 		<!-- <a id="sm-toggle" href="#" data-component="toggleme" data-target="#menu-sm"> -->
@@ -180,6 +181,11 @@ unset($_SESSION['kuis_laut']);
 
 
 	<script>
+		 $("#selesai").click(function(){
+
+			$('.popup').fadeOut('slow');	     	
+
+	     });
 		$(document).ready(function(){
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");

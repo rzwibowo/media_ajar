@@ -180,6 +180,11 @@ unset($_SESSION['kuis_selat']);
 
 
 	<script>
+	 $("#selesai").click(function(){
+
+			$('.popup').fadeOut('slow');	     	
+
+	     });
 		$(document).ready(function(){
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");

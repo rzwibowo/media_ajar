@@ -43,6 +43,8 @@ unset($_SESSION['kuis_provinsi']);
 		}
 	</style>
 </head>
+<div id="label_map">
+</div>
 <body id="map">
 	
 	<!-- loading screen -->
@@ -104,7 +106,7 @@ unset($_SESSION['kuis_provinsi']);
 							include 'koneksi.php';
 							$result = mysqli_query($koneksi,"SELECT * FROM provinsi");
 							while ($rs=mysqli_fetch_array($result)) {
-								echo "<area shape='poly' coords='$rs[coords]' href='#' onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
+								echo "<area shape='poly' coords='$rs[coords]' href='#' title='$rs[nama_prov]' onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
 							}
 
 						?>
@@ -177,6 +179,11 @@ unset($_SESSION['kuis_provinsi']);
 
 
 	<script>
+	     $("#selesai").click(function(){
+
+			$('.popup').fadeOut('slow');	     	
+
+	     });
 		$(document).ready(function(){
 			$("#head").animation("slideInLeft");
 			$("#map-img").animation("zoomIn");
@@ -269,10 +276,10 @@ unset($_SESSION['kuis_provinsi']);
 		}
 
      	  $('#ok').click(function(e){
-
+          
      	  	var id_provinsi =  $('#id_provinsi').val();
      	  	var nama_provinsi =  $('#nama_provinsi').val();
-     	  	$('#nama_provinsi').val("");
+
      	  	$('.popup-kuis').fadeOut('slow');
      	  	$.post("ajax_tebak_provinsi.php",
        		{
@@ -296,7 +303,9 @@ unset($_SESSION['kuis_provinsi']);
 
 	            }else if(data.status =='selesai')
 	            {
-	              if((data.benar > 25) && (data.benar <=10))
+	            	console.log(data.status);
+	            	console.log(data.benar);
+	              if((data.benar > 25) && (data.benar <=34))
 	              {
 		              $('#message').html("<br><div class='row'><div><h2>SELAMAT!<br>SEKARANG KAMU SUDAH<br>TAHU NAMA-NAMA PROVINSI<br> DI INDONESIA</h2></div></div><div class='row align-center'><div class='col col-10'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'><img src='img/start.png' width='110px'></div></div>");
 	                 $('.popup').fadeIn('slow');
@@ -323,6 +332,8 @@ unset($_SESSION['kuis_provinsi']);
 	                 $("#coba_lagi").show();
 				  }
 	            }
+	             $("#label_map").append("<label style='"+data.position_css+"'>"+$('#nama_provinsi').val()+"</label>");
+	           $('#nama_provinsi').val("");
         	});	
         	});
 

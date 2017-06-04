@@ -49,6 +49,11 @@ function query_check_jawaban_kuis_provinsi($koneksi,$id_soal,$jawaban,$tabel,$na
         return "salah";
     }
 }
+function get_provinsi_position_css($koneksi,$id_soal,$jawaban,$tabel,$nama_field){
 
+   $result   = mysqli_query($koneksi,"SELECT $nama_field FROM $tabel WHERE id_prov='$id_soal'");
+    $rs       = mysqli_fetch_assoc($result);
+    return $rs[''.$nama_field.''];
+}
 
 ?>
