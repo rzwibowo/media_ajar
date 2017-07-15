@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2017 at 06:03 AM
+-- Generation Time: Jun 10, 2017 at 03:42 AM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- PHP Version: 7.0.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `medajar`
 --
+CREATE DATABASE IF NOT EXISTS `medajar` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `medajar`;
 
 -- --------------------------------------------------------
 
