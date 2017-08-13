@@ -316,11 +316,11 @@ a:hover, button:hover, area:hover{
 @font-face { font-family: Boogaloo-Regular; src: url('../font/Boogaloo-Regular.ttf'); }
 #materi-show .materi{
 	font-family: Boogaloo-Regular;
-	font-size: 1.8em;
+	font-size: 2.2em;
 	line-height: 120%;
-	padding: 1% 5% 
+	padding: 1% 5%;
+	text-align: left; 
 }
-
 #judul-materi{
 	font-family: Boogaloo-Regular;
 	background-color: #c90;
@@ -538,4 +538,13 @@ a:hover, button:hover, area:hover{
 	right: 10px;
 	bottom: 10px;
 	z-index: 5;
+}
+#jam-A, #menit-A{
+	text-align: right;
+}
+#jam-B, #menit-B{
+	font-weight: bold;
+	color: #3498db;
+	opacity: 1;
+	text-align: right;
 }

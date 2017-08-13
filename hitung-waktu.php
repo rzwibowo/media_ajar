@@ -8,7 +8,6 @@
 	<?php
 		include "koneksi.php";
 	?>
-	<p id="demo"></p>
 	<select name="kota-A" id="kota-A" onchange="hitungJam()">
 		<optgroup label="WIB">
 		<?php

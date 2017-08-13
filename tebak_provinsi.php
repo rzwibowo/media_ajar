@@ -106,7 +106,7 @@ unset($_SESSION['kuis_provinsi']);
 							include 'koneksi.php';
 							$result = mysqli_query($koneksi,"SELECT * FROM provinsi");
 							while ($rs=mysqli_fetch_array($result)) {
-								echo "<area shape='poly' coords='$rs[coords]' href='#' title='$rs[nama_prov]' onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
+								echo "<area shape='poly' coords='$rs[coords]' href='#' onclick='gembus(\"$rs[id_prov]\")'  class='popup-show' >";
 							}
 
 						?>
