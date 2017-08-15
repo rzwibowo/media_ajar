@@ -237,7 +237,23 @@
 				</div>
 				<!-- modal help selesai -->
 
+				<!-- modal info sumber  -->
+				<div id="mod_info" class="modal-box hide">
+				    <div class="modal">
+				        <span class="close"></span>
+				        <div class="modal-header">Sumber Data</div>
+				        <div style="padding: 20px; word-break: break-all;">
+				        	<a href="https://id.m.wikipedia.org/wiki/Daftar_provinsi_di_Indonesia">https://id.m.wikipedia.org/wiki/Daftar_provinsi_di_Indonesia</a> <br>
+				        	<a href="https://id.m.wikipedia.org/wiki/Daftar_bahasa_di_Indonesia_menurut_BPS_2010">https://id.m.wikipedia.org/wiki/Daftar_bahasa_di_Indonesia_menurut_BPS_2010</a> <br>
+				        	<a href="https://id.m.wikipedia.org/wiki/Daftar_suku_bangsa_di_Indonesia_menurut_provinsi">https://id.m.wikipedia.org/wiki/Daftar_suku_bangsa_di_Indonesia_menurut_provinsi</a> <br>
+				        	<a href="http://www.pelajaran.co.id/2016/21/nama-rumah-adat-pakaiantarian-adat-dan-senjata-tradisional-di-provinsi-indonesia.html#provinsi-kalimantan-timur">http://www.pelajaran.co.id/2016/21/nama-rumah-adat-pakaiantarian-adat-dan-senjata-tradisional-di-provinsi-indonesia.html#provinsi-kalimantan-timur</a>
+				        </div>
+				    </div>
+				</div>
+				<!-- modal info sumber selesai -->
+
 				<div class="row pilih-peta" style="position:absolute; z-index:5; bottom: 0">
+					<button class="button round" onclick="$.modalwindow({ target:'#mod_info'});">Info</button>
 					<button class="button round" id="pilih-peta-lain">Lihat Peta Lain<span class="caret right"></span><span class="caret left" style="display: none"></span></button>
 					<!-- <button class="button large" id="pembagian-waktu">Peta pembagian waktu</button> -->
 					<div id="pilih-peta-tombol" style="display: none">
